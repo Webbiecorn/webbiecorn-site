@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cases — Webbiecorn</title>
+  <meta name="description" content="Bekijk ons werk. Van merkidentiteit tot live apps. Webbiecorn cases en portfolio." />
+  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #cases-main { background: var(--black-mid); }
+    #cases-cta { background: var(--black); padding: 5rem 2rem; }
+    .cases-full-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .case-card-full {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      transition: transform 0.25s, border-color 0.3s;
+      text-decoration: none; color: var(--white); display: block;
+      position: relative;
+    }
+    .case-card-full::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--red);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .case-card-full:hover::before { transform: scaleX(1); }
+    .case-card-full:hover { transform: translateY(-6px); border-color: rgba(217,43,75,0.3); }
+    .case-visual {
+      height: 160px;
+      background: linear-gradient(135deg, var(--black) 0%, rgba(217,43,75,0.12) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; position: relative; overflow: hidden;
+    }
+    .case-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, var(--black-card));
+    }
+    .case-body { padding: 1.5rem 2rem 2rem; }
+    .case-status {
+      display: inline-block;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 0.25rem 0.6rem;
+      border-radius: 100px; margin-bottom: 1rem;
+    }
+    .case-status.live { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.25); }
+    .case-status.concept { background: rgba(217,43,75,0.12); color: var(--red); border: 1px solid rgba(217,43,75,0.25); }
+    .case-status.lopend { background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
+    .case-card-full .case-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .case-card-full .case-desc { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem; }
+    .case-card-full .case-tag { color: var(--red); font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="index.html" class="nav-logo">
+    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="over.html">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="cases.html" class="active">Cases</a></li>
+    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label reveal">Het lab</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Werk dat spreekt<br/><em>voor zichzelf.</em></h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Van merkidentiteit tot live apps. Dit is wat wij bouwen, ontwerpen en fotograferen.</p>
+  </div>
+</section>
+
+<section id="cases-main">
+  <div class="container">
+    <p class="section-label reveal">Alle projecten</p>
+    <h2 class="section-title reveal reveal-delay-1">Zes disciplines.<br/><em>Één lab.</em></h2>
+    <div class="cases-full-grid">
+
+      <a href="#" class="case-card-full reveal reveal-delay-1">
+        <div class="case-visual">☕</div>
+        <div class="case-body">
+          <div class="case-tag">Branding · Illustratie · Fotografie</div>
+          <span class="case-status concept">Concept</span>
+          <div class="case-title">Roasted Rebels</div>
+          <div class="case-desc">Fictieve koffiebrandery voor nachtbrakers. Toont de synergie tussen fotografie, illustratie, branding en digital design in één volledig dossier.</div>
+          <div class="case-meta">
+            <span class="case-chip">Merkidentiteit</span>
+            <span class="case-chip">Illustratie</span>
+            <span class="case-chip">Fotografie</span>
+            <span class="case-chip">Web</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card-full reveal reveal-delay-2">
+        <div class="case-visual">🗺️</div>
+        <div class="case-body">
+          <div class="case-tag">Web App · React · Firebase</div>
+          <span class="case-status live">Live</span>
+          <div class="case-title">BuurtApp v3.4</div>
+          <div class="case-desc">Digitale buurt- en meldingsapp voor gemeentes en wijkorganisaties. Kaartmodule, dossiers, chat en statistieken. White-label uitgerold.</div>
+          <div class="case-meta">
+            <span class="case-chip">React</span>
+            <span class="case-chip">Firebase</span>
+            <span class="case-chip">PWA</span>
+            <span class="case-chip">Leaflet Maps</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card-full reveal reveal-delay-3">
+        <div class="case-visual">👥</div>
+        <div class="case-body">
+          <div class="case-tag">Medewerkersportaal · PWA</div>
+          <span class="case-status live">Live</span>
+          <div class="case-title">Concern voor Werk — CVW App</div>
+          <div class="case-desc">Intern portaal voor medewerkers van een sociaal werkbedrijf. Nieuws, vacatures, academie, meldpunt, spaarprogramma en admin dashboard.</div>
+          <div class="case-meta">
+            <span class="case-chip">React</span>
+            <span class="case-chip">Firebase</span>
+            <span class="case-chip">PWA</span>
+            <span class="case-chip">n8n</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card-full reveal reveal-delay-1">
+        <div class="case-visual">🔧</div>
+        <div class="case-body">
+          <div class="case-tag">Planning App · Web App</div>
+          <span class="case-status live">Live</span>
+          <div class="case-title">Kluswinkel App v1.0</div>
+          <div class="case-desc">Plannings- en werkbonnen-app voor een klussenwinkel. Dashboard, voertuigbeheer, kijkafspraken, planning board en beheermodule.</div>
+          <div class="case-meta">
+            <span class="case-chip">React</span>
+            <span class="case-chip">Firebase</span>
+            <span class="case-chip">Planning</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card-full reveal reveal-delay-2">
+        <div class="case-visual">🦄</div>
+        <div class="case-body">
+          <div class="case-tag">Illustratie · 3D Design</div>
+          <span class="case-status concept">Concept</span>
+          <div class="case-title">Catcorn — Brand Mascot</div>
+          <div class="case-desc">Webbiecorn's eigen merkmascottes. Catcorn is een 3D getekende kat/eenhoorn hybrid. Gebouwd in Three.js en als illustratie uitgewerkt.</div>
+          <div class="case-meta">
+            <span class="case-chip">Three.js</span>
+            <span class="case-chip">Illustratie</span>
+            <span class="case-chip">3D Design</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="#" class="case-card-full reveal reveal-delay-3">
+        <div class="case-visual">⚡</div>
+        <div class="case-body">
+          <div class="case-tag">AI · Automatisering · n8n</div>
+          <span class="case-status lopend">Lopend</span>
+          <div class="case-title">Webbiecorn OS — Intern platform</div>
+          <div class="case-desc">Intern kennisplatform en automatiseringssysteem. n8n workflows voor lead-routing, rapportages, content flows en AI-gestuurde assistentie.</div>
+          <div class="case-meta">
+            <span class="case-chip">n8n</span>
+            <span class="case-chip">AI</span>
+            <span class="case-chip">Automatisering</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="cases-cta">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Jouw project in het lab?</h2>
+      <p>Wij gaan graag aan de slag met jouw merk, app of automatisering.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn-primary">Start je project</a>
+        <a href="diensten.html" class="btn-ghost">Bekijk onze diensten</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

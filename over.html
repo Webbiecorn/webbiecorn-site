@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Over ons — Webbiecorn</title>
+  <meta name="description" content="Leer ons kennen. Wij zijn een creatief duo dat fotografie, illustratie, design en code beheerst." />
+  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #over-main { background: var(--black-mid); }
+    #waarden { background: var(--black); }
+    #aanpak { background: var(--black-mid); }
+    #over-cta { background: var(--black); padding: 5rem 2rem; }
+  </style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="index.html" class="nav-logo">
+    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="over.html" class="active">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label reveal">Over Webbiecorn</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Geen bureau van<br/><em>dertien in een dozijn.</em></h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Een creatief duo dat de volledige visuele stack beheerst — van fotografisch oog tot werkende app.</p>
+  </div>
+</section>
+
+<!-- WIE WIJ ZIJN -->
+<section id="over-main">
+  <div class="container">
+    <div class="over-grid">
+      <div>
+        <p class="section-label reveal">Wie wij zijn</p>
+        <h2 class="section-title reveal reveal-delay-1">Twee disciplines.<br/><em>Één visie.</em></h2>
+        <div class="over-card reveal reveal-delay-2">
+          <p>Wij zijn een creatief duo dat de volledige visuele stack beheerst. Van fotografisch oog tot werkende app. Van ruwe schets tot live product.</p>
+          <p>Geen urenbureau met vage offertes. Wij geloven in directe samenwerking, eerlijke prijzen en producten die écht waarde toevoegen.</p>
+          <p>Wij werken white-label — jij presenteert het als jouw eigen product, wij bouwen het. Of we zetten het rechtstreeks onder de Webbiecorn-vlag.</p>
+        </div>
+      </div>
+      <div class="team-grid reveal reveal-delay-3">
+        <div class="team-member">
+          <div class="team-avatar">✦</div>
+          <div>
+            <div class="team-name">Visuele kant</div>
+            <div class="team-role">Fotografie · Illustratie · Grafisch Ontwerp · Branding</div>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">✦</div>
+          <div>
+            <div class="team-name">Digitale kant</div>
+            <div class="team-role">Product Design · React Development · AI · Automatisering</div>
+          </div>
+        </div>
+        <div class="team-member" style="border-color: rgba(217,43,75,0.3);">
+          <div class="team-avatar" style="background: rgba(217,43,75,0.15); color: var(--red);">∞</div>
+          <div>
+            <div class="team-name">Samen</div>
+            <div class="team-role">Eén aanspreekpunt · Volledige visuele stack · Snel schaalbaar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAARDEN -->
+<section id="waarden">
+  <div class="container">
+    <p class="section-label reveal">Waar wij voor staan</p>
+    <h2 class="section-title reveal reveal-delay-1">Vier principes.<br/><em>Geen compromis.</em></h2>
+    <div class="waarden-grid">
+      <div class="waarde-card reveal reveal-delay-1">
+        <div class="waarde-nr">01</div>
+        <div class="waarde-title">Eerlijkheid boven alles</div>
+        <div class="waarde-desc">Geen verborgen kosten, geen vage offertes. Wat wij zeggen, doen wij. Altijd.</div>
+      </div>
+      <div class="waarde-card reveal reveal-delay-2">
+        <div class="waarde-nr">02</div>
+        <div class="waarde-title">Kwaliteit boven kwantiteit</div>
+        <div class="waarde-desc">Wij werken liever aan minder projecten die écht goed zijn, dan aan veel projecten die middelmatig zijn.</div>
+      </div>
+      <div class="waarde-card reveal reveal-delay-3">
+        <div class="waarde-nr">03</div>
+        <div class="waarde-title">Eigenaarschap</div>
+        <div class="waarde-desc">Jij bezit wat wij bouwen. Geen lock-in, geen afhankelijkheid. Jouw merk, jouw product, jouw data.</div>
+      </div>
+      <div class="waarde-card reveal reveal-delay-4">
+        <div class="waarde-nr">04</div>
+        <div class="waarde-title">Durven opvallen</div>
+        <div class="waarde-desc">Grijze muizen bouwen wij niet. Als je bij ons aanklopt, wil je opvallen. Dat is precies wat wij doen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AANPAK -->
+<section id="aanpak">
+  <div class="container">
+    <p class="section-label reveal">Hoe wij werken</p>
+    <h2 class="section-title reveal reveal-delay-1">Van idee naar<br/><em>live product.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Geen eindeloze trajecten. Wij werken snel, direct en transparant.</p>
+    <div class="process-steps">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-nr">01</div>
+        <div>
+          <div class="process-title">Intake gesprek</div>
+          <div class="process-desc">Wij luisteren naar jouw verhaal, ambitie en doelgroep. Geen standaard vragenlijst — een echt gesprek.</div>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-nr">02</div>
+        <div>
+          <div class="process-title">Voorstel & scope</div>
+          <div class="process-desc">Binnen twee werkdagen ontvang je een helder voorstel met scope, tijdlijn en vaste prijs. Geen verrassingen achteraf.</div>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-nr">03</div>
+        <div>
+          <div class="process-title">Bouwen & itereren</div>
+          <div class="process-desc">Wij werken in korte sprints. Na elke sprint zie je resultaat en kun je bijsturen. Jij blijft altijd in controle.</div>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-nr">04</div>
+        <div>
+          <div class="process-title">Live & doorontwikkelen</div>
+          <div class="process-desc">Na livegang laten wij je niet vallen. Wij begeleiden de lancering en staan klaar voor doorontwikkeling.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="over-cta">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Klinkt dit als jouw partner?</h2>
+      <p>Laat ons weten wat je nodig hebt. Dan kijken wij of het een match is.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn-primary">Neem contact op</a>
+        <a href="diensten.html" class="btn-ghost">Bekijk onze diensten</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.12 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

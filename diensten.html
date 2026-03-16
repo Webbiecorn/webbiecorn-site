@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diensten — Webbiecorn</title>
+  <meta name="description" content="Fotografie, illustratie, web & app design, AI en automatisering. Bekijk onze diensten en tarieven." />
+  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #diensten-main { background: var(--black-mid); }
+    #werkwijze { background: var(--black); }
+    #tarieven { background: var(--black-mid); }
+    #diensten-cta { background: var(--black); padding: 5rem 2rem; }
+    .tarief-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .tarief-card {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem; position: relative;
+      transition: border-color 0.3s;
+    }
+    .tarief-card:hover { border-color: rgba(217,43,75,0.4); }
+    .tarief-card.featured {
+      border-color: var(--red);
+      background: linear-gradient(135deg, rgba(217,43,75,0.08) 0%, var(--black-card) 60%);
+    }
+    .tarief-badge {
+      position: absolute; top: -1px; right: 1.5rem;
+      background: var(--red); color: var(--white);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      padding: 0.3rem 0.75rem; border-radius: 0 0 6px 6px;
+    }
+    .tarief-naam { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .tarief-prijs { font-size: 2rem; font-weight: 800; color: var(--red); margin-bottom: 0.25rem; line-height: 1; }
+    .tarief-prijs span { font-size: 0.9rem; font-weight: 400; color: var(--grey); }
+    .tarief-desc { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.6; margin: 1rem 0; }
+    .tarief-list { list-style: none; }
+    .tarief-list li { font-size: 0.85rem; color: rgba(255,255,255,0.65); padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0.5rem; align-items: flex-start; }
+    .tarief-list li::before { content: '✓'; color: var(--red); flex-shrink: 0; font-weight: 700; }
+    .tarief-cta { display: block; margin-top: 1.5rem; text-align: center; padding: 0.75rem; border-radius: 4px; font-weight: 700; font-size: 0.875rem; text-decoration: none; transition: all 0.2s; }
+    .tarief-card:not(.featured) .tarief-cta { border: 1px solid var(--border); color: var(--white); }
+    .tarief-card:not(.featured) .tarief-cta:hover { border-color: var(--red); color: var(--red); }
+    .tarief-card.featured .tarief-cta { background: var(--red); color: var(--white); }
+    .tarief-card.featured .tarief-cta:hover { background: var(--red-dark); }
+  </style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="index.html" class="nav-logo">
+    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="over.html">Over ons</a></li>
+    <li><a href="diensten.html" class="active">Diensten</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label reveal">Wat wij doen</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Het creatieve<br/><em>zwitserse zakmes.</em></h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Vier disciplines. Eén team. Alles wat jouw merk nodig heeft om op te vallen en te presteren.</p>
+  </div>
+</section>
+
+<!-- DIENSTEN UITGEBREID -->
+<section id="diensten-main">
+  <div class="container">
+    <p class="section-label reveal">Onze disciplines</p>
+    <h2 class="section-title reveal reveal-delay-1">Vier vakgebieden.<br/><em>Eén aanspreekpunt.</em></h2>
+    <div class="diensten-grid">
+      <div class="dienst-card reveal reveal-delay-1">
+        <div class="dienst-icon">📷</div>
+        <div class="dienst-title">Fotografie</div>
+        <div class="dienst-desc">Beeldmateriaal dat je merk een gezicht geeft. Van portret tot product, van sfeer tot reportage — altijd met een scherp visueel oog.</div>
+        <ul class="dienst-features">
+          <li>Portret & teamfoto's</li>
+          <li>Productfotografie</li>
+          <li>Sfeerfoto's & reportages</li>
+          <li>Beeldbewerking & retouche</li>
+          <li>Levering in print & web resolutie</li>
+        </ul>
+        <div class="dienst-price">Vanaf € 250 per sessie</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-2">
+        <div class="dienst-icon">✏️</div>
+        <div class="dienst-title">Illustratie & Grafisch Design</div>
+        <div class="dienst-desc">Van merkidentiteit tot karakter design. 2D flat illustrations met karakter, of 3D renders die aanvoelen als echte objecten.</div>
+        <ul class="dienst-features">
+          <li>Logo & huisstijl</li>
+          <li>2D illustraties & icoonsets</li>
+          <li>3D karakter design</li>
+          <li>Social media graphics</li>
+          <li>Print & drukwerk</li>
+        </ul>
+        <div class="dienst-price">Vanaf € 300 per project</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-3">
+        <div class="dienst-icon">⚡</div>
+        <div class="dienst-title">Web & App Design</div>
+        <div class="dienst-desc">White-label Progressive Web Apps op React + Firebase. Medewerkersportalen, planningsapps, buurtapps — snel uitgerold naar nieuwe klanten.</div>
+        <ul class="dienst-features">
+          <li>Brochuresites (HTML/CSS)</li>
+          <li>Progressive Web Apps (React)</li>
+          <li>Firebase backend & auth</li>
+          <li>White-label uitrol</li>
+          <li>Beheer & doorontwikkeling</li>
+        </ul>
+        <div class="dienst-price">Vanaf € 800 per project</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-4">
+        <div class="dienst-icon">🔗</div>
+        <div class="dienst-title">AI & Automatisering</div>
+        <div class="dienst-desc">Systemen koppelen via n8n workflows. Leads routeren, administratie automatiseren, notificaties triggeren. Eenmalig instellen, altijd draaien.</div>
+        <ul class="dienst-features">
+          <li>n8n workflow automatisering</li>
+          <li>CRM & e-mail koppelingen</li>
+          <li>AI-gestuurde content flows</li>
+          <li>Formulier & lead routing</li>
+          <li>Rapportage dashboards</li>
+        </ul>
+        <div class="dienst-price">Vanaf € 400 per workflow</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIEVEN -->
+<section id="tarieven">
+  <div class="container">
+    <p class="section-label reveal">Tarieven</p>
+    <h2 class="section-title reveal reveal-delay-1">Helder geprijsd.<br/><em>Geen verrassingen.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Vaste projectprijzen of maandelijks beheer — jij kiest wat past.</p>
+    <div class="tarief-grid">
+      <div class="tarief-card reveal reveal-delay-1">
+        <div class="tarief-naam">Starter</div>
+        <div class="tarief-prijs">€ 300 <span>/ project</span></div>
+        <div class="tarief-desc">Ideaal voor kleine opdrachten: een logo, een fotosessie of een eenvoudige landingspagina.</div>
+        <ul class="tarief-list">
+          <li>1 discipline naar keuze</li>
+          <li>Levering binnen 5 werkdagen</li>
+          <li>2 revisierondes</li>
+          <li>Bronbestanden inbegrepen</li>
+        </ul>
+        <a href="contact.html" class="tarief-cta">Vraag offerte aan</a>
+      </div>
+      <div class="tarief-card featured reveal reveal-delay-2">
+        <div class="tarief-badge">Meest gekozen</div>
+        <div class="tarief-naam">Compleet project</div>
+        <div class="tarief-prijs">€ 1.200 <span>/ project</span></div>
+        <div class="tarief-desc">Van merkidentiteit tot live website of app. Alles in eigen hand, één aanspreekpunt.</div>
+        <ul class="tarief-list">
+          <li>Meerdere disciplines gecombineerd</li>
+          <li>Huisstijl & visuele identiteit</li>
+          <li>Website of PWA</li>
+          <li>Onbeperkte revisies in scope</li>
+          <li>30 dagen support na livegang</li>
+        </ul>
+        <a href="contact.html" class="tarief-cta">Start je project</a>
+      </div>
+      <div class="tarief-card reveal reveal-delay-3">
+        <div class="tarief-naam">Maandelijks beheer</div>
+        <div class="tarief-prijs">€ 250 <span>/ maand</span></div>
+        <div class="tarief-desc">Doorlopend beheer van jouw digitale producten en content. Altijd up-to-date, altijd bereikbaar.</div>
+        <ul class="tarief-list">
+          <li>4 uur creatieve ondersteuning</li>
+          <li>Content updates & aanpassingen</li>
+          <li>Technisch beheer</li>
+          <li>Maandelijkse rapportage</li>
+        </ul>
+        <a href="contact.html" class="tarief-cta">Vraag offerte aan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WERKWIJZE -->
+<section id="werkwijze">
+  <div class="container">
+    <p class="section-label reveal">Hoe wij werken</p>
+    <h2 class="section-title reveal reveal-delay-1">Geen eindeloze trajecten.<br/><em>Gewoon resultaat.</em></h2>
+    <div class="process-steps">
+      <div class="process-step reveal reveal-delay-1"><div class="process-nr">01</div><div><div class="process-title">Vrijblijvend gesprek</div><div class="process-desc">Wij luisteren naar jouw ambities, doelgroep en budget. Geen standaard vragenlijst.</div></div></div>
+      <div class="process-step reveal reveal-delay-2"><div class="process-nr">02</div><div><div class="process-title">Voorstel binnen 48u</div><div class="process-desc">Je ontvangt een helder voorstel met vaste prijs, scope en tijdlijn. Geen verrassingen achteraf.</div></div></div>
+      <div class="process-step reveal reveal-delay-3"><div class="process-nr">03</div><div><div class="process-title">Bouwen & reviseren</div><div class="process-desc">Korte sprints, regelmatige updates. Jij blijft altijd in controle en kunt bijsturen.</div></div></div>
+      <div class="process-step reveal reveal-delay-4"><div class="process-nr">04</div><div><div class="process-title">Live & doorgroeien</div><div class="process-desc">Na livegang staan wij klaar voor support, aanpassingen en doorontwikkeling.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="diensten-cta">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Iets specifieks in gedachten?</h2>
+      <p>Vertel ons over jouw project en wij laten weten wat mogelijk is.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn-primary">Start je project</a>
+        <a href="cases.html" class="btn-ghost">Bekijk onze cases</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.12 });
+  reveals.forEach(el => obs.observe(el));
+  document.querySelectorAll('.dienst-card').forEach(card => {
+    card.addEventListener('mousemove', e => { const r = card.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-0.5; const y=(e.clientY-r.top)/r.height-0.5; card.style.transform=`perspective(600px) rotateY(${x*8}deg) rotateX(${-y*8}deg)`; });
+    card.addEventListener('mouseleave', () => { card.style.transform=''; });
+  });
+</script>
+</body>
+</html>

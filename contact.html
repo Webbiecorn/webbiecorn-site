@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Webbiecorn</title>
+  <meta name="description" content="Start je project. Neem contact op met Webbiecorn voor branding, web apps of automatisering." />
+  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #contact-main { background: var(--black-mid); }
+    .contact-wrap {
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem;
+      margin-top: 3rem; align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 1.75rem; }
+    .contact-detail {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem 1.75rem;
+    }
+    .contact-detail .cd-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--red); margin-bottom: 0.6rem;
+    }
+    .contact-detail h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .contact-detail p, .contact-detail a {
+      color: rgba(255,255,255,0.5); font-size: 0.875rem; text-decoration: none;
+      transition: color 0.2s; line-height: 1.6;
+    }
+    .contact-detail a:hover { color: var(--white); }
+    .contact-detail .cd-note {
+      margin-top: 0.75rem; font-size: 0.75rem; color: rgba(255,255,255,0.3);
+      padding-top: 0.75rem; border-top: 1px solid var(--border);
+    }
+    /* Form */
+    .contact-form-card {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.5rem;
+    }
+    .contact-form-card h3 {
+      font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;
+    }
+    .contact-form-card p.form-intro {
+      color: rgba(255,255,255,0.45); font-size: 0.875rem; margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group label {
+      display: block; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.45); margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.8rem 1rem; color: var(--white);
+      font-family: 'Open Sans', sans-serif; font-size: 0.9rem;
+      transition: border-color 0.25s, background 0.25s;
+      appearance: none; -webkit-appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .form-group select option { background: #1a1a1a; color: var(--white); }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none; border-color: var(--red);
+      background: rgba(217,43,75,0.04);
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-submit {
+      width: 100%; background: var(--red); color: var(--white);
+      border: none; border-radius: 8px; padding: 1rem;
+      font-family: 'Open Sans', sans-serif; font-size: 0.875rem;
+      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      cursor: pointer; transition: background 0.25s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .form-disclaimer {
+      font-size: 0.72rem; color: rgba(255,255,255,0.25); text-align: center;
+      margin-top: 1rem; line-height: 1.5;
+    }
+    /* Success */
+    .form-success {
+      display: none; text-align: center; padding: 2rem 1rem;
+    }
+    .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .form-success p { color: rgba(255,255,255,0.5); font-size: 0.875rem; }
+    @media (max-width: 768px) {
+      .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .contact-form-card { padding: 1.75rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="index.html" class="nav-logo">
+    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="over.html">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="contact.html" class="nav-cta active">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label reveal">Klaar voor de revolutie?</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Laten we iets bouwen<br/><em>dat opvalt.</em></h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Vertel ons over je project. We reageren binnen 1–2 werkdagen.</p>
+  </div>
+</section>
+
+<section id="contact-main">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-info reveal">
+        <div class="contact-detail">
+          <div class="cd-label">E-mail</div>
+          <h3>Direct mailen</h3>
+          <a href="mailto:hallo@webbiecorn.com">hallo@webbiecorn.com</a>
+          <div class="cd-note">Reactie binnen 1–2 werkdagen</div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-label">Sociaal</div>
+          <h3>Volg ons werk</h3>
+          <a href="https://www.instagram.com/webbiecorn" target="_blank" rel="noopener">@webbiecorn op Instagram</a>
+          <div class="cd-note">Behind the scenes, WIP en nieuw werk</div>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-label">Locatie</div>
+          <h3>Remote-first</h3>
+          <p>Wij werken volledig remote. Videocall, asynchrone communicatie of gewoon e-mail — jij kiest hoe we samenwerken.</p>
+        </div>
+        <div class="contact-detail">
+          <div class="cd-label">Reactietijd</div>
+          <h3>Wat kun je verwachten?</h3>
+          <p>Na je bericht plannen we een kort kennismakingsgesprek om te kijken of er een klik is. Daarna een voorstel binnen 3 werkdagen.</p>
+        </div>
+      </div>
+
+      <div class="contact-form-card reveal reveal-delay-1">
+        <h3>Vertel ons over je project</h3>
+        <p class="form-intro">Hoe meer detail je geeft, hoe beter ons aanbod aansluit op jouw situatie.</p>
+        <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Naam *</label>
+              <input type="text" id="name" name="name" placeholder="Jouw naam" autocomplete="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" placeholder="jij@bedrijf.nl" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bedrijf">Bedrijf / organisatie</label>
+            <input type="text" id="bedrijf" name="bedrijf" placeholder="Optioneel" autocomplete="organization" />
+          </div>
+          <div class="form-group">
+            <label for="dienst">Welke dienst? *</label>
+            <select id="dienst" name="dienst" required>
+              <option value="" disabled selected>Kies een categorie...</option>
+              <option value="branding">Branding &amp; identiteit</option>
+              <option value="fotografie">Fotografie</option>
+              <option value="illustratie">Illustratie &amp; digital art</option>
+              <option value="website">Website / landingspagina</option>
+              <option value="webapp">Web app / PWA</option>
+              <option value="automatisering">Automatisering &amp; AI</option>
+              <option value="combinatie">Combinatie van meerdere</option>
+              <option value="anders">Anders / weet ik nog niet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bericht">Vertel over je project *</label>
+            <textarea id="bericht" name="bericht" placeholder="Wat wil je bouwen? Wat is het doel? Wat is je tijdslijn of budget?" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Verstuur bericht &rarr;</button>
+          <p class="form-disclaimer">We gebruiken jouw gegevens alleen om op je bericht te reageren. Geen spam, beloofd.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="success-icon">✦</div>
+          <h4>Bericht ontvangen!</h4>
+          <p>We nemen binnen 1–2 werkdagen contact met je op.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('formSuccess');
+    // Validate required fields
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(field => {
+      if (!field.value.trim()) { field.style.borderColor = 'var(--red)'; valid = false; }
+      else { field.style.borderColor = ''; }
+    });
+    if (!valid) return;
+    // Show success (no backend yet — mailto fallback or future integration)
+    form.style.display = 'none';
+    success.style.display = 'block';
+  }
+</script>
+</body>
+</html>
