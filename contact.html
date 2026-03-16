@@ -132,6 +132,25 @@
       font-size: 0.75rem;
       line-height: 1.5;
     }
+    .intake-context {
+      display: none;
+      background: rgba(217,43,75,0.08);
+      border: 1px solid rgba(217,43,75,0.25);
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      margin: 0 0 1.25rem;
+    }
+    .intake-context.visible { display: block; }
+    .intake-context strong {
+      display: block;
+      font-size: 0.82rem;
+      margin-bottom: 0.3rem;
+    }
+    .intake-context span {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.8rem;
+      line-height: 1.55;
+    }
     @media (max-width: 768px) {
       .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
@@ -206,6 +225,10 @@
       <div class="contact-form-card reveal reveal-delay-1">
         <h3>Vertel ons over je project</h3>
         <p class="form-intro">Hoe scherper je context, hoe sneller wij kunnen inschatten of er een logische scope, sprint of volledig traject onder zit.</p>
+        <div class="intake-context" id="intakeContext">
+          <strong id="intakeContextTitle"></strong>
+          <span id="intakeContextCopy"></span>
+        </div>
         <div class="trust-points">
           <div class="trust-point"><strong>Reactie in 2 werkdagen</strong><span>Geen formulier dat weken blijft liggen.</span></div>
           <div class="trust-point"><strong>Heldere scope</strong><span>We denken in sprint, MVP of beheertraject.</span></div>
@@ -296,6 +319,62 @@
   const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
   reveals.forEach(el => obs.observe(el));
 
+  function applyIntakePreset() {
+    const params = new URLSearchParams(window.location.search);
+    const dienst = params.get('dienst');
+    const budget = params.get('budget');
+    const pakket = params.get('pakket');
+    const traject = params.get('traject');
+    const context = params.get('context');
+    const form = document.getElementById('contactForm');
+    const bericht = document.getElementById('bericht');
+    const intakeContext = document.getElementById('intakeContext');
+    const intakeContextTitle = document.getElementById('intakeContextTitle');
+    const intakeContextCopy = document.getElementById('intakeContextCopy');
+    const dienstField = document.getElementById('dienst');
+    const budgetField = document.getElementById('budget');
+
+    if (dienst && dienstField.querySelector(`option[value="${dienst}"]`)) {
+      dienstField.value = dienst;
+    }
+    if (budget && budgetField.querySelector(`option[value="${budget}"]`)) {
+      budgetField.value = budget;
+    }
+
+    if (pakket || traject || context) {
+      intakeContext.classList.add('visible');
+      intakeContextTitle.textContent = pakket ? 'Intake voor ' + pakket : 'Gerichte intake gestart';
+      intakeContextCopy.textContent = [traject, context].filter(Boolean).join(' · ');
+    }
+
+    if ((pakket || traject || context) && bericht && !bericht.value.trim()) {
+      const regels = [
+        pakket ? 'Ik wil graag een intake voor: ' + pakket : 'Ik wil graag een intake plannen.',
+        traject ? 'Type traject: ' + traject : '',
+        context ? 'Context: ' + context : '',
+        '',
+        'Doel van dit traject:',
+        '-',
+        '',
+        'Belangrijkste functionaliteit of deliverables:',
+        '-',
+        '',
+        'Extra context of deadline:',
+        '-'
+      ].filter(Boolean);
+      bericht.value = regels.join('\n');
+    }
+
+    if (pakket) {
+      form.dataset.pakket = pakket;
+    }
+    if (traject) {
+      form.dataset.traject = traject;
+    }
+  }
+
+  applyIntakePreset();
+
   function handleSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('contactForm');
@@ -314,11 +393,15 @@
     const dienst = form.dienst.options[form.dienst.selectedIndex].text;
     const budget = form.budget ? form.budget.options[form.budget.selectedIndex].text : '';
     const startmoment = form.startmoment ? form.startmoment.options[form.startmoment.selectedIndex].text : '';
+    const pakket = form.dataset.pakket || '';
+    const traject = form.dataset.traject || '';
     const subject = encodeURIComponent('Projectaanvraag via webbiecorn.com — ' + form.name.value.trim());
     const body = encodeURIComponent(
       'Naam: ' + form.name.value.trim() + '\n' +
       (bedrijf ? 'Bedrijf: ' + bedrijf + '\n' : '') +
       'Dienst: ' + dienst + '\n\n' +
+      (pakket ? 'Pakket: ' + pakket + '\n' : '') +
+      (traject ? 'Trajecttype: ' + traject + '\n' : '') +
       (budget && budget !== 'Nog onbekend' ? 'Budget: ' + budget + '\n' : '') +
       (startmoment && startmoment !== 'Geen harde deadline' ? 'Gewenste start: ' + startmoment + '\n\n' : '\n') +
       form.bericht.value.trim()
