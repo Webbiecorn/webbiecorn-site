@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catcorn — Webbiecorn Mascotte</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111111; overflow: hidden; }
+    canvas { display: block; }
+    #hint {
+      position: fixed; bottom: 24px; left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.25);
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="hint">Beweeg je muis</div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.163.0/build/three.module.js"
+    }
+  }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+
+    // ─────────────────────────────────────────
+    //  SCENE + CAMERA + RENDERER
+    // ─────────────────────────────────────────
+    const scene    = new THREE.Scene();
+    scene.background = new THREE.Color(0x111111);
+
+    const camera = new THREE.PerspectiveCamera(38, innerWidth / innerHeight, 0.1, 100);
+    // 3/4 view zoals de referentie: licht van de zijkant en boven
+    camera.position.set(1.5, 2.0, 7.5);
+    camera.lookAt(0, 0.5, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(devicePixelRatio);
+    renderer.setSize(innerWidth, innerHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    document.body.appendChild(renderer.domElement);
+
+    // ─────────────────────────────────────────
+    //  LIGHTS
+    // ─────────────────────────────────────────
+    scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
+    keyLight.position.set(4, 8, 6);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.set(1024, 1024);
+    scene.add(keyLight);
+
+    // Rode zij-invullicht (Webbiecorn accent kleur)
+    const fillLight = new THREE.DirectionalLight(0xD92B4B, 1.8);
+    fillLight.position.set(-5, 2, 4);
+    scene.add(fillLight);
+
+    // Rode rimlight achter voor de vinyl-toy gloed
+    const rimLight = new THREE.DirectionalLight(0xD92B4B, 1.2);
+    rimLight.position.set(2, 1, -5);
+    scene.add(rimLight);
+
+    // Zachte witte top highlight
+    const topLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    topLight.position.set(0, 6, 2);
+    scene.add(topLight);
+
+    // ─────────────────────────────────────────
+    //  TOON GRADIENT MAP (3 stappen: schaduw / mid / licht)
+    // ─────────────────────────────────────────
+    const gradientMap = (() => {
+      const data = new Uint8Array([40, 160, 255]);
+      const tex  = new THREE.DataTexture(data, 3, 1, THREE.RedFormat);
+      tex.magFilter = THREE.NearestFilter;
+      tex.minFilter = THREE.NearestFilter;
+      tex.needsUpdate = true;
+      return tex;
+    })();
+
+    // ─────────────────────────────────────────
+    //  MATERIALEN
+    // ─────────────────────────────────────────
+    const MAT = {
+      black : new THREE.MeshToonMaterial({ color: 0x1c1c1c, gradientMap }),
+      deep  : new THREE.MeshToonMaterial({ color: 0x050505, gradientMap }),
+      white : new THREE.MeshToonMaterial({ color: 0xffffff, gradientMap }),
+      horn  : new THREE.MeshToonMaterial({ color: 0xf5f5f8, gradientMap }),
+      pink  : new THREE.MeshToonMaterial({ color: 0xff8fa3, gradientMap }),
+      red   : new THREE.MeshToonMaterial({ color: 0xD92B4B, gradientMap }),
+    };
+
+    // ─────────────────────────────────────────
+    //  HELPER
+    // ─────────────────────────────────────────
+    function m(geo, mat) {
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.castShadow = true;
+      return mesh;
+    }
+
+    // ─────────────────────────────────────────
+    //  CATCORN ROOT
+    // ─────────────────────────────────────────
+    const catcorn = new THREE.Group();
+    catcorn.position.y = 0;
+    catcorn.rotation.y = -0.35; // lichte 3/4 draai
+    scene.add(catcorn);
+
+    // ── LICHAAM — compact toy proportions ─────
+    const body = m(new THREE.SphereGeometry(1.0, 32, 32), MAT.black);
+    body.scale.set(1.35, 1.05, 1.15);
+    body.position.set(0, 0.1, 0);
+    catcorn.add(body);
+
+    // Nek (verbinding lichaam→hoofd)
+    const neck = m(new THREE.CapsuleGeometry(0.28, 0.18, 8, 8), MAT.black);
+    neck.position.set(0.55, 0.95, 0.1);
+    neck.rotation.z = -0.4;
+    catcorn.add(neck);
+
+    // ── HOOFD PIVOT ──────────────────────────
+    // Hoofd groot + naar voren/opzij geplaatst zoals kat
+    const headPivot = new THREE.Group();
+    headPivot.position.set(0.72, 1.42, 0.08);
+    catcorn.add(headPivot);
+
+    const headMesh = m(new THREE.SphereGeometry(0.88, 32, 32), MAT.black);
+    headPivot.add(headMesh);
+
+    // Gezichtsmasker — dekt onderste helft van hoofd (zoals de prompt)
+    const faceMask = m(new THREE.SphereGeometry(0.72, 32, 32), MAT.white);
+    faceMask.scale.set(1.05, 0.82, 0.34);
+    faceMask.position.set(0.04, -0.16, 0.76);
+    headPivot.add(faceMask);
+
+    // ── OGEN — groot en expressief ────────────
+    function makeEye(side) {
+      const grp = new THREE.Group();
+      grp.position.set(side * 0.26, 0.12, 0.92);
+
+      // Groot circulair oog (prompt: large circular black eyes)
+      const eye = m(new THREE.SphereGeometry(0.27, 32, 32), MAT.deep);
+      eye.scale.set(1.0, 1.0, 0.4);
+      grp.add(eye);
+
+      // Grote witte glinstering (rechtsbovenin)
+      const g1 = m(new THREE.SphereGeometry(0.068, 16, 16), MAT.white);
+      g1.position.set(0.09, 0.1, 0.08);
+      grp.add(g1);
+
+      // Kleine witte glinstering
+      const g2 = m(new THREE.SphereGeometry(0.034, 16, 16), MAT.white);
+      g2.position.set(-0.06, 0.07, 0.09);
+      grp.add(g2);
+
+      return grp;
+    }
+    headPivot.add(makeEye(-1));
+    headPivot.add(makeEye(1));
+
+    // ── NEUS ─────────────────────────────────
+    const nose = m(new THREE.SphereGeometry(0.055, 8, 8), MAT.pink);
+    nose.scale.set(1.4, 0.9, 0.55);
+    nose.position.set(0, -0.08, 0.95);
+    headPivot.add(nose);
+
+    // ── OPEN MOND + TONG + TANDEN ────────────
+    // Donkere mondbak
+    const mouthBg = m(new THREE.SphereGeometry(0.22, 16, 16), MAT.deep);
+    mouthBg.scale.set(1.65, 0.9, 0.36);
+    mouthBg.position.set(0, -0.3, 0.9);
+    headPivot.add(mouthBg);
+
+    // Rode tong
+    const tongue = m(new THREE.SphereGeometry(0.14, 12, 12), MAT.red);
+    tongue.scale.set(1.25, 0.5, 0.44);
+    tongue.position.set(0, -0.35, 0.93);
+    headPivot.add(tongue);
+
+    // Twee kleine witte hoektanden die naar beneden wijzen
+    [-0.1, 0.1].forEach(fx => {
+      const fang = m(new THREE.ConeGeometry(0.032, 0.12, 4), MAT.white);
+      fang.rotation.x = Math.PI;
+      fang.position.set(fx, -0.2, 0.92);
+      headPivot.add(fang);
+    });
+
+    // ── OREN ─────────────────────────────────
+    function makeEar(side) {
+      const grp = new THREE.Group();
+      const ear = m(new THREE.ConeGeometry(0.28, 0.48, 3, 1), MAT.black);
+      grp.add(ear);
+      const innerEar = m(new THREE.ConeGeometry(0.13, 0.28, 3, 1), MAT.pink);
+      innerEar.position.z = 0.06;
+      innerEar.scale.y = 0.85;
+      grp.add(innerEar);
+      grp.position.set(side * 0.58, 0.82, 0.0);
+      grp.rotation.z = side * -0.18;
+      grp.rotation.x = 0.05;
+      return grp;
+    }
+    headPivot.add(makeEar(-1));
+    headPivot.add(makeEar(1));
+
+    // ── HOORN (wit, tussen oren) ──────────────
+    const horn = m(new THREE.ConeGeometry(0.075, 0.58, 8), MAT.horn);
+    horn.position.set(0.03, 0.96, 0.15);
+    horn.rotation.x = -0.15;
+    headPivot.add(horn);
+
+    // ── STAART — hoge S-curve ─────────────────
+    // Staart begint aan achterkant lichaam, gaat hoog omhoog
+    const tailCurve = new THREE.CatmullRomCurve3([
+      new THREE.Vector3(-1.35,  0.1,  -0.2),
+      new THREE.Vector3(-1.85,  0.5,   0.1),
+      new THREE.Vector3(-1.9,   1.15,  0.35),
+      new THREE.Vector3(-1.45,  1.85,  0.2),
+      new THREE.Vector3(-1.05,  2.2,   0.0),
+    ]);
+    const tail = m(new THREE.TubeGeometry(tailCurve, 32, 0.105, 8, false), MAT.black);
+    catcorn.add(tail);
+
+    // Wit pluizig staartpuntje — kind van tail zodat het meebeweegt
+    const tailTip = m(new THREE.SphereGeometry(0.24, 16, 16), MAT.white);
+    tailTip.position.copy(tailCurve.getPoint(1));
+    tail.add(tailTip);
+
+    // ── POTEN — echt zichtbare kattenpoten ────
+    // Referentie: 4 korte maar duidelijke poten, ronde pootjes
+    function makeLeg(x, z, toeOffset) {
+      const grp = new THREE.Group();
+      grp.position.set(x, -0.25, z);
+
+      // Bovenbeen (dik, kort)
+      const upper = m(new THREE.CapsuleGeometry(0.22, 0.32, 8, 8), MAT.black);
+      upper.position.y = -0.1;
+      grp.add(upper);
+
+      // Onderbeen
+      const lower = m(new THREE.CapsuleGeometry(0.19, 0.28, 8, 8), MAT.black);
+      lower.position.y = -0.56;
+      grp.add(lower);
+
+      // Rond pootje — duidelijk zichtbaar
+      const paw = m(new THREE.SphereGeometry(0.26, 16, 16), MAT.black);
+      paw.scale.set(1.2, 0.5, 1.4);
+      paw.position.set(toeOffset, -0.9, 0.08);
+      grp.add(paw);
+
+      return grp;
+    }
+    catcorn.add(makeLeg(-0.62,  0.52,  0.08));  // voor-links
+    catcorn.add(makeLeg( 0.62,  0.52,  0.08));  // voor-rechts
+    catcorn.add(makeLeg(-0.62, -0.52,  0.0));   // achter-links
+    catcorn.add(makeLeg( 0.62, -0.52,  0.0));   // achter-rechts
+
+    // ── VLOERSCHADUW ─────────────────────────
+    const shadowMesh = new THREE.Mesh(
+      new THREE.CircleGeometry(1.6, 32),
+      new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2, depthWrite: false })
+    );
+    shadowMesh.rotation.x = -Math.PI / 2;
+    shadowMesh.position.set(0, -1.2, 0);
+    shadowMesh.scale.set(1, 0.3, 1);
+    catcorn.add(shadowMesh);
+
+    // ─────────────────────────────────────────
+    //  MUIS
+    // ─────────────────────────────────────────
+    const mouse = { x: 0, y: 0 };
+    window.addEventListener('mousemove', e => {
+      mouse.x = (e.clientX / innerWidth  - 0.5) * 2;
+      mouse.y = (e.clientY / innerHeight - 0.5) * 2;
+    });
+
+    // ─────────────────────────────────────────
+    //  ANIMATIE LOOP
+    // ─────────────────────────────────────────
+    let t = 0;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      t += 0.016;
+
+      // Hoofd volgt muis
+      headPivot.rotation.y += (mouse.x *  0.38 - headPivot.rotation.y) * 0.07;
+      headPivot.rotation.x += (mouse.y * -0.2  - headPivot.rotation.x) * 0.07;
+
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // ─────────────────────────────────────────
+    //  RESIZE
+    // ─────────────────────────────────────────
+    window.addEventListener('resize', () => {
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+    });
+
+  </script>
+</body>
+</html>

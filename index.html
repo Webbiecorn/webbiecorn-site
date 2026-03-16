@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webbiecorn — Jouw digitale visie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0d0d0d;
+      --black-mid: #161616;
+      --black-card: #1a1a1a;
+      --red: #D92B4B;
+      --red-dark: #b02240;
+      --white: #ffffff;
+      --grey: #888888;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 2.5rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(20px) saturate(160%);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    /* Logo */
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.65rem;
+      text-decoration: none; flex-shrink: 0;
+    }
+    .nav-logo-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+    }
+    .nav-logo-text {
+      font-size: 1.25rem; font-weight: 800;
+      letter-spacing: -0.5px; color: var(--white);
+      line-height: 1;
+    }
+    .nav-logo-text span { color: var(--red); }
+
+    /* Links */
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links li a {
+      position: relative;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.4rem 1.1rem;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    .nav-links li a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 1.1rem; right: 1.1rem;
+      height: 2px; background: var(--red);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .nav-links li a:hover { color: var(--white); }
+    .nav-links li a:hover::after { transform: scaleX(1); }
+
+    /* CTA knop navbar */
+    .nav-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 0.55rem 1.35rem !important;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      font-size: 0.875rem !important;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s !important;
+      white-space: nowrap;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--red-dark) !important; transform: translateY(-1px) !important; color: var(--white) !important; }
+
+    /* Hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; border-radius: 2px; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(24px) saturate(160%);
+      padding: 1.25rem 2rem 1.75rem;
+      z-index: 99;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a {
+      display: block;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--red); }
+    .mobile-menu .nav-cta-mobile {
+      display: block; margin-top: 1.2rem;
+      background: var(--red); color: var(--white);
+      text-align: center; padding: 0.85rem;
+      border-radius: 4px; font-weight: 700;
+      text-decoration: none; font-size: 1rem;
+      border-bottom: none;
+    }
+    .mobile-menu .nav-cta-mobile:hover { background: var(--red-dark); color: var(--white); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    canvas#particles {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      min-height: 100vh; justify-content: center;
+      gap: 0;
+    }
+    .hero-content { max-width: 760px; }
+
+    /* ── 3D CARDS STAGE ─────────────────────── */
+    .cards-stage {
+      margin-top: 4rem;
+      width: 100%;
+      perspective: 1100px;
+      perspective-origin: 50% 30%;
+    }
+    .cards-row {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      transform: rotateX(24deg);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .stage-card {
+      flex: 0 0 auto;
+      width: 220px;
+      background: rgba(12,12,12,0.92);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2.1rem 1.5rem 2rem;
+      backdrop-filter: blur(20px);
+      transform-style: preserve-3d;
+      transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1),
+                  border-color 0.3s, box-shadow 0.3s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .stage-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(217,43,75,0.12) 0%, transparent 55%);
+      opacity: 0; transition: opacity 0.3s;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+    .stage-card:hover {
+      transform: translateZ(60px) rotateX(-5deg);
+      border-color: rgba(217,43,75,0.6);
+      box-shadow: 0 0 42px rgba(217,43,75,0.32), 0 28px 72px rgba(0,0,0,0.65);
+    }
+    .stage-card:hover::after { opacity: 1; }
+    .card-nth-2 { transform: translateZ(20px); }
+    .card-nth-3 { transform: translateZ(12px); }
+    .card-nth-2:hover { transform: translateZ(62px) rotateX(-5deg); }
+    .card-nth-3:hover { transform: translateZ(58px) rotateX(-5deg); }
+    .card-icon {
+      width: 50px; height: 50px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+      background: rgba(217,43,75,0.1);
+      border-radius: 14px;
+    }
+    .card-icon svg { display: block; }
+    .stage-card h3 {
+      font-size: 1.05rem; font-weight: 700;
+      margin-bottom: 0.5rem; color: var(--white);
+    }
+    .stage-card p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+    }
+    .card-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: var(--red);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .stage-card:hover .card-bar { transform: scaleX(1); }
+
+    @media (max-width: 880px) {
+      .cards-row { flex-wrap: wrap; transform: none; gap: 1rem; }
+      .stage-card { width: calc(50% - 0.5rem); }
+    }
+    @media (max-width: 480px) { .stage-card { width: 100%; } }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--red);
+      padding: 0.35rem 1rem;
+      border-radius: 2px;
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    @media (max-width: 900px) { .hero-ctas { justify-content: center; } }
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+      display: inline-block;
+      backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .section-sub {
+      color: rgba(255,255,255,0.55);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    /* fade-in animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── OVER ONS ── */
+    #over { background: var(--black-mid); }
+    .over-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .over-card {
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+    .over-card p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+    .over-card p + p { margin-top: 1rem; }
+    .team-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .team-member {
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .team-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .team-name { font-weight: 700; font-size: 0.95rem; }
+    .team-role { color: var(--grey); font-size: 0.8rem; margin-top: 2px; }
+
+    /* ── DIENSTEN ── */
+    #diensten { background: var(--black); }
+    .diensten-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .dienst-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      cursor: default;
+      transition: border-color 0.3s, transform 0.15s;
+      transform-style: preserve-3d;
+    }
+    .dienst-card:hover { border-color: var(--red); }
+    .dienst-icon {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .dienst-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .dienst-desc { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ── CASES ── */
+    #cases { background: var(--black-mid); }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .case-card {
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s;
+    }
+    .case-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .case-card:hover::before { transform: scaleX(1); }
+    .case-card:hover { transform: translateY(-4px); }
+    .case-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.75rem;
+    }
+    .case-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .case-desc { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--black); }
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--white);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--red); }
+    .contact-form textarea { min-height: 140px; }
+    .contact-form button {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      align-self: flex-start;
+    }
+    .contact-form button:hover { background: var(--red-dark); transform: translateY(-2px); }
+    .contact-info { color: rgba(255,255,255,0.55); line-height: 2; font-size: 0.95rem; }
+    .contact-info strong { color: var(--white); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a0a0a;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--red); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .over-grid, .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      section { padding: 4rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="50" fill="#D92B4B"/>
+      <path d="M 10,58 L 14,36 L 23,7 L 37,27 Q 43,21 50,20 Q 57,21 63,27 L 77,7 L 86,36 L 90,58 Q 70,68 50,68 Q 30,68 10,58 Z" fill="#1a1a1a"/>
+      <polygon points="50,4 44,24 56,24" fill="#f5f5f5"/>
+      <path d="M 18,61 Q 17,90 34,90 Q 42,90 50,81 Q 58,90 66,90 Q 83,90 82,61 Q 67,57 50,64 Q 33,57 18,61 Z" fill="white"/>
+      <circle cx="33" cy="70" r="14" fill="#1a1a1a"/>
+      <path d="M 43,60 A 14,14 0 0 1 43,80" stroke="white" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <circle cx="67" cy="70" r="14" fill="#1a1a1a"/>
+      <path d="M 57,60 A 14,14 0 0 0 57,80" stroke="white" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#over">Over ons</a></li>
+    <li><a href="#diensten">Diensten</a></li>
+    <li><a href="#cases">Cases</a></li>
+    <li><a href="#contact" class="nav-cta">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#over" onclick="closeMobile()">Over ons</a>
+  <a href="#diensten" onclick="closeMobile()">Diensten</a>
+  <a href="#cases" onclick="closeMobile()">Cases</a>
+  <a href="#contact" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-inner" id="hero-inner">
+
+    <div class="hero-content" id="hero-content">
+      <span class="hero-eyebrow">Het creatieve lab</span>
+      <h1 class="hero-title">Wij vertalen<br/><em>jouw ambitie.</em></h1>
+      <p class="hero-sub">Fotografie. Illustratie. Design. Code.<br/>Volledig in eigen hand — voor merken die durven op te vallen.</p>
+      <div class="hero-ctas">
+        <a href="#diensten" class="btn-primary">Start de revolutie</a>
+        <a href="#cases" class="btn-ghost">Bekijk het lab</a>
+      </div>
+    </div>
+
+    <div class="cards-stage">
+      <div class="cards-row" id="cards-row">
+
+        <div class="stage-card card-nth-1">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <rect x="1" y="7" width="24" height="17" rx="3" stroke="#D92B4B" stroke-width="1.8"/>
+              <circle cx="13" cy="15.5" r="4.5" stroke="#D92B4B" stroke-width="1.8"/>
+              <path d="M9 7V5.5C9 4.67 9.67 4 10.5 4h5C16.33 4 17 4.67 17 5.5V7" stroke="#D92B4B" stroke-width="1.8"/>
+            </svg>
+          </div>
+          <h3>Fotografie</h3>
+          <p>Beelden met impact. Altijd in eigen regie.</p>
+          <div class="card-bar"></div>
+        </div>
+
+        <div class="stage-card card-nth-2">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <path d="M4 22 L8 6 L15 18 L19 11 L23 22" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="8" cy="6" r="2" fill="#D92B4B"/>
+            </svg>
+          </div>
+          <h3>Illustratie</h3>
+          <p>Unieke visuals die niemand anders heeft.</p>
+          <div class="card-bar"></div>
+        </div>
+
+        <div class="stage-card card-nth-3">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <rect x="2" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/>
+              <rect x="15" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/>
+              <rect x="2" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/>
+              <rect x="15" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8" opacity="0.35"/>
+            </svg>
+          </div>
+          <h3>Design</h3>
+          <p>Van identiteit tot interface. Zonder compromis.</p>
+          <div class="card-bar"></div>
+        </div>
+
+        <div class="stage-card card-nth-4">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <path d="M8 8 L2 13 L8 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 8 L24 13 L18 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.5 5 L10.5 21" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Code</h3>
+          <p>PWA's en apps die blijven renderen.</p>
+          <div class="card-bar"></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- OVER ONS -->
+<section id="over">
+  <div class="container">
+    <div class="over-grid">
+      <div>
+        <p class="section-label reveal">Over Webbiecorn</p>
+        <h2 class="section-title reveal reveal-delay-1">Geen bureau van<br/>dertien in een dozijn.</h2>
+        <div class="over-card reveal reveal-delay-2">
+          <p>Wij zijn Bianca en Kevin — een duo dat de volledige visuele stack beheerst. Van fotografisch oog tot werkende app. Van ruwe schets tot live product.</p>
+          <p>Geen urenbureau. Geen vage offertes. Wij bouwen digitale producten die blijven renderen.</p>
+        </div>
+      </div>
+      <div class="team-grid reveal reveal-delay-3">
+        <div class="team-member">
+          <div class="team-avatar">B</div>
+          <div>
+            <div class="team-name">Bianca</div>
+            <div class="team-role">Fotograaf · Illustrator · Grafisch Ontwerper</div>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-avatar">K</div>
+          <div>
+            <div class="team-name">Kevin</div>
+            <div class="team-role">Digital Product Designer · Developer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIENSTEN -->
+<section id="diensten">
+  <div class="container">
+    <p class="section-label reveal">Wat wij doen</p>
+    <h2 class="section-title reveal reveal-delay-1">Het creatieve<br/>zwitserse zakmes.</h2>
+    <p class="section-sub reveal reveal-delay-2">Vier disciplines. Eén team. Alles wat jouw merk nodig heeft om op te vallen — van eerste indruk tot werkende digitale ervaring.</p>
+    <div class="diensten-grid">
+      <div class="dienst-card reveal reveal-delay-1">
+        <div class="dienst-icon">📷</div>
+        <div class="dienst-title">Fotografie</div>
+        <div class="dienst-desc">Beeldmateriaal dat je merk een gezicht geeft. Portret, product, sfeer — met een visueel oog dat het verschil maakt.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-2">
+        <div class="dienst-icon">✏️</div>
+        <div class="dienst-title">Illustratie & Grafisch Design</div>
+        <div class="dienst-desc">Van merkidentiteit tot karakter design. 2D flat met bite, of 3D renders die aanvoelen als echte objecten.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-3">
+        <div class="dienst-icon">⚡</div>
+        <div class="dienst-title">Web & App Design</div>
+        <div class="dienst-desc">White-label Progressive Web Apps op React + Firebase. Medewerkersportalen, planningsapps, buurtapps — snel uitgerold naar nieuwe klanten.</div>
+      </div>
+      <div class="dienst-card reveal reveal-delay-4">
+        <div class="dienst-icon">🔗</div>
+        <div class="dienst-title">AI & Automatisering</div>
+        <div class="dienst-desc">Systemen koppelen via n8n workflows. Leads routeren, administratie automatiseren. Eenmalig instellen, altijd draaien.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="container">
+    <p class="section-label reveal">Het lab</p>
+    <h2 class="section-title reveal reveal-delay-1">Werk dat spreekt<br/>voor zichzelf.</h2>
+    <div class="cases-grid">
+      <div class="case-card reveal reveal-delay-1">
+        <div class="case-tag">Concept</div>
+        <div class="case-title">Roasted Rebels</div>
+        <div class="case-desc">Fictieve koffiebrandery voor nachtbrakers. Toont de synergie tussen fotografie, illustratie, branding en digital design in één dossier.</div>
+      </div>
+      <div class="case-card reveal reveal-delay-2">
+        <div class="case-tag">Web App</div>
+        <div class="case-title">BuurtApp v3.4</div>
+        <div class="case-desc">Digitale buurt- en meldingsapp voor gemeentes en wijkorganisaties. React + Firebase, live bij meerdere organisaties.</div>
+      </div>
+      <div class="case-card reveal reveal-delay-3">
+        <div class="case-tag">Medewerkersportaal</div>
+        <div class="case-title">Concern voor Werk</div>
+        <div class="case-desc">Intern portaal voor medewerkers van een sociaal werkbedrijf. Nieuws, vacatures, dossiers, meldpunt — volledig in eigen huisstijl.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-wrap">
+      <div>
+        <p class="section-label reveal">Klaar voor de revolutie?</p>
+        <h2 class="section-title reveal reveal-delay-1">Laten we iets<br/>bouwen dat opvalt.</h2>
+        <div class="contact-info reveal reveal-delay-2">
+          <strong>Webbiecorn</strong>
+          webbiecorn.nl<br/>
+          webbiecorn.com<br/><br/>
+          <em style="color: rgba(255,255,255,0.35); font-size: 0.85rem;">Manifest voor durfals. Geen grijze muizen.</em>
+        </div>
+      </div>
+      <form class="contact-form reveal reveal-delay-2" onsubmit="return false;">
+        <input type="text" placeholder="Jouw naam" autocomplete="name" />
+        <input type="email" placeholder="E-mailadres" autocomplete="email" />
+        <textarea placeholder="Vertel over jouw project of idee..."></textarea>
+        <button type="submit">Stuur een bericht →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp; <a href="https://webbiecorn.nl">webbiecorn.nl</a> &nbsp;|&nbsp; <a href="https://webbiecorn.com">webbiecorn.com</a></p>
+</footer>
+
+<script>
+  // ── Navbar scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ── Hamburger ──
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  // ── Reveal on scroll ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── 3D card tilt ──
+  document.querySelectorAll('.dienst-card, .case-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+
+  // ── Particle canvas ──
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function rand(a, b) { return Math.random() * (b - a) + a; }
+
+  for (let i = 0; i < 80; i++) {
+    particles.push({
+      x: rand(0, W || window.innerWidth),
+      y: rand(0, H || window.innerHeight),
+      r: rand(1, 3),
+      dx: rand(-0.3, 0.3),
+      dy: rand(-0.3, 0.3),
+      alpha: rand(0.1, 0.5),
+      color: Math.random() > 0.85 ? '#D92B4B' : '#ffffff'
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+      p.x += p.dx; p.y += p.dy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+    });
+    ctx.globalAlpha = 1;
+
+    // draw connecting lines
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.globalAlpha = (1 - dist / 120) * 0.12;
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(draw);
+  }
+  draw();
+</script>
+
+<script>
+  // ── 3D HERO PARALLAX ──────────────────────
+  const heroEl      = document.getElementById('hero');
+  const cardsRow    = document.getElementById('cards-row');
+  const heroContent = document.getElementById('hero-content');
+
+  let tx = 0, ty = 0, cx2 = 0, cy2 = 0;
+
+  heroEl.addEventListener('mousemove', e => {
+    const r = heroEl.getBoundingClientRect();
+    tx = (e.clientX - r.left) / r.width  - 0.5;
+    ty = (e.clientY - r.top)  / r.height - 0.5;
+  });
+  heroEl.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+
+  (function tickHero() {
+    cx2 += (tx - cx2) * 0.07;
+    cy2 += (ty - cy2) * 0.07;
+    if (cardsRow) {
+      cardsRow.style.transform =
+        `rotateX(${24 - cy2 * 16}deg) rotateY(${cx2 * 9}deg)`;
+    }
+    if (heroContent) {
+      heroContent.style.transform =
+        `translate(${cx2 * -16}px, ${cy2 * -10}px)`;
+    }
+    requestAnimationFrame(tickHero);
+  })();
+</script>
+</body>
+</html>
