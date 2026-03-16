@@ -46,15 +46,16 @@
     .case-card-full:hover::before { transform: scaleX(1); }
     .case-card-full:hover { transform: translateY(-6px); border-color: rgba(217,43,75,0.3); }
     .case-visual {
-      height: 160px;
-      background: linear-gradient(135deg, var(--black) 0%, rgba(217,43,75,0.12) 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3rem; position: relative; overflow: hidden;
+      height: 220px;
+      position: relative; overflow: hidden;
+      background: var(--black-mid);
+      border-bottom: 1px solid var(--border);
     }
-    .case-visual::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, var(--black-card));
+    .case-visual img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .case-card-full:hover .case-visual img { transform: scale(1.05); }
     .case-body { padding: 1.5rem 2rem 2rem; }
     .case-status {
       display: inline-block;
@@ -107,7 +108,7 @@
     <div class="cases-full-grid">
 
       <div class="case-card-full reveal reveal-delay-1">
-        <div class="case-visual">☕</div>
+        <div class="case-visual"><img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=800&auto=format&fit=crop" alt="Roasted Rebels"></div>
         <div class="case-body">
           <div class="case-tag">Branding · Illustratie · Fotografie</div>
           <span class="case-status concept">Concept</span>
@@ -123,7 +124,7 @@
       </div>
 
       <div class="case-card-full reveal reveal-delay-2">
-        <div class="case-visual">🗺️</div>
+        <div class="case-visual"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop" alt="BuurtApp"></div>
         <div class="case-body">
           <div class="case-tag">Web App · React · Firebase</div>
           <span class="case-status live">Live</span>
@@ -139,7 +140,7 @@
       </div>
 
       <div class="case-card-full reveal reveal-delay-3">
-        <div class="case-visual">👥</div>
+        <div class="case-visual"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" alt="Concern voor Werk"></div>
         <div class="case-body">
           <div class="case-tag">Medewerkersportaal · PWA</div>
           <span class="case-status live">Live</span>
@@ -155,7 +156,7 @@
       </div>
 
       <div class="case-card-full reveal reveal-delay-1">
-        <div class="case-visual">🔧</div>
+        <div class="case-visual"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop" alt="Kluswinkel App"></div>
         <div class="case-body">
           <div class="case-tag">Planning App · Web App</div>
           <span class="case-status live">Live</span>
@@ -170,7 +171,7 @@
       </div>
 
       <div class="case-card-full reveal reveal-delay-2">
-        <div class="case-visual">🐱</div>
+        <div class="case-visual"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" alt="Catcorn 3D"></div>
         <div class="case-body">
           <div class="case-tag">Illustratie · 3D Design</div>
           <span class="case-status concept">Concept</span>
@@ -185,7 +186,7 @@
       </div>
 
       <div class="case-card-full reveal reveal-delay-3">
-        <div class="case-visual">⚡</div>
+        <div class="case-visual"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop" alt="Webbiecorn OS"></div>
         <div class="case-body">
           <div class="case-tag">AI · Automatisering · n8n</div>
           <span class="case-status lopend">Lopend</span>
