@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Webbiecorn — Jouw digitale visie</title>
-  <meta name="description" content="Webbiecorn is een creatief bureau voor fotografie, illustratie, design en code. Volledig in eigen hand." />
+  <title>Webbiecorn — PWA's, AI Automatisering en Managed Hosting</title>
+  <meta name="description" content="Webbiecorn bouwt PWA's, maatwerk portals, AI-automatisering en managed hosting voor organisaties die digitaal willen opschalen." />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://webbiecorn.com/" />
-  <meta property="og:title" content="Webbiecorn — Jouw digitale visie" />
-  <meta property="og:description" content="Fotografie. Illustratie. Design. Code. Volledig in eigen hand — voor merken die durven op te vallen." />
+  <meta property="og:title" content="Webbiecorn — PWA's, AI Automatisering en Managed Hosting" />
+  <meta property="og:description" content="Maatwerk PWA's, slimme n8n-workflows, strak design en managed hosting. Gebouwd voor organisaties die willen doorpakken." />
   <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Webbiecorn — Jouw digitale visie" />
-  <meta name="twitter:description" content="Fotografie. Illustratie. Design. Code. Volledig in eigen hand." />
+  <meta name="twitter:title" content="Webbiecorn — PWA's, AI Automatisering en Managed Hosting" />
+  <meta name="twitter:description" content="Maatwerk PWA's, slimme n8n-workflows, strak design en managed hosting. Gebouwd voor organisaties die willen doorpakken." />
   <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
   <meta name="theme-color" content="#0d0d0d" />
   <link rel="canonical" href="https://webbiecorn.com/" />
@@ -32,12 +32,29 @@
       "https://www.instagram.com/webbiecorn",
       "https://www.linkedin.com/company/webbiecorn"
     ],
-    "description": "Creatief bureau voor fotografie, illustratie, design en code.",
+    "description": "Digitaal bureau voor PWA's, AI-automatisering, design en managed hosting.",
     "foundingDate": "2024",
     "areaServed": "NL",
     "knowsLanguage": "nl"
   }
-  document.querySelectorAll("a[href]").forEach(a => { if(a.host === window.location.host && !a.hash && !a.hasAttribute("download")) { a.addEventListener("click", e => { if(e.ctrlKey || e.metaKey || e.shiftKey) return; e.preventDefault(); document.body.classList.add("fade-out"); setTimeout(() => window.location = a.href, 250); }); } });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[href]').forEach((anchor) => {
+        if (anchor.host === window.location.host && !anchor.hash && !anchor.hasAttribute('download')) {
+          anchor.addEventListener('click', (event) => {
+            if (event.ctrlKey || event.metaKey || event.shiftKey) {
+              return;
+            }
+            event.preventDefault();
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+              window.location = anchor.href;
+            }, 250);
+          });
+        }
+      });
+    });
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -106,7 +123,7 @@
   <div class="hero-inner" id="hero-inner">
     <div class="hero-content" id="hero-content">
       <div class="avail-badge reveal"><span class="avail-dot"></span> Beschikbaar voor nieuwe projecten</div>
-      <span class="hero-eyebrow">Het creatieve lab</span>
+      <span class="hero-eyebrow">PWA's, AI & beheer</span>
       <h1 class="hero-title">Wij creëren jouw<br/><em>digitale impact.</em></h1>
       <p class="hero-sub">Twee oprichters. Eén ijzersterke focus. Wij combineren feilloze techniek met scherp design — voor ondernemers die durven voorop te lopen.</p>
       <div class="hero-ctas">
@@ -116,19 +133,19 @@
     </div>
     <div class="cards-stage">
       <div class="cards-row" id="cards-row">
-        <a href="diensten.html" class="stage-card card-nth-1">
+        <a href="diensten.html#apps" class="stage-card card-nth-1">
           <div class="card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M8 8 L2 13 L8 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 8 L24 13 L18 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 5 L10.5 21" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round"/></svg></div>
           <h3>PWA's & Apps</h3><p>Razendsnelle maatwerk portalen en web-apps. Zonder bloatware.</p><div class="card-bar"></div>
         </a>
-        <a href="diensten.html" class="stage-card card-nth-2">
+        <a href="diensten.html#automatisering" class="stage-card card-nth-2">
           <div class="card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M12 4 L22 14 L12 24 L2 14 Z" stroke="#D92B4B" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 8 L18 14 L12 20 L6 14 Z" stroke="#D92B4B" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
           <h3>Automatisering</h3><p>Slimme AI & n8n workflows die processen stroomlijnen.</p><div class="card-bar"></div>
         </a>
-        <a href="diensten.html" class="stage-card card-nth-3">
+        <a href="diensten.html#design" class="stage-card card-nth-3">
           <div class="card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/><rect x="15" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/><rect x="2" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/><rect x="15" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8" opacity="0.35"/></svg></div>
           <h3>Design</h3><p>Intuïtieve interfaces en robuuste branding. Pixel-perfect.</p><div class="card-bar"></div>
         </a>
-        <a href="diensten.html" class="stage-card card-nth-4">
+        <a href="diensten.html#onderhoud" class="stage-card card-nth-4">
           <div class="card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="11" stroke="#D92B4B" stroke-width="1.8"/><path d="M13 6v7l4.5 4.5" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <h3>Onderhoud</h3><p>Managed hosting, actieve monitoring en SLA-responstijden.</p><div class="card-bar"></div>
         </a>
@@ -139,10 +156,10 @@
 
 <div class="marquee-wrap">
   <div class="marquee-content">
-    <span>Fotografie <span class="star">✦</span> Illustratie <span class="star">✦</span> Design <span class="star">✦</span> Code <span class="star">✦</span></span>
-    <span>Fotografie <span class="star">✦</span> Illustratie <span class="star">✦</span> Design <span class="star">✦</span> Code <span class="star">✦</span></span>
-    <span>Fotografie <span class="star">✦</span> Illustratie <span class="star">✦</span> Design <span class="star">✦</span> Code <span class="star">✦</span></span>
-    <span>Fotografie <span class="star">✦</span> Illustratie <span class="star">✦</span> Design <span class="star">✦</span> Code <span class="star">✦</span></span>
+    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span></span>
+    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span></span>
+    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span></span>
+    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span></span>
   </div>
 </div>
 
@@ -160,7 +177,7 @@
     <div class="stat-divider"></div>
     <div class="stat-item reveal reveal-delay-2">
       <span class="stat-number" data-target="4" data-suffix="">0</span>
-      <div class="stat-label">Disciplines in-house</div>
+      <div class="stat-label">Kernpijlers</div>
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item reveal reveal-delay-3">
@@ -177,14 +194,14 @@
         <p class="section-label reveal">Over Webbiecorn</p>
         <h2 class="section-title reveal reveal-delay-1">Vergeet de<br/><em>traditionele bureaus.</em></h2>
         <div class="over-card reveal reveal-delay-2">
-          <p>Wij zijn Webbiecorn. Een creatief duo dat de volledige visuele én technische stack opvreet. Van het perfecte shot tot een vlekkeloos draaiende applicatie.</p>
-          <p>Geen trage trajecten, geen vage offertes, geen onverwachte overhead. Wij bouwen doordachte digitale producten die jouw groei direct aandrijven.</p>
+          <p>Wij zijn Webbiecorn. Een compact bureau dat design, techniek en beheer combineert in een strak uitvoerbaar traject. Van eerste concept tot live platform.</p>
+          <p>Geen trage trajecten, geen vage offertes, geen overhead-circus. Wij bouwen digitale producten die processen versimpelen en organisaties direct vooruithelpen.</p>
         </div>
         <a href="over.html" class="teaser-link reveal reveal-delay-3">Lees ons verhaal →</a>
       </div>
       <div class="team-grid reveal reveal-delay-3">
-        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Creative Direction</div><div class="team-role">Fotografie · Illustratie · Grafisch Ontwerp</div></div></div>
-        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Tech & Strategy</div><div class="team-role">Product Design · Development · Automatisering</div></div></div>
+        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Creative Direction</div><div class="team-role">Branding · UX/UI · Contentproductie</div></div></div>
+        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Tech & Strategy</div><div class="team-role">PWA's · Automatisering · Managed Hosting</div></div></div>
       </div>
     </div>
   </div>
