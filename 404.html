@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagina niet gevonden — Webbiecorn</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    .not-found {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 6rem 2rem; background: var(--black);
+    }
+    .not-found-inner { max-width: 560px; }
+    .not-found-code {
+      font-size: clamp(5rem, 18vw, 10rem); font-weight: 800;
+      line-height: 1; letter-spacing: -6px;
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(217,43,75,0.5);
+      margin-bottom: 1rem;
+    }
+    .not-found-inner h1 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .not-found-inner p {
+      color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 2.5rem;
+    }
+    .not-found-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="index.html" class="nav-logo">
+    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="over.html">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<div class="not-found">
+  <div class="not-found-inner">
+    <div class="not-found-code">404</div>
+    <h1>Deze pagina bestaat niet.</h1>
+    <p>Misschien is de URL veranderd, of heb je een typfout gemaakt. Geen paniek — het lab is nog gewoon open.</p>
+    <div class="not-found-links">
+      <a href="index.html" class="btn-primary">Terug naar home</a>
+      <a href="cases.html" class="btn-ghost">Bekijk het lab</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+</script>
+</body>
+</html>

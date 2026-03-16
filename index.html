@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Webbiecorn — Jouw digitale visie</title>
   <meta name="description" content="Webbiecorn is een creatief bureau voor fotografie, illustratie, design en code. Volledig in eigen hand." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webbiecorn.com/" />
+  <meta property="og:title" content="Webbiecorn — Jouw digitale visie" />
+  <meta property="og:description" content="Fotografie. Illustratie. Design. Code. Volledig in eigen hand — voor merken die durven op te vallen." />
+  <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Webbiecorn — Jouw digitale visie" />
+  <meta name="twitter:description" content="Fotografie. Illustratie. Design. Code. Volledig in eigen hand." />
+  <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
   <link rel="icon" type="image/png" href="webbiecorn-logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -133,6 +143,39 @@
   </div>
 </section>
 
+<section id="social-proof">
+  <div class="container">
+    <p class="section-label reveal">Wat klanten zeggen</p>
+    <h2 class="section-title reveal reveal-delay-1">Geen woorden,<br/><em>maar resultaten.</em></h2>
+    <div class="quotes-grid">
+      <div class="quote-card reveal reveal-delay-1">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="quote-text">Ze begrijpen wat je nodig hebt nog voor je het zelf goed kunt uitleggen. Het resultaat was meteen raak — visueel en technisch.</p>
+        <div class="quote-author">
+          <div class="quote-avatar">R</div>
+          <div><div class="quote-name">Regio-organisatie</div><div class="quote-role">Buurtapp-klant</div></div>
+        </div>
+      </div>
+      <div class="quote-card reveal reveal-delay-2">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="quote-text">Van logo tot werkende app in één traject. Geen verrassingen in de rekening, geen gedoe met externe partijen. Precies wat we nodig hadden.</p>
+        <div class="quote-author">
+          <div class="quote-avatar">C</div>
+          <div><div class="quote-name">Concern voor Werk</div><div class="quote-role">Sociaal werkbedrijf</div></div>
+        </div>
+      </div>
+      <div class="quote-card reveal reveal-delay-3">
+        <div class="quote-mark">&ldquo;</div>
+        <p class="quote-text">Strak, snel en eerlijk. Ze denken mee als partner, niet als uurschrijver. Het portaal staat er en het werkt gewoon.</p>
+        <div class="quote-author">
+          <div class="quote-avatar">K</div>
+          <div><div class="quote-name">Kluswinkel klant</div><div class="quote-role">Plannings-app</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="cases-teaser">
   <div class="container">
     <p class="section-label reveal">Het lab</p>
@@ -180,7 +223,7 @@
   });
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
-  let W, H, particles = [];
+  let W, H, particles = [], animId = null;
   function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
   window.addEventListener('resize', resize); resize();
   function rand(a,b) { return Math.random()*(b-a)+a; }
@@ -190,9 +233,13 @@
     particles.forEach(p => { ctx.globalAlpha=p.alpha; ctx.fillStyle=p.color; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); p.x+=p.dx; p.y+=p.dy; if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0; });
     ctx.globalAlpha=1;
     for(let i=0;i<particles.length;i++) for(let j=i+1;j<particles.length;j++) { const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ctx.globalAlpha=(1-dist/120)*0.12;ctx.strokeStyle='#ffffff';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();} }
-    ctx.globalAlpha=1; requestAnimationFrame(draw);
+    ctx.globalAlpha=1; animId = requestAnimationFrame(draw);
   }
   draw();
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { cancelAnimationFrame(animId); animId = null; }
+    else if (!animId) { draw(); }
+  });
   const cardsRow=document.getElementById('cards-row'), heroContent=document.getElementById('hero-content');
   let mx=0,my=0,cx=0,cy=0;
   window.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth-0.5)*2; my=(e.clientY/window.innerHeight-0.5)*2;});

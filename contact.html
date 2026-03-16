@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Webbiecorn</title>
   <meta name="description" content="Start je project. Neem contact op met Webbiecorn voor branding, web apps of automatisering." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webbiecorn.com/contact.html" />
+  <meta property="og:title" content="Contact — Webbiecorn" />
+  <meta property="og:description" content="Klaar voor de revolutie? Laten we iets bouwen dat opvalt. Reactie binnen 1–2 werkdagen." />
+  <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Webbiecorn" />
+  <meta name="twitter:description" content="Klaar voor de revolutie? Laten we iets bouwen dat opvalt." />
+  <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
   <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -236,9 +246,24 @@
       else { field.style.borderColor = ''; }
     });
     if (!valid) return;
-    // Show success (no backend yet — mailto fallback or future integration)
-    form.style.display = 'none';
-    success.style.display = 'block';
+    // Build mailto link with form data
+    const name = encodeURIComponent(form.name.value.trim());
+    const bedrijf = form.bedrijf.value.trim();
+    const dienst = form.dienst.options[form.dienst.selectedIndex].text;
+    const bericht = encodeURIComponent(form.bericht.value.trim());
+    const subject = encodeURIComponent('Projectaanvraag via webbiecorn.com — ' + form.name.value.trim());
+    const body = encodeURIComponent(
+      'Naam: ' + form.name.value.trim() + '\n' +
+      (bedrijf ? 'Bedrijf: ' + bedrijf + '\n' : '') +
+      'Dienst: ' + dienst + '\n\n' +
+      form.bericht.value.trim()
+    );
+    window.location.href = 'mailto:hallo@webbiecorn.com?subject=' + subject + '&body=' + body;
+    // Show success state
+    setTimeout(() => {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }, 400);
   }
 </script>
 </body>
