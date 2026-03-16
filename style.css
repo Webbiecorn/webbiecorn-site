@@ -423,6 +423,40 @@ footer {
 footer a { color: var(--red); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 
+/* ── FAQ ─────────────────────────────────────── */
+.faq-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.faq-item {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.faq-item:hover, .faq-item[open] { border-color: rgba(217,43,75,0.35); }
+.faq-item summary {
+  padding: 1.25rem 1.75rem;
+  font-weight: 700; font-size: 0.95rem;
+  cursor: pointer; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.4rem; font-weight: 400;
+  color: var(--red); flex-shrink: 0;
+  transition: transform 0.25s;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  padding: 0 1.75rem 1.5rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem; line-height: 1.7;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
 /* ── SOCIAL PROOF / QUOTES ───────────────────── */
 #social-proof { background: var(--black); }
 .quotes-grid {
@@ -458,7 +492,7 @@ footer a:hover { text-decoration: underline; }
   flex-shrink: 0;
 }
 .quote-name { font-size: 0.875rem; font-weight: 700; }
-.quote-role { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 0.15rem; }
+.quote-role { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 0.15rem; }
 
 /* ── TEASER SECTIONS (homepage) ──────────────── */
 .teaser-link {

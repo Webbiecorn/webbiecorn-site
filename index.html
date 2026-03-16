@@ -15,8 +15,29 @@
   <meta name="twitter:title" content="Webbiecorn — Jouw digitale visie" />
   <meta name="twitter:description" content="Fotografie. Illustratie. Design. Code. Volledig in eigen hand." />
   <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <link rel="canonical" href="https://webbiecorn.com/" />
+  <link rel="apple-touch-icon" href="webbiecorn-logo.png" />
   <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
   <link rel="icon" type="image/png" href="webbiecorn-logo.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Webbiecorn",
+    "url": "https://webbiecorn.com",
+    "logo": "https://webbiecorn.com/webbiecorn-logo.svg",
+    "email": "hallo@webbiecorn.com",
+    "sameAs": [
+      "https://www.instagram.com/webbiecorn",
+      "https://www.linkedin.com/company/webbiecorn"
+    ],
+    "description": "Creatief bureau voor fotografie, illustratie, design en code.",
+    "foundingDate": "2024",
+    "areaServed": "NL",
+    "knowsLanguage": "nl"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -44,6 +65,9 @@
     .stage-card p { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
     .card-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
     .stage-card:hover .card-bar { transform: scaleX(1); }
+    .avail-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 0.4rem 1rem; margin-bottom: 1.5rem; }
+    .avail-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 0 rgba(74,222,128,0.5); animation: pulse-dot 2s ease-in-out infinite; flex-shrink: 0; }
+    @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.5)} 50%{box-shadow:0 0 0 6px rgba(74,222,128,0)} }
     @media (max-width: 880px) { .cards-row { flex-wrap: wrap; transform: none; gap: 1rem; } .stage-card { width: calc(50% - 0.5rem); } }
     @media (max-width: 480px) { .stage-card { width: 100%; } }
     #over-teaser { background: var(--black-mid); }
@@ -77,6 +101,7 @@
   <canvas id="particles"></canvas>
   <div class="hero-inner" id="hero-inner">
     <div class="hero-content" id="hero-content">
+      <div class="avail-badge reveal"><span class="avail-dot"></span> Beschikbaar voor nieuwe projecten</div>
       <span class="hero-eyebrow">Het creatieve lab</span>
       <h1 class="hero-title">Wij vertalen<br/><em>jouw ambitie.</em></h1>
       <p class="hero-sub">Fotografie. Illustratie. Design. Code.<br/>Volledig in eigen hand — voor merken die durven op te vallen.</p>
