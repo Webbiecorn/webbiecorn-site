@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cases — Webbiecorn</title>
-  <meta name="description" content="Bekijk ons werk. Van merkidentiteit tot live apps. Webbiecorn cases en portfolio." />
+  <title>Cases — PWA's, Automatisering en Design | Webbiecorn</title>
+  <meta name="description" content="Bekijk cases van Webbiecorn: maatwerk PWA's, medewerkersportalen, automatisering en designtrajecten die echt gebruikt worden." />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://webbiecorn.com/cases.html" />
-  <meta property="og:title" content="Cases — Webbiecorn" />
-  <meta property="og:description" content="Van merkidentiteit tot live apps. Bekijk wat wij bouwen, ontwerpen en fotograferen." />
+  <meta property="og:title" content="Cases — PWA's, Automatisering en Design | Webbiecorn" />
+  <meta property="og:description" content="Maatwerk PWA's, medewerkersportalen, automatisering en designtrajecten die echt gebruikt worden." />
   <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cases — Webbiecorn" />
-  <meta name="twitter:description" content="Van merkidentiteit tot live apps. Bekijk wat wij bouwen, ontwerpen en fotograferen." />
+  <meta name="twitter:title" content="Cases — PWA's, Automatisering en Design | Webbiecorn" />
+  <meta name="twitter:description" content="Maatwerk PWA's, medewerkersportalen, automatisering en designtrajecten die echt gebruikt worden." />
   <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
   <meta name="theme-color" content="#0d0d0d" />
   <link rel="canonical" href="https://webbiecorn.com/cases.html" />
@@ -69,6 +69,36 @@
     .case-card-full .case-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.6rem; }
     .case-card-full .case-desc { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.6; margin-bottom: 1.25rem; }
     .case-card-full .case-tag { color: var(--red); font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .proof-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .proof-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.25rem;
+    }
+    .proof-kicker {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.45rem;
+    }
+    .proof-value {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .proof-copy {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -96,15 +126,32 @@
 <section class="page-hero">
   <div class="container">
     <p class="section-label reveal">Het lab</p>
-    <h1 class="page-hero-title reveal reveal-delay-1">Werk dat spreekt<br/><em>voor zichzelf.</em></h1>
-    <p class="page-hero-sub reveal reveal-delay-2">Van merkidentiteit tot live apps. Dit is wat wij bouwen, ontwerpen en fotograferen.</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Werk dat laat zien<br/><em>hoe wij denken.</em></h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Geen losse visuals zonder vervolg. Hier zie je hoe branding, PWA's, automatisering en beheer samenkomen in trajecten die echt gebruikt worden.</p>
   </div>
 </section>
 
 <section id="cases-main">
   <div class="container">
     <p class="section-label reveal">Alle projecten</p>
-    <h2 class="section-title reveal reveal-delay-1">Zes disciplines.<br/><em>Één lab.</em></h2>
+    <h2 class="section-title reveal reveal-delay-1">Projecten met tractie.<br/><em>Geen showroomwerk.</em></h2>
+    <div class="proof-row">
+      <div class="proof-card reveal reveal-delay-1">
+        <div class="proof-kicker">MVP Focus</div>
+        <div class="proof-value">€15K+ trajecten</div>
+        <div class="proof-copy">Voor organisaties die een serieus medewerkersportaal of maatwerk PWA nodig hebben.</div>
+      </div>
+      <div class="proof-card reveal reveal-delay-2">
+        <div class="proof-kicker">Uitrol</div>
+        <div class="proof-value">White-label inzetbaar</div>
+        <div class="proof-copy">Opgezet om te schalen naar meerdere teams, locaties of opdrachtgevers zonder opnieuw te beginnen.</div>
+      </div>
+      <div class="proof-card reveal reveal-delay-3">
+        <div class="proof-kicker">Volledige keten</div>
+        <div class="proof-value">Design tot beheer</div>
+        <div class="proof-copy">Van interface en merklaag tot hosting, onderhoud en automatisering in een doorlopend traject.</div>
+      </div>
+    </div>
     <div class="cases-full-grid">
 
       <div class="case-card-full reveal reveal-delay-1">
@@ -113,7 +160,7 @@
           <div class="case-tag">Branding · Illustratie · Fotografie</div>
           <span class="case-status concept">Concept</span>
           <div class="case-title">Roasted Rebels</div>
-          <div class="case-desc">Fictieve koffiebrandery voor nachtbrakers. Toont de synergie tussen fotografie, illustratie, branding en digital design in één volledig dossier.</div>
+          <div class="case-desc">Conceptcase die laat zien hoe branding, illustratie, fotografie en digitale presentatie als één merkervaring kunnen worden opgebouwd.</div>
           <div class="case-meta">
             <span class="case-chip">Merkidentiteit</span>
             <span class="case-chip">Illustratie</span>
@@ -129,7 +176,7 @@
           <div class="case-tag">Web App · React · Firebase</div>
           <span class="case-status live">Live</span>
           <div class="case-title">BuurtApp v3.4</div>
-          <div class="case-desc">Digitale buurt- en meldingsapp voor gemeentes en wijkorganisaties. Kaartmodule, dossiers, chat en statistieken. White-label uitgerold.</div>
+          <div class="case-desc">Digitale buurt- en meldingsapp voor gemeentes en wijkorganisaties. Opgezet als white-label PWA met kaartmodule, dossiers, chat en statistieken.</div>
           <div class="case-meta">
             <span class="case-chip">React</span>
             <span class="case-chip">Firebase</span>
@@ -145,7 +192,7 @@
           <div class="case-tag">Maatwerk MVP · Medewerkersportaal</div>
           <span class="case-status live">Live</span>
           <div class="case-title">Concern voor Werk — CVW App</div>
-          <div class="case-desc">Intern portaal voor medewerkers van een sociaal werkbedrijf. Volledig maatwerk MVP (omvang ~€15K). Nieuws, vacatures, academie, meldpunt, spaarprogramma en admin dashboard.</div>
+          <div class="case-desc">Intern portaal voor medewerkers van een sociaal werkbedrijf. Volledig maatwerk MVP van ongeveer €15K, met nieuws, vacatures, academie, meldpunt en admin dashboard.</div>
           <div class="case-meta">
             <span class="case-chip">React</span>
             <span class="case-chip">Firebase</span>
@@ -161,7 +208,7 @@
           <div class="case-tag">Planning App · Web App</div>
           <span class="case-status live">Live</span>
           <div class="case-title">Kluswinkel App v1.0</div>
-          <div class="case-desc">Plannings- en werkbonnen-app voor een klussenwinkel. Dashboard, voertuigbeheer, kijkafspraken, planning board en beheermodule.</div>
+          <div class="case-desc">Plannings- en werkbonnen-app die dagelijkse operatie centraliseert. Dashboard, voertuigbeheer, kijkafspraken, planning board en beheermodule in één flow.</div>
           <div class="case-meta">
             <span class="case-chip">React</span>
             <span class="case-chip">Firebase</span>
@@ -191,7 +238,7 @@
           <div class="case-tag">AI · Automatisering · n8n</div>
           <span class="case-status lopend">Lopend</span>
           <div class="case-title">Webbiecorn OS — Intern platform</div>
-          <div class="case-desc">Intern kennisplatform en automatiseringssysteem. n8n workflows voor lead-routing, rapportages, content flows en AI-gestuurde assistentie.</div>
+          <div class="case-desc">Intern kennisplatform en automatiseringssysteem met n8n. Gericht op lead-routing, rapportages, content flows en AI-gestuurde assistentie.</div>
           <div class="case-meta">
             <span class="case-chip">n8n</span>
             <span class="case-chip">AI</span>
@@ -207,11 +254,11 @@
 <section id="cases-cta">
   <div class="container">
     <div class="cta-banner reveal">
-      <h2>Jouw project in het lab?</h2>
-      <p>Wij gaan graag aan de slag met jouw merk, app of automatisering.</p>
+      <h2>Ook een traject dat moet landen?</h2>
+      <p>Vertel ons wat er operationeel beter moet. Dan vertalen wij dat naar een scherpe scope, passend budget en realistische eerste sprint.</p>
       <div class="btn-group">
-        <a href="contact.html" class="btn-primary">Start je project</a>
-        <a href="diensten.html" class="btn-ghost">Bekijk onze diensten</a>
+        <a href="contact.html" class="btn-primary">Plan een intake</a>
+        <a href="diensten.html" class="btn-ghost">Bekijk budgetranges</a>
       </div>
     </div>
   </div>

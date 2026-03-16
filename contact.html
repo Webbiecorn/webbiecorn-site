@@ -110,6 +110,28 @@
     .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
     .form-success h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
     .form-success p { color: rgba(255,255,255,0.5); font-size: 0.875rem; }
+    .trust-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+      margin: 0 0 1.5rem;
+    }
+    .trust-point {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+    }
+    .trust-point strong {
+      display: block;
+      font-size: 0.82rem;
+      margin-bottom: 0.25rem;
+    }
+    .trust-point span {
+      color: rgba(255,255,255,0.48);
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
     @media (max-width: 768px) {
       .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
@@ -174,11 +196,21 @@
           <h3>Wat kun je verwachten?</h3>
           <p>Na je bericht plannen we een kort kennismakingsgesprek om te kijken of er een klik is. Daarna een voorstel binnen 3 werkdagen.</p>
         </div>
+        <div class="contact-detail">
+          <div class="cd-label">Projectfit</div>
+          <h3>Waar we het sterkst in zijn</h3>
+          <p>PWA's, medewerkersportalen, automatisering, designsystemen en doorlopend technisch beheer. Vooral wanneer er echt iets operationeels opgelost moet worden.</p>
+        </div>
       </div>
 
       <div class="contact-form-card reveal reveal-delay-1">
         <h3>Vertel ons over je project</h3>
-        <p class="form-intro">Hoe meer detail je geeft, hoe beter ons aanbod aansluit op jouw situatie.</p>
+        <p class="form-intro">Hoe scherper je context, hoe sneller wij kunnen inschatten of er een logische scope, sprint of volledig traject onder zit.</p>
+        <div class="trust-points">
+          <div class="trust-point"><strong>Reactie in 2 werkdagen</strong><span>Geen formulier dat weken blijft liggen.</span></div>
+          <div class="trust-point"><strong>Heldere scope</strong><span>We denken in sprint, MVP of beheertraject.</span></div>
+          <div class="trust-point"><strong>Ook na livegang</strong><span>Onderhoud en hosting kunnen direct mee.</span></div>
+        </div>
         <form id="contactForm" onsubmit="handleSubmit(event)" novalidate>
           <div class="form-row">
             <div class="form-group">
@@ -193,6 +225,30 @@
           <div class="form-group">
             <label for="bedrijf">Bedrijf / organisatie</label>
             <input type="text" id="bedrijf" name="bedrijf" placeholder="Optioneel" autocomplete="organization" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="budget">Budgetindicatie</label>
+              <select id="budget" name="budget">
+                <option value="" selected>Nog onbekend</option>
+                <option value="tot-1k">Tot € 1.000</option>
+                <option value="1k-5k">€ 1.000 – € 5.000</option>
+                <option value="5k-15k">€ 5.000 – € 15.000</option>
+                <option value="15k-plus">€ 15.000+</option>
+                <option value="maandelijks">Maandelijks beheer / onderhoud</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="startmoment">Gewenste start</label>
+              <select id="startmoment" name="startmoment">
+                <option value="" selected>Geen harde deadline</option>
+                <option value="asap">Zo snel mogelijk</option>
+                <option value="2-weken">Binnen 2 weken</option>
+                <option value="maand">Binnen 1 maand</option>
+                <option value="kwartaal">Binnen dit kwartaal</option>
+                <option value="later">Later dit jaar</option>
+              </select>
+            </div>
           </div>
           <div class="form-group">
             <label for="dienst">Welke dienst? *</label>
@@ -214,7 +270,7 @@
             <textarea id="bericht" name="bericht" placeholder="Wat wil je bouwen? Wat is het doel? Wat is je tijdslijn of budget?" required></textarea>
           </div>
           <button type="submit" class="form-submit">Verstuur bericht &rarr;</button>
-          <p class="form-disclaimer">We gebruiken jouw gegevens alleen om op je bericht te reageren. Geen spam, beloofd.</p>
+          <p class="form-disclaimer">We gebruiken jouw gegevens alleen om op je bericht te reageren. Liever direct mailen? hallo@webbiecorn.com.</p>
         </form>
         <div class="form-success" id="formSuccess">
           <div class="success-icon">✦</div>
@@ -256,12 +312,15 @@
     const name = encodeURIComponent(form.name.value.trim());
     const bedrijf = form.bedrijf.value.trim();
     const dienst = form.dienst.options[form.dienst.selectedIndex].text;
-    const bericht = encodeURIComponent(form.bericht.value.trim());
+    const budget = form.budget ? form.budget.options[form.budget.selectedIndex].text : '';
+    const startmoment = form.startmoment ? form.startmoment.options[form.startmoment.selectedIndex].text : '';
     const subject = encodeURIComponent('Projectaanvraag via webbiecorn.com — ' + form.name.value.trim());
     const body = encodeURIComponent(
       'Naam: ' + form.name.value.trim() + '\n' +
       (bedrijf ? 'Bedrijf: ' + bedrijf + '\n' : '') +
       'Dienst: ' + dienst + '\n\n' +
+      (budget && budget !== 'Nog onbekend' ? 'Budget: ' + budget + '\n' : '') +
+      (startmoment && startmoment !== 'Geen harde deadline' ? 'Gewenste start: ' + startmoment + '\n\n' : '\n') +
       form.bericht.value.trim()
     );
     window.location.href = 'mailto:hallo@webbiecorn.com?subject=' + subject + '&body=' + body;
