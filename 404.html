@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
     body { display: flex; flex-direction: column; min-height: 100vh; }
@@ -77,6 +77,7 @@
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
   function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  document.querySelectorAll("a[href]").forEach(a => { if(a.host === window.location.host && !a.hash && !a.hasAttribute("download")) { a.addEventListener("click", e => { if(e.ctrlKey || e.metaKey || e.shiftKey) return; e.preventDefault(); document.body.classList.add("fade-out"); setTimeout(() => window.location = a.href, 250); }); } });
 </script>
 </body>
 </html>
