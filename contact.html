@@ -118,6 +118,7 @@
   </style>
 </head>
 <body>
+<div id="scroll-progress"></div>
 <nav id="navbar" class="solid">
   <a href="index.html" class="nav-logo">
     <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
@@ -269,6 +270,7 @@
       success.style.display = 'block';
     }, 400);
   }
+  window.addEventListener('scroll', () => { const sp=document.getElementById('scroll-progress'); if(sp) sp.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%'; });
 </script>
 </body>
 </html>

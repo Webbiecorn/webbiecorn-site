@@ -78,6 +78,8 @@
   </style>
 </head>
 <body>
+<div id="scroll-progress"></div>
+<div id="cursor-spotlight"></div>
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
     <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
@@ -130,6 +132,30 @@
           <h3>Code</h3><p>PWA's en apps die blijven renderen.</p><div class="card-bar"></div>
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="stats-strip">
+  <div class="stats-row">
+    <div class="stat-item reveal">
+      <span class="stat-number" data-target="3" data-suffix="+">0+</span>
+      <div class="stat-label">Jaar actief</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item reveal reveal-delay-1">
+      <span class="stat-number" data-target="12" data-suffix="+">0+</span>
+      <div class="stat-label">Projecten opgeleverd</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item reveal reveal-delay-2">
+      <span class="stat-number" data-target="4" data-suffix="">0</span>
+      <div class="stat-label">Disciplines in-house</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item reveal reveal-delay-3">
+      <span class="stat-number" data-target="100" data-suffix="%">0%</span>
+      <div class="stat-label">In eigen regie</div>
     </div>
   </div>
 </section>
@@ -235,7 +261,11 @@
 
 <script>
   const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 40); });
+  const _sp = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    if (_sp) _sp.style.width = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) + '%';
+  });
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
@@ -268,8 +298,15 @@
   });
   const cardsRow=document.getElementById('cards-row'), heroContent=document.getElementById('hero-content');
   let mx=0,my=0,cx=0,cy=0;
-  window.addEventListener('mousemove',e=>{mx=(e.clientX/window.innerWidth-0.5)*2; my=(e.clientY/window.innerHeight-0.5)*2;});
+  const _spotlight = document.getElementById('cursor-spotlight');
+  window.addEventListener('mousemove',e=>{
+    mx=(e.clientX/window.innerWidth-0.5)*2; my=(e.clientY/window.innerHeight-0.5)*2;
+    if(_spotlight){ _spotlight.style.left=e.clientX+'px'; _spotlight.style.top=e.clientY+'px'; _spotlight.classList.add('active'); }
+  });
   (function loop(){cx+=(mx-cx)*0.07;cy+=(my-cy)*0.07;if(cardsRow)cardsRow.style.transform=`rotateX(${24+cy*-4}deg) rotateY(${cx*5}deg)`;if(heroContent)heroContent.style.transform=`translateX(${cx*-12}px) translateY(${cy*-8}px)`;requestAnimationFrame(loop);})();
+  function animateCount(el){const t=+el.dataset.target,s=el.dataset.suffix||'',d=1800,st=performance.now();(function step(n){const p=Math.min((n-st)/d,1),v=1-Math.pow(1-p,3);el.textContent=Math.floor(v*t)+s;if(p<1)requestAnimationFrame(step);})(st);}
+  const cntObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);cntObs.unobserve(e.target);}});},{threshold:0.5});
+  document.querySelectorAll('.stat-number').forEach(el=>cntObs.observe(el));
 </script>
 </body>
 </html>
