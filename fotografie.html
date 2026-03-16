@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fotografie — Webbiecorn</title>
+  <meta name="description" content="Professionele fotografie voor producten, portretten, events en social media. Volledig in eigen hand door Webbiecorn." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webbiecorn.com/fotografie.html" />
+  <meta property="og:title" content="Fotografie — Webbiecorn" />
+  <meta property="og:description" content="Beelden met impact. Van productfotografie tot events — altijd in eigen regie." />
+  <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Fotografie — Webbiecorn" />
+  <meta name="twitter:description" content="Beelden met impact. Van productfotografie tot events — altijd in eigen regie." />
+  <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <link rel="canonical" href="https://webbiecorn.com/fotografie.html" />
+  <link rel="apple-touch-icon" href="webbiecorn-logo.png" />
+  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #foto-types { background: var(--black-mid); }
+    #foto-aanpak { background: var(--black); }
+    #foto-details { background: var(--black-mid); }
+    #foto-cta { background: var(--black); padding: 5rem 2rem; }
+    .types-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .type-card {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem;
+      transition: border-color 0.3s, transform 0.25s;
+    }
+    .type-card:hover { border-color: rgba(217,43,75,0.4); transform: translateY(-4px); }
+    .type-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .type-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .type-desc { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.65; }
+    .type-includes { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .type-includes li {
+      list-style: none; font-size: 0.8rem; color: rgba(255,255,255,0.45);
+      padding: 0.2rem 0; padding-left: 1.1rem; position: relative;
+    }
+    .type-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--red); font-size: 0.7rem; top: 0.25rem; }
+    .detail-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+      margin-top: 3rem; align-items: start;
+    }
+    .detail-block h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+    .detail-block p { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.75; margin-bottom: 1rem; }
+    .detail-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .detail-block ul li {
+      font-size: 0.875rem; color: rgba(255,255,255,0.55);
+      padding-left: 1.25rem; position: relative;
+    }
+    .detail-block ul li::before { content: '→'; position: absolute; left: 0; color: var(--red); }
+    .price-pill {
+      display: inline-block; background: rgba(217,43,75,0.1); border: 1px solid rgba(217,43,75,0.3);
+      color: var(--red); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; margin-top: 1.25rem;
+    }
+    @media (max-width: 768px) { .detail-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  </style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="index.html" class="nav-logo">
+    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="over.html">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label reveal">Discipline 01</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Beelden die<br/><em>blijven hangen.</em></h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Fotografie volledig in eigen regie. Geen stockfoto's, geen externe fotograaf — wij kennen jouw merk en vertalen dat direct naar beeld.</p>
+  </div>
+</section>
+
+<section id="foto-types">
+  <div class="container">
+    <p class="section-label reveal">Wat wij fotograferen</p>
+    <h2 class="section-title reveal reveal-delay-1">Vier soorten.<br/><em>Eén oog.</em></h2>
+    <div class="types-grid">
+      <div class="type-card reveal reveal-delay-1">
+        <div class="type-icon">📦</div>
+        <div class="type-title">Productfotografie</div>
+        <div class="type-desc">Strak, eerlijk en on-brand. Voor webshops, catalogi en social media. Wij zorgen dat jouw product er op zijn best uitziet.</div>
+        <ul class="type-includes">
+          <li>Witachtergrond studio-opnames</li>
+          <li>Lifestyle / in-context shots</li>
+          <li>Detail- en textuuropnames</li>
+          <li>Post-processing &amp; kleurcorrectie</li>
+        </ul>
+        <span class="price-pill">Vanaf €150 / sessie</span>
+      </div>
+      <div class="type-card reveal reveal-delay-2">
+        <div class="type-icon">🧑</div>
+        <div class="type-title">Portretfotografie</div>
+        <div class="type-desc">Zakelijke headshots, team-portretten of persoonlijk branding. Beelden die vertrouwen uitstralen en bij jouw identiteit passen.</div>
+        <ul class="type-includes">
+          <li>Indoor studio en outdoor locatie</li>
+          <li>Individueel en groepsportretten</li>
+          <li>Selectie + bewerking inbegrepen</li>
+          <li>Meerdere outfits / looks mogelijk</li>
+        </ul>
+        <span class="price-pill">Vanaf €120 / persoon</span>
+      </div>
+      <div class="type-card reveal reveal-delay-3">
+        <div class="type-icon">📅</div>
+        <div class="type-title">Eventfotografie</div>
+        <div class="type-desc">Bedrijfsevenementen, openingen, beurzen of jubilea. Wij vangen de sfeer en de mensen zonder dat iedereen stijf in de lens kijkt.</div>
+        <ul class="type-includes">
+          <li>Reportagestyle — onopvallend</li>
+          <li>Inclusief opgestelde groepsfoto's</li>
+          <li>Online galerij binnen 5 werkdagen</li>
+          <li>Tot 4 uur aanwezig</li>
+        </ul>
+        <span class="price-pill">Vanaf €350 / event</span>
+      </div>
+      <div class="type-card reveal reveal-delay-1">
+        <div class="type-icon">📱</div>
+        <div class="type-title">Social media content</div>
+        <div class="type-desc">Consistent beeldmateriaal voor Instagram, LinkedIn of website. Per shoot of als doorlopend pakket. Zodat jij altijd iets te posten hebt.</div>
+        <ul class="type-includes">
+          <li>Contentplanning vooraf</li>
+          <li>15–30 geredigeerde beelden</li>
+          <li>Bijgeleverd in juiste formaten</li>
+          <li>Maandelijks abonnement mogelijk</li>
+        </ul>
+        <span class="price-pill">Vanaf €200 / shoot</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="foto-aanpak">
+  <div class="container">
+    <p class="section-label reveal">Hoe wij werken</p>
+    <h2 class="section-title reveal reveal-delay-1">Van briefing<br/><em>tot bestand.</em></h2>
+    <div class="process-steps" style="margin-top:3rem">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-nr">01</div>
+        <div><div class="process-title">Intake &amp; moodboard</div><div class="process-desc">We bespreken het doel, de stijl en het gebruik van de beelden. Wij stellen een moodboard samen zodat we op één lijn zitten voor de shoot.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-nr">02</div>
+        <div><div class="process-title">Voorbereiding &amp; locatie</div><div class="process-desc">Wij regelen de locatie, belichting en props. Jij hoeft alleen op te komen dagen — of je product op te sturen bij studioproducties.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-nr">03</div>
+        <div><div class="process-title">De shoot</div><div class="process-desc">Efficiënt en doelgericht. We maken ruim voldoende materiaal zodat je bij de selectie echt wat te kiezen hebt.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-nr">04</div>
+        <div><div class="process-title">Selectie &amp; levering</div><div class="process-desc">Je ontvangt binnen 5 werkdagen een online galerij. Na jouw selectie worden de definitieve beelden gewist, ingelijst en geleverd in de benodigde formaten.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="foto-details">
+  <div class="container">
+    <p class="section-label reveal">Praktisch</p>
+    <h2 class="section-title reveal reveal-delay-1">Wat je moet<br/><em>weten.</em></h2>
+    <div class="detail-grid">
+      <div class="detail-block reveal reveal-delay-1">
+        <h3>Wat is inbegrepen?</h3>
+        <p>Elke opdracht is inclusief intake-gesprek, voorbereiding, de shoot zelf en basisbewerking. Je ontvangt altijd een downloadlink naar alle afgeleverde bestanden in hoge resolutie.</p>
+        <ul>
+          <li>Kleurcorrectie &amp; belichting</li>
+          <li>Huidretouch (bij portretten)</li>
+          <li>Uitsnede / bijsnijden op maat</li>
+          <li>Leverformaat: JPG + PNG naar keuze</li>
+          <li>Commerciële gebruiksrechten inbegrepen</li>
+        </ul>
+      </div>
+      <div class="detail-block reveal reveal-delay-2">
+        <h3>Veelgestelde vragen</h3>
+        <p><strong>Heb ik een locatie nodig?</strong><br/>Nee. Wij hebben een mobiele studiostelling en komen naar jou toe, of we zoeken samen een locatie.</p>
+        <p><strong>Hoe snel zijn de beelden klaar?</strong><br/>Standaard binnen 5 werkdagen. Spoedlevering binnen 48 uur is mogelijk tegen een toeslag.</p>
+        <p><strong>Kan ik de beelden commercieel gebruiken?</strong><br/>Ja, alle afgeleverde beelden zijn voorzien van commerciële gebruiksrechten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="foto-cta">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Klaar voor de shoot?</h2>
+      <p>Vertel ons wat je nodig hebt en wij plannen een afspraak in.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn-primary">Plan een shoot</a>
+        <a href="diensten.html" class="btn-ghost">Bekijk alle diensten</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

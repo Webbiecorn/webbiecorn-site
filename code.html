@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code &amp; Development — Webbiecorn</title>
+  <meta name="description" content="Progressive Web Apps, React, Firebase, n8n automatisering en maatwerk webapps. Apps die blijven renderen — door Webbiecorn." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webbiecorn.com/code.html" />
+  <meta property="og:title" content="Code & Development — Webbiecorn" />
+  <meta property="og:description" content="PWA's, React apps, Firebase backends en n8n automatisering. Apps die blijven renderen." />
+  <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Code & Development — Webbiecorn" />
+  <meta name="twitter:description" content="PWA's, React apps, Firebase backends en n8n automatisering. Apps die blijven renderen." />
+  <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <link rel="canonical" href="https://webbiecorn.com/code.html" />
+  <link rel="apple-touch-icon" href="webbiecorn-logo.png" />
+  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #code-types { background: var(--black-mid); }
+    #code-stack { background: var(--black); }
+    #code-aanpak { background: var(--black-mid); }
+    #code-cta { background: var(--black); padding: 5rem 2rem; }
+    .types-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .type-card {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem;
+      transition: border-color 0.3s, transform 0.25s;
+    }
+    .type-card:hover { border-color: rgba(217,43,75,0.4); transform: translateY(-4px); }
+    .type-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .type-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .type-desc { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.65; }
+    .type-includes { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .type-includes li {
+      list-style: none; font-size: 0.8rem; color: rgba(255,255,255,0.45);
+      padding: 0.2rem 0; padding-left: 1.1rem; position: relative;
+    }
+    .type-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--red); font-size: 0.7rem; top: 0.25rem; }
+    .price-pill {
+      display: inline-block; background: rgba(217,43,75,0.1); border: 1px solid rgba(217,43,75,0.3);
+      color: var(--red); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; margin-top: 1.25rem;
+    }
+    /* Tech stack grid */
+    .stack-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem; margin-top: 3rem;
+    }
+    .stack-item {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.25rem 1rem; text-align: center;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .stack-item:hover { border-color: rgba(217,43,75,0.35); transform: translateY(-3px); }
+    .stack-logo { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .stack-name { font-size: 0.85rem; font-weight: 700; }
+    .stack-role { font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem; }
+    /* Kenmerken */
+    .kenmerken-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 3rem;
+    }
+    .kenmerk {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.5rem;
+    }
+    .kenmerk-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .kenmerk-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .kenmerk-desc { font-size: 0.825rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    @media (max-width: 600px) { .kenmerken-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="index.html" class="nav-logo">
+    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="over.html">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label reveal">Discipline 04</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Apps die blijven<br/><em>renderen.</em></h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Wij bouwen Progressive Web Apps, medewerkersportalen en automatiseringssystemen. Altijd op basis van een sterk design — volledig in eigen hand.</p>
+  </div>
+</section>
+
+<section id="code-types">
+  <div class="container">
+    <p class="section-label reveal">Wat wij bouwen</p>
+    <h2 class="section-title reveal reveal-delay-1">Vier soorten<br/><em>digitale producten.</em></h2>
+    <div class="types-grid">
+      <div class="type-card reveal reveal-delay-1">
+        <div class="type-icon">📱</div>
+        <div class="type-title">Progressive Web App</div>
+        <div class="type-desc">Een PWA werkt op elk apparaat als een echte app — zonder App Store. Installeerbaar, offline-capable en razendsnel. Het beste van web én mobiel.</div>
+        <ul class="type-includes">
+          <li>Installeerbaar op iOS &amp; Android</li>
+          <li>Offline-first met service worker</li>
+          <li>Push-notificaties mogelijk</li>
+          <li>React + Firebase stack</li>
+          <li>Deploy via Hostinger / Vercel / Firebase</li>
+        </ul>
+        <span class="price-pill">Vanaf €800</span>
+      </div>
+      <div class="type-card reveal reveal-delay-2">
+        <div class="type-icon">🏢</div>
+        <div class="type-title">Medewerkersportaal</div>
+        <div class="type-desc">Een interne applicatie voor jouw organisatie. Dashboard, nieuwsmodule, meldpunt, gebruikersbeheer en rolgebaseerde toegang — op maat gebouwd.</div>
+        <ul class="type-includes">
+          <li>Authenticatie &amp; rolbeheer</li>
+          <li>Realtime data via Firebase</li>
+          <li>Admin dashboard</li>
+          <li>Notificatiesysteem</li>
+          <li>White-label uitrollen mogelijk</li>
+        </ul>
+        <span class="price-pill">Vanaf €1.200</span>
+      </div>
+      <div class="type-card reveal reveal-delay-3">
+        <div class="type-icon">🌐</div>
+        <div class="type-title">Website &amp; landingspagina</div>
+        <div class="type-desc">Van eenvoudige informatiesite tot volledige multi-page website. Altijd met het oog op snelheid, SEO en conversie. Geen page builders — alles handgebouwd.</div>
+        <ul class="type-includes">
+          <li>HTML/CSS/JS of React</li>
+          <li>Volledig responsief</li>
+          <li>SEO-klaar (OG, canonical, sitemap)</li>
+          <li>Hostinger / GitHub Pages deploy</li>
+          <li>Contactformulier met n8n koppeling</li>
+        </ul>
+        <span class="price-pill">Vanaf €300</span>
+      </div>
+      <div class="type-card reveal reveal-delay-1">
+        <div class="type-icon">🔗</div>
+        <div class="type-title">Automatisering &amp; AI</div>
+        <div class="type-desc">Systemen koppelen via n8n workflows. Van lead-routing en e-mailautomatisering tot AI-gestuurde assistentie en rapportages — zonder maandelijkse SaaS-factuur.</div>
+        <ul class="type-includes">
+          <li>n8n self-hosted of cloud</li>
+          <li>Webhooks, API-koppelingen</li>
+          <li>OpenAI / AI integratie</li>
+          <li>Google Sheets / Notion / Slack</li>
+          <li>Documentatie &amp; handover inbegrepen</li>
+        </ul>
+        <span class="price-pill">Vanaf €400</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="code-stack">
+  <div class="container">
+    <p class="section-label reveal">Technologie</p>
+    <h2 class="section-title reveal reveal-delay-1">Onze standaard<br/><em>tech stack.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">We kiezen bewust voor bewezen, schaalbare technologie — geen hype-gedreven keuzes.</p>
+    <div class="stack-grid">
+      <div class="stack-item reveal reveal-delay-1"><div class="stack-logo">⚛️</div><div class="stack-name">React</div><div class="stack-role">Frontend framework</div></div>
+      <div class="stack-item reveal reveal-delay-2"><div class="stack-logo">🔥</div><div class="stack-name">Firebase</div><div class="stack-role">Backend &amp; database</div></div>
+      <div class="stack-item reveal reveal-delay-3"><div class="stack-logo">🔗</div><div class="stack-name">n8n</div><div class="stack-role">Automatisering</div></div>
+      <div class="stack-item reveal reveal-delay-1"><div class="stack-logo">🌐</div><div class="stack-name">HTML/CSS/JS</div><div class="stack-role">Vanilla web</div></div>
+      <div class="stack-item reveal reveal-delay-2"><div class="stack-logo">🗺️</div><div class="stack-name">Leaflet</div><div class="stack-role">Kaartintegratie</div></div>
+      <div class="stack-item reveal reveal-delay-3"><div class="stack-logo">🐙</div><div class="stack-name">GitHub</div><div class="stack-role">Versiebeheer</div></div>
+      <div class="stack-item reveal reveal-delay-1"><div class="stack-logo">🚀</div><div class="stack-name">Hostinger</div><div class="stack-role">Hosting &amp; deploy</div></div>
+      <div class="stack-item reveal reveal-delay-2"><div class="stack-logo">🤖</div><div class="stack-name">OpenAI API</div><div class="stack-role">AI integratie</div></div>
+    </div>
+
+    <div class="kenmerken-grid" style="margin-top:3rem">
+      <div class="kenmerk reveal reveal-delay-1">
+        <div class="kenmerk-icon">⚡</div>
+        <div><div class="kenmerk-title">Geen onnodige dependencies</div><div class="kenmerk-desc">Wij bouwen lean. Geen npm-pakket voor elke kleine functie. Schnelle laadtijden beginnen bij schone code.</div></div>
+      </div>
+      <div class="kenmerk reveal reveal-delay-2">
+        <div class="kenmerk-icon">🔒</div>
+        <div><div class="kenmerk-title">Security by default</div><div class="kenmerk-desc">Firebase Firestore rules, input-validatie, geen secrets in de frontend. Security zit ingebakken — geen bijsaak.</div></div>
+      </div>
+      <div class="kenmerk reveal reveal-delay-3">
+        <div class="kenmerk-icon">📐</div>
+        <div><div class="kenmerk-title">Mobile-first altijd</div><div class="kenmerk-desc">We ontwerpen en bouwen mobile-first. De desktop-versie is een uitbreiding — niet het startpunt.</div></div>
+      </div>
+      <div class="kenmerk reveal reveal-delay-1">
+        <div class="kenmerk-icon">📦</div>
+        <div><div class="kenmerk-title">Overdraagbare code</div><div class="kenmerk-desc">Alles wat we bouwen is gedocumenteerd en overdraagbaar. Jij bent eigenaar — niet afhankelijk van ons.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="code-aanpak">
+  <div class="container">
+    <p class="section-label reveal">Hoe wij werken</p>
+    <h2 class="section-title reveal reveal-delay-1">Van idee<br/><em>tot live product.</em></h2>
+    <div class="process-steps" style="margin-top:3rem">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-nr">01</div>
+        <div><div class="process-title">Intake &amp; scope</div><div class="process-desc">We bespreken het doel, de doelgroep, gewenste functionaliteiten en het budget. Op basis hiervan stellen we een scoping-document op met een vaste prijs.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-nr">02</div>
+        <div><div class="process-title">Design &amp; prototype</div><div class="process-desc">Voor we een regel code schrijven, leggen we het design vast in Figma. Zo weten we precies wat we bouwen — en kun jij feedback geven voordat het te laat is.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-nr">03</div>
+        <div><div class="process-title">Development &amp; review</div><div class="process-desc">We bouwen modulair en iteratief. Na elke sprint is er een test-versie die jij kunt bekijken. Geen verassingen bij de eindoplevering.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-nr">04</div>
+        <div><div class="process-title">Live &amp; doorgroeien</div><div class="process-desc">Na livegang verzorgen wij ondersteuning, bugfixes en doorontwikkeling. Maandelijkse beheercontracten zijn beschikbaar, maar niet verplicht.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="code-cta">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Iets laten bouwen?</h2>
+      <p>Stuur ons een briefing — dan weten wij binnen 3 werkdagen wat het kost.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn-primary">Start een bouwopdracht</a>
+        <a href="cases.html" class="btn-ghost">Bekijk live projecten</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

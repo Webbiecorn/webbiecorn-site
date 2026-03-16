@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design — Webbiecorn</title>
+  <meta name="description" content="Van merkidentiteit tot gebruikersinterface. UI/UX design, Figma prototypes en grafisch ontwerp door Webbiecorn." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webbiecorn.com/design.html" />
+  <meta property="og:title" content="Design — Webbiecorn" />
+  <meta property="og:description" content="Van merkidentiteit tot gebruikersinterface. UI/UX design en grafisch ontwerp zonder compromis." />
+  <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Design — Webbiecorn" />
+  <meta name="twitter:description" content="Van merkidentiteit tot gebruikersinterface. UI/UX design en grafisch ontwerp zonder compromis." />
+  <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
+  <meta name="theme-color" content="#0d0d0d" />
+  <link rel="canonical" href="https://webbiecorn.com/design.html" />
+  <link rel="apple-touch-icon" href="webbiecorn-logo.png" />
+  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #design-types { background: var(--black-mid); }
+    #design-aanpak { background: var(--black); }
+    #design-principes { background: var(--black-mid); }
+    #design-cta { background: var(--black); padding: 5rem 2rem; }
+    .types-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .type-card {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 2rem;
+      transition: border-color 0.3s, transform 0.25s;
+    }
+    .type-card:hover { border-color: rgba(217,43,75,0.4); transform: translateY(-4px); }
+    .type-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .type-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .type-desc { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.65; }
+    .type-includes { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .type-includes li {
+      list-style: none; font-size: 0.8rem; color: rgba(255,255,255,0.45);
+      padding: 0.2rem 0; padding-left: 1.1rem; position: relative;
+    }
+    .type-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--red); font-size: 0.7rem; top: 0.25rem; }
+    .price-pill {
+      display: inline-block; background: rgba(217,43,75,0.1); border: 1px solid rgba(217,43,75,0.3);
+      color: var(--red); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; margin-top: 1.25rem;
+    }
+    .principes-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .principe-card {
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 2rem;
+      transition: border-color 0.3s;
+    }
+    .principe-card:hover { border-color: rgba(217,43,75,0.3); }
+    .principe-nr { font-size: 2.5rem; font-weight: 800; color: rgba(217,43,75,0.2); line-height: 1; margin-bottom: 0.75rem; }
+    .principe-titel { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .principe-desc { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+  </style>
+</head>
+<body>
+<nav id="navbar" class="solid">
+  <a href="index.html" class="nav-logo">
+    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="over.html">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="section-label reveal">Discipline 03</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Van schets<br/><em>tot systeem.</em></h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Design is geen laagje verf. Het is de structuur achter hoe mensen jouw merk, product of interface ervaren. Wij ontwerpen zonder compromis.</p>
+  </div>
+</section>
+
+<section id="design-types">
+  <div class="container">
+    <p class="section-label reveal">Wat wij ontwerpen</p>
+    <h2 class="section-title reveal reveal-delay-1">Drie niveaus.<br/><em>Eén aanpak.</em></h2>
+    <div class="types-grid">
+      <div class="type-card reveal reveal-delay-1">
+        <div class="type-icon">🏷️</div>
+        <div class="type-title">Merkidentiteit</div>
+        <div class="type-desc">Meer dan een logo. Een compleet visueel systeem dat consistent werkt op elk platform — van visitekaartje tot app-icoon.</div>
+        <ul class="type-includes">
+          <li>Logo &amp; varianten</li>
+          <li>Kleurpalet &amp; typografiesysteem</li>
+          <li>Stationery (kaartje, briefhoofd)</li>
+          <li>Brand guidelines (PDF)</li>
+          <li>Social media templates</li>
+        </ul>
+        <span class="price-pill">Vanaf €500</span>
+      </div>
+      <div class="type-card reveal reveal-delay-2">
+        <div class="type-icon">🖥️</div>
+        <div class="type-title">UI/UX Design</div>
+        <div class="type-desc">Interfaces die werken en er goed uitzien. Wij ontwerpen op basis van gebruikersgedrag — niet op basis van wat er cool uitziet in een portfolio.</div>
+        <ul class="type-includes">
+          <li>Wireframes &amp; user flows</li>
+          <li>Volledig uitgewerkt Figma design</li>
+          <li>Klikbaar prototype</li>
+          <li>Design system / component library</li>
+          <li>Handoff-klaar voor development</li>
+        </ul>
+        <span class="price-pill">Vanaf €600</span>
+      </div>
+      <div class="type-card reveal reveal-delay-3">
+        <div class="type-icon">📄</div>
+        <div class="type-title">Print &amp; presentaties</div>
+        <div class="type-desc">Flyers, brochures, posters, Pitch-decks en jaarverslagen. Alles wat je fysiek of als PDF wilt presenteren — strak en on-brand.</div>
+        <ul class="type-includes">
+          <li>Drukklaar (CMYK, snijlijnen)</li>
+          <li>Digitale PDF variant</li>
+          <li>Animeerbare presentatie mogelijk</li>
+          <li>Opgemaakt in Adobe InDesign / Figma</li>
+        </ul>
+        <span class="price-pill">Vanaf €200</span>
+      </div>
+      <div class="type-card reveal reveal-delay-1">
+        <div class="type-icon">✨</div>
+        <div class="type-title">Motion &amp; animatie</div>
+        <div class="type-desc">Geanimeerde logo's, intro-animaties, hover-effecten of micro-interacties. Beweging voegt een lagen toe die statisch design niet kan.</div>
+        <ul class="type-includes">
+          <li>Logo-animatie (MP4 / GIF)</li>
+          <li>CSS / Lottie micro-interacties</li>
+          <li>Scroll-animaties voor websites</li>
+          <li>Social media animaties</li>
+        </ul>
+        <span class="price-pill">Vanaf €250</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="design-principes">
+  <div class="container">
+    <p class="section-label reveal">Onze designfilosofie</p>
+    <h2 class="section-title reveal reveal-delay-1">Vier principes.<br/><em>Geen uitzonderingen.</em></h2>
+    <div class="principes-grid">
+      <div class="principe-card reveal reveal-delay-1">
+        <div class="principe-nr">01</div>
+        <div class="principe-titel">Functie eerst</div>
+        <div class="principe-desc">Iets moet werken voordat het mooi kan zijn. Wij beginnen bij het doel — niet bij de esthetiek.</div>
+      </div>
+      <div class="principe-card reveal reveal-delay-2">
+        <div class="principe-nr">02</div>
+        <div class="principe-titel">Consistentie is alles</div>
+        <div class="principe-desc">Een merk dat er op elke plek anders uitziet, is geen merk. Wij ontwerpen systemen, niet losse stukken.</div>
+      </div>
+      <div class="principe-card reveal reveal-delay-3">
+        <div class="principe-nr">03</div>
+        <div class="principe-titel">Minder is sterker</div>
+        <div class="principe-desc">Elk element dat we weghalen, versterkt alles dat overblijft. Wij houden van wit, ruimte en focus.</div>
+      </div>
+      <div class="principe-card reveal reveal-delay-1">
+        <div class="principe-nr">04</div>
+        <div class="principe-titel">Schaalbaar ontwerp</div>
+        <div class="principe-desc">Een goed ontwerp werkt op een billboard én op een app-icoon van 16px. Wij testen op alle formaten.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="design-aanpak">
+  <div class="container">
+    <p class="section-label reveal">Hoe wij werken</p>
+    <h2 class="section-title reveal reveal-delay-1">Van intake<br/><em>tot oplevering.</em></h2>
+    <div class="process-steps" style="margin-top:3rem">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-nr">01</div>
+        <div><div class="process-title">Discovery</div><div class="process-desc">We duiken in jouw merk, doelgroep, concurrenten en doelen. Hoe beter wij jou begrijpen, hoe sterker het eindresultaat.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-nr">02</div>
+        <div><div class="process-title">Concept &amp; richting</div><div class="process-desc">We presenteren 2–3 designrichtingen. Geen volledig uitgewerkte ontwerpen, maar een duidelijke visuele richting om snel te beslissen.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-nr">03</div>
+        <div><div class="process-title">Uitwerking</div><div class="process-desc">De gekozen richting wordt volledig uitgewerkt in Figma. Inclusief twee feedbackrondes — zodat het resultaat ook echt van jou is.</div></div>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-nr">04</div>
+        <div><div class="process-title">Oplevering &amp; handoff</div><div class="process-desc">Alle designbestanden worden geleverd in afgesproken formaten. Bij UI-projecten: ook een complete developer-handoff via Figma.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="design-cta">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Iets laten ontwerpen?</h2>
+      <p>Stuur ons een briefing en wij gaan aan de slag.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn-primary">Start een designproject</a>
+        <a href="cases.html" class="btn-ghost">Bekijk ons werk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
