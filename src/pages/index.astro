@@ -22,23 +22,23 @@ import Layout from '../layouts/Layout.astro';
     <div class="aurora-glow aurora-2"></div>
     <div class="grid-overlay"></div>
   </div>
-  
+
   <div class="hero-inner">
     <div class="avail-badge reveal-hero">
       <span class="pulsing-dot"></span>
       <span>Direct beschikbaar voor nieuwe projecten</span>
     </div>
-    
+
     <h1 class="hero-title hero-title-xl">
       <div class="text-line reveal-slide">Wij bouwen</div>
       <div class="text-line reveal-slide delay-1">platformen die</div>
       <div class="text-line reveal-slide delay-2 hero-gradient-text">presteren.</div>
     </h1>
-    
+
     <p class="hero-sub reveal-hero">
       Premium code, zero compromises. Van <span class="highlight">architectuur</span> tot <span class="highlight">launch</span> — wij leveren platformen die organisaties versnellen.
     </p>
-    
+
     <div class="hero-ctas reveal-hero">
       <a href="contact.html" class="btn-primary magnetic-btn">
         <span class="btn-text">Start je project</span>
@@ -49,7 +49,7 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="cards-stage reveal-hero">
       <div class="cards-row spotlight-group" id="premium-cards-row">
-        
+
         <a href="apps.html" class="premium-card">
           <div class="spotlight"></div>
           <div class="card-content">
@@ -113,7 +113,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" alt="Tailwind" width="20"/> Tailwind CSS</div>
       <div class="ticker-item"><span class="dot astro"></span> Astro Component Framework</div>
       <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node" width="40"/></div>
-      
+
       <!-- Duplicate for seamless scrolling -->
       <div class="ticker-item"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" width="20"/> React</div>
       <div class="ticker-item"><span class="dot pwa"></span> PWA's & Web Apps</div>
@@ -177,8 +177,8 @@ import Layout from '../layouts/Layout.astro';
     <p class="section-sub gsap-reveal">Snelle iteraties. Volledige transparantie. Van eerste schets tot schaalbare live-omgeving.</p>
 
     <div class="bento-walkthrough reveal-slide delay-2">
-      <!-- Stap 1 -->
-      <div class="bento-card bento-large group-hover-trigger">
+      <!-- Stap 1 — breed -->
+      <div class="bento-card bento-wide group-hover-trigger">
         <div class="bento-header">
           <div class="bento-number">01</div>
           <h3>Ontdekken &amp; Afkaderen</h3>
@@ -192,32 +192,45 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- Stap 2 -->
-      <div class="bento-card bento-small">
+      <div class="bento-card">
         <div class="bento-header">
           <div class="bento-number">02</div>
           <h3>UX &amp; Prototype</h3>
         </div>
         <p>Je krijgt binnen no-time een interactief, klikbaar prototype in de huisstijl.</p>
-        <div class="bento-visual-minimal">
-          <div class="wireframe-box"></div>
-          <div class="wireframe-box fill"></div>
+        <div class="bento-visual-screens">
+          <div class="bento-screen">
+            <div class="screen-bar"></div>
+            <div class="screen-row"><div class="screen-block w60"></div><div class="screen-block w40 accent"></div></div>
+            <div class="screen-row"><div class="screen-block w100"></div></div>
+            <div class="screen-row"><div class="screen-block w30"></div><div class="screen-block w30"></div><div class="screen-block w30"></div></div>
+          </div>
+          <div class="bento-screen small">
+            <div class="screen-bar"></div>
+            <div class="screen-row"><div class="screen-block w100 accent"></div></div>
+            <div class="screen-row"><div class="screen-block w60"></div></div>
+          </div>
         </div>
       </div>
 
       <!-- Stap 3 -->
-      <div class="bento-card bento-small">
+      <div class="bento-card">
         <div class="bento-header">
           <div class="bento-number">03</div>
           <h3>Agile Development</h3>
         </div>
         <p>Transparante sprints. Korte lijntjes. Wekelijkse test-updates zonder verrassingen.</p>
-        <div class="bento-visual-minimal code-style">
-          <span>&lt;Code /&gt;</span>
+        <div class="bento-code-block">
+          <div class="code-line"><span class="code-kw">const</span> <span class="code-fn">app</span> = <span class="code-fn">createApp</span>({'{'}</div>
+          <div class="code-line">&nbsp;&nbsp;stack: [<span class="code-str">'React'</span>, <span class="code-str">'Firebase'</span>],</div>
+          <div class="code-line">&nbsp;&nbsp;deploy: <span class="code-str">'CI/CD'</span>,</div>
+          <div class="code-line">&nbsp;&nbsp;uptime: <span class="code-num">99.9</span></div>
+          <div class="code-line">{'}'});</div>
         </div>
       </div>
 
-      <!-- Stap 4 -->
-      <div class="bento-card bento-large group-hover-trigger">
+      <!-- Stap 4 — breed -->
+      <div class="bento-card bento-wide group-hover-trigger">
         <div class="bento-header">
           <div class="bento-number">04</div>
           <h3>Launch, Run &amp; Groei</h3>
@@ -229,6 +242,10 @@ import Layout from '../layouts/Layout.astro';
             <div class="graph-bar w-2"></div>
             <div class="graph-bar w-3"></div>
             <div class="graph-bar w-4 highlight-bar"></div>
+          </div>
+          <div class="launch-label">
+            <span class="launch-tag">🟢 Live</span>
+            <span class="launch-metric">99.9% uptime</span>
           </div>
         </div>
       </div>
@@ -527,20 +544,20 @@ import Layout from '../layouts/Layout.astro';
           card.style.setProperty('--mouse-x', `${x}px`);
           card.style.setProperty('--mouse-y', `${y}px`);
         }
-        
+
         // 3D Tilt calculation (subtle)
         const rect = cardsRow.getBoundingClientRect();
         const xPos = e.clientX - rect.left;
         const yPos = e.clientY - rect.top;
         const xC = rect.width / 2;
         const yC = rect.height / 2;
-        
+
         const tiltX = ((yPos - yC) / yC) * -5;
         const tiltY = ((xPos - xC) / xC) * 5;
-        
+
         cardsRow.style.transform = `perspective(1500px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
       });
-      
+
       cardsRow.addEventListener('mouseleave', () => {
         cardsRow.style.transform = `perspective(1500px) rotateX(0deg) rotateY(0deg)`;
       });
@@ -550,9 +567,9 @@ import Layout from '../layouts/Layout.astro';
 
 <style is:global>
     /* Reveal Slide Global Support */
-    .reveal-hero-slide { 
-      opacity: 0; 
-      transform: translateY(30px) translateZ(0); 
+    .reveal-hero-slide {
+      opacity: 0;
+      transform: translateY(30px) translateZ(0);
       animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     }
     .delay-1 { animation-delay: 0.2s; }
@@ -566,19 +583,19 @@ import Layout from '../layouts/Layout.astro';
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    
+
 /* ── PREMIUM HERO ─────────────────────────── */
     #hero-premium {
       position: relative; width: 100%; min-height: 100vh;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       padding: 180px 2rem 6rem; overflow: hidden; background: #050505;
     }
-    
+
     /* Live Aurora & Grid */
     .aurora-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
     .grid-overlay {
       position: absolute; inset: 0;
-      background-image: 
+      background-image:
         linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
       background-size: 50px 50px;
@@ -669,12 +686,12 @@ import Layout from '../layouts/Layout.astro';
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
     .premium-card:hover { transform: translateY(-5px); border-color: rgba(217, 43, 75, 0.4); }
-    
+
     .card-content { position: relative; padding: 2rem 1.5rem; z-index: 2; height: 100%; display: flex; flex-direction: column; background: linear-gradient(180deg, rgba(20,20,20,0) 0%, rgba(10,10,10,0.8) 100%); }
     .premium-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; color: #fff;}
     .premium-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; flex-grow: 1; }
     .card-icon { margin-bottom: 1.5rem; display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 14px; background: rgba(217, 43, 75, 0.1); border: 1px solid rgba(217, 43, 75, 0.2); }
-    
+
     /* The Magical Spotlight */
     .premium-card::before {
       content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
@@ -691,12 +708,12 @@ import Layout from '../layouts/Layout.astro';
     /* Responsive */
     @media (max-width: 1024px) { .cards-row { grid-template-columns: repeat(2, 1fr); transform: none !important; } }
     @media (max-width: 600px) { .cards-row { grid-template-columns: 1fr; } .hero-ctas { flex-direction: column; width: 100%; } .magnetic-btn { width: 100%; } }
-    
+
     /* ── MARQUEE ─────────────────────────────── */
     #over-teaser { background: var(--black-mid); }
     #cta-section { background: var(--black); padding: 5rem 2rem; }
 
-    
+
     /* ── TECH TICKER ───────────────────────────────── */
     #tech-ticker {
       position: relative;
@@ -718,7 +735,7 @@ import Layout from '../layouts/Layout.astro';
     }
     .ticker-fade-left { left: 0; background: linear-gradient(90deg, var(--bg) 0%, transparent 100%); }
     .ticker-fade-right { right: 0; background: linear-gradient(-90deg, var(--bg) 0%, transparent 100%); }
-    
+
     .ticker-scroll {
       display: flex;
       width: 200%;
@@ -912,159 +929,158 @@ import Layout from '../layouts/Layout.astro';
 .bento-walkthrough {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto auto;
   gap: 1.5rem;
   margin-top: 4rem;
 }
 
 .bento-card {
-  background: rgba(20,20,20,0.5);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(20,20,20,0.6);
+  border: 1px solid rgba(255,255,255,0.07);
   border-radius: 20px;
-  padding: 2.5rem;
+  padding: 2.2rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
   position: relative;
   backdrop-filter: blur(10px);
 }
-
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(217,43,75,0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.bento-card:hover::before { opacity: 1; }
 .bento-card:hover {
-  border-color: rgba(217, 43, 75, 0.4);
-  transform: translateY(-5px);
+  border-color: rgba(217,43,75,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(217,43,75,0.06);
 }
 
-.bento-large {
-  grid-column: span 1;
-}
-
-.bento-small {
-  grid-column: span 1;
-}
+.bento-wide { grid-column: span 2; }
 
 .bento-header {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
-
 .bento-number {
-  background: rgba(217,43,75,0.1);
+  background: rgba(217,43,75,0.12);
   color: #D92B4B;
   font-family: monospace;
   font-weight: bold;
   padding: 0.4rem 0.8rem;
   border-radius: 8px;
-  font-size: 0.9rem;
-  border: 1px solid rgba(217,43,75,0.2);
+  font-size: 0.85rem;
+  border: 1px solid rgba(217,43,75,0.25);
 }
-
-.bento-card h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #fff;
-}
-
+.bento-card h3 { font-size: 1.3rem; font-weight: 700; color: #fff; }
 .bento-card p {
-  color: rgba(255,255,255,0.6);
-  line-height: 1.6;
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
-  flex-grow: 1;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6; font-size: 0.92rem;
+  margin-bottom: 1.5rem; flex-grow: 1;
 }
 
-/* Visuals inside Bento */
-.bento-visual {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-top: auto;
-}
+/* Pills visual */
+.bento-visual { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; }
 .bento-pill {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
-  padding: 0.5rem 1rem;
-  border-radius: 100px;
-  font-size: 0.8rem;
-  color: #aaa;
+  padding: 0.5rem 1rem; border-radius: 100px;
+  font-size: 0.8rem; color: rgba(255,255,255,0.5);
   transition: all 0.3s ease;
 }
 .bento-pill.highlight {
   background: rgba(217,43,75,0.15);
-  color: #fff;
-  border-color: rgba(217,43,75,0.4);
+  color: #fff; border-color: rgba(217,43,75,0.4);
 }
 
-/* Wireframe blocks for UI card */
-.bento-visual-minimal {
-  display: flex;
-  gap: 0.8rem;
-  margin-top: auto;
-  align-items: flex-end;
+/* UX Screen mockups */
+.bento-visual-screens {
+  display: flex; gap: 1rem; margin-top: auto; align-items: flex-end;
 }
-.wireframe-box {
-  background: rgba(255,255,255,0.03);
-  border: 1px dashed rgba(255,255,255,0.15);
-  border-radius: 8px;
-  height: 40px;
-  width: 100%;
+.bento-screen {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px; padding: 0.8rem;
+  flex: 1; min-height: 110px;
 }
-.wireframe-box.fill {
-  background: rgba(217,43,75,0.1);
-  border: 1px solid rgba(217,43,75,0.3);
-  height: 60px;
+.bento-screen.small { flex: 0.6; min-height: 90px; }
+.screen-bar {
+  height: 4px; width: 40%; border-radius: 2px;
+  background: rgba(255,255,255,0.1); margin-bottom: 0.7rem;
 }
+.screen-row {
+  display: flex; gap: 0.4rem; margin-bottom: 0.45rem;
+}
+.screen-block {
+  height: 12px; border-radius: 3px;
+  background: rgba(255,255,255,0.06);
+}
+.screen-block.accent { background: rgba(217,43,75,0.3); }
+.screen-block.w30 { flex: 0.3; }
+.screen-block.w40 { flex: 0.4; }
+.screen-block.w60 { flex: 0.6; }
+.screen-block.w100 { flex: 1; }
 
-/* Code visual */
-.code-style {
-  font-family: monospace;
-  color: #D92B4B;
-  font-size: 1.1rem;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  background: rgba(0,0,0,0.4);
-  padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.04);
+/* Code block visual */
+.bento-code-block {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 1.2rem 1.4rem;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.8rem; line-height: 1.9;
+  margin-top: auto; overflow: hidden;
 }
+.code-line { white-space: nowrap; color: rgba(255,255,255,0.4); }
+.code-kw { color: #c792ea; }
+.code-fn { color: #82aaff; }
+.code-str { color: #c3e88d; }
+.code-num { color: #f78c6c; }
 
 /* Launch Graph */
-.launch-visual {
-    width: 100%;
-}
+.launch-visual { width: 100%; }
 .launch-graph {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.4rem;
-  height: 60px;
-  width: 100%;
+  display: flex; align-items: flex-end;
+  gap: 0.5rem; height: 70px; width: 100%;
 }
 .graph-bar {
-  background: rgba(255,255,255,0.1);
-  border-radius: 4px 4px 0 0;
-  width: 25%;
-  transition: height 1s ease;
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px 4px 0 0; width: 25%;
+  transition: height 0.8s ease, background 0.3s ease;
 }
 .w-1 { height: 30%; }
 .w-2 { height: 45%; }
 .w-3 { height: 60%; }
-.w-4 { height: 95%; background: linear-gradient(180deg, #D92B4B 0%, rgba(217,43,75,0.2) 100%); }
+.w-4 { height: 95%; background: linear-gradient(180deg, #D92B4B 0%, rgba(217,43,75,0.15) 100%); }
+.launch-label {
+  display: flex; align-items: center; gap: 0.8rem;
+  margin-top: 0.8rem; font-size: 0.75rem;
+}
+.launch-tag {
+  color: #4ade80; font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.launch-metric {
+  color: rgba(255,255,255,0.35); font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
-/* Interactive Hover state for group */
+/* Hover effects */
 .group-hover-trigger:hover .bento-pill {
-  border-color: rgba(255,255,255,0.3); color: #fff;
+  border-color: rgba(255,255,255,0.25); color: #fff;
 }
 .group-hover-trigger:hover .w-1 { height: 50%; }
-.group-hover-trigger:hover .w-2 { height: 75%; }
-.group-hover-trigger:hover .w-3 { height: 100%; }
+.group-hover-trigger:hover .w-2 { height: 70%; }
+.group-hover-trigger:hover .w-3 { height: 90%; }
 
 @media (max-width: 900px) {
-  .bento-walkthrough {
-    grid-template-columns: 1fr;
-  }
+  .bento-walkthrough { grid-template-columns: 1fr; }
+  .bento-wide { grid-column: span 1; }
 }
 
 /* ── LAB SECTION ─────────────────────────── */
@@ -1115,16 +1131,4 @@ import Layout from '../layouts/Layout.astro';
       transition: gap 0.2s;
     }
     .lab-card:hover .lab-card-link { gap: 0.6rem; }
-
-    /* ── RESPONSIVE ──────────────────────────── */
-    @media (max-width: 900px) {
-      .cards-row { transform: none; flex-wrap: wrap; gap: 1rem; }
-      .stage-card { width: calc(50% - 0.5rem); }
-      .walkthrough-grid { grid-template-columns: 1fr; }
-      .wt-screen { max-height: 380px; }
-    }
-    @media (max-width: 500px) {
-      .stage-card { width: 100%; }
-      .demo-phone-unit.side { display: none; }
-    }
 </style>
