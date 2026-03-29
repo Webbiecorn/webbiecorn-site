@@ -1122,12 +1122,8 @@ h1, h2, h3 {
 /* Footer Grid */
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  padding: 4rem 0;
-}
-.footer-brand {
-  padding-right: 2rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2.5rem;
 }
 .footer-col a {
   display: block;
@@ -1197,11 +1193,10 @@ h1, h2, h3 {
 }
 @media (max-width: 900px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr;
   }
   .footer-brand {
-    grid-column: span 3;
+    grid-column: span 2;
     padding-right: 0;
   }
 }
