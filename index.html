@@ -4,43 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Webbiecorn — Digitale producten die écht werken</title>
-  <meta name="description" content="Webbiecorn bouwt PWA's, AI-automatisering en maatwerk portals. Bekijk live demo's van onze apps en ontdek wat we voor jouw organisatie kunnen doen." />
-  <!-- Open Graph -->
+  <meta name="description" content="Webbiecorn bouwt PWA's, AI-automatisering en maatwerk portals voor organisaties die willen doorpakken. Van eerste schets tot live platform." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://webbiecorn.com/" />
   <meta property="og:title" content="Webbiecorn — Digitale producten die écht werken" />
-  <meta property="og:description" content="Maatwerk PWA's, slimme AI-workflows en strak design. Bekijk live demo's van onze apps." />
+  <meta property="og:description" content="Maatwerk PWA's, AI-workflows en strak design. Bekijk live demo's van onze apps." />
   <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Webbiecorn — Digitale producten die écht werken" />
-  <meta name="twitter:description" content="Maatwerk PWA's, slimme AI-workflows en strak design. Bekijk live demo's van onze apps." />
-  <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
   <meta name="theme-color" content="#0d0d0d" />
   <link rel="canonical" href="https://webbiecorn.com/" />
   <link rel="apple-touch-icon" href="webbiecorn-logo.png" />
   <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
   <link rel="icon" type="image/png" href="webbiecorn-logo.png" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Webbiecorn",
-    "url": "https://webbiecorn.com",
-    "logo": "https://webbiecorn.com/webbiecorn-logo.svg",
-    "email": "hallo@webbiecorn.com",
-    "sameAs": ["https://www.instagram.com/webbiecorn","https://www.linkedin.com/company/webbiecorn"],
-    "description": "Digitaal bureau voor PWA's, AI-automatisering, design en managed hosting.",
-    "foundingDate": "2024",
-    "areaServed": "NL",
-    "knowsLanguage": "nl"
-  }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── HERO ──────────────────────────────────────── */
+    /* ── HERO ─────────────────────────────────── */
     #hero {
       position: relative;
       min-height: 100vh;
@@ -53,272 +34,176 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       z-index: 0;
-    }
-    .hero-glow-1 {
-      position: absolute;
-      top: -15%; left: -10%;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(217,43,75,0.18) 0%, transparent 60%);
-      pointer-events: none; z-index: 1;
-      animation: glow-drift 8s ease-in-out infinite alternate;
-    }
-    .hero-glow-2 {
-      position: absolute;
-      bottom: -20%; right: -10%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(217,43,75,0.09) 0%, transparent 60%);
-      pointer-events: none; z-index: 1;
-      animation: glow-drift 10s ease-in-out infinite alternate-reverse;
-    }
-    @keyframes glow-drift {
-      0%   { transform: translate(0,0); }
-      100% { transform: translate(40px, 40px); }
+      pointer-events: none;
     }
     .hero-inner {
       position: relative; z-index: 2;
-      width: 100%; max-width: 1200px;
-      margin: 0 auto; padding: 6rem 2rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
+      width: 100%; max-width: 1160px;
+      margin: 0 auto;
+      padding: 7rem 2rem 5rem;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
     }
-    .hero-left { }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 0.6rem;
+    .avail-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--red); margin-bottom: 1.75rem;
-      border: 1px solid rgba(217,43,75,0.35);
-      padding: 0.4rem 1rem 0.4rem 0.75rem;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 100px;
-      background: rgba(217,43,75,0.06);
-      backdrop-filter: blur(8px);
+      padding: 0.45rem 1.1rem;
+      margin-bottom: 1.75rem;
     }
-    .hero-eyebrow-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--red);
-      box-shadow: 0 0 0 0 rgba(217,43,75,0.5);
+    .avail-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 0 rgba(74,222,128,0.5);
       animation: pulse-dot 2s ease-in-out infinite;
       flex-shrink: 0;
     }
     @keyframes pulse-dot {
-      0%,100%{box-shadow:0 0 0 0 rgba(217,43,75,0.5)}
-      50%{box-shadow:0 0 0 6px rgba(217,43,75,0)}
+      0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.5)}
+      50%{box-shadow:0 0 0 6px rgba(74,222,128,0)}
     }
-    .hero-title {
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
-      font-weight: 900;
-      line-height: 1.0;
-      letter-spacing: -2.5px;
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid rgba(217,43,75,0.4);
+      border-radius: 3px;
+      padding: 0.3rem 0.9rem;
       margin-bottom: 1.5rem;
     }
-    .hero-title .line-2 { display: block; }
+    .hero-title {
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 1.5rem;
+      max-width: 820px;
+    }
+    .hero-title em { font-style: normal; color: var(--red); }
     .hero-sub {
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 2vw, 1.15rem);
       color: rgba(255,255,255,0.55);
       line-height: 1.75;
-      max-width: 460px;
-      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
     }
-    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 0; }
 
-    /* ── TRUST LOGOS (hero bottom) ─────────────── */
-    .hero-trust {
-      margin-top: 3rem;
-      display: flex; align-items: center; gap: 1rem;
-      flex-wrap: wrap;
+    /* ── SERVICE CARDS STAGE ─────────────────── */
+    .cards-stage {
+      margin-top: 5rem;
+      width: 100%;
+      perspective: 1200px;
+      perspective-origin: 50% 20%;
     }
-    .hero-trust-label {
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-    }
-    .hero-trust-items {
-      display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
-    }
-    .hero-trust-item {
-      font-size: 0.78rem; font-weight: 700;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 0.5px;
-      padding: 0.3rem 0.8rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 100px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .hero-trust-item:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
-
-    /* ── PHONE MOCKUP STACK (hero right) ───────── */
-    .hero-right {
-      position: relative;
+    .cards-row {
       display: flex;
+      gap: 1.25rem;
       justify-content: center;
-      align-items: center;
-      height: 560px;
+      transform: rotateX(22deg);
+      transform-style: preserve-3d;
+      will-change: transform;
+      padding-bottom: 3rem;
     }
-    .phone-stack {
+    .stage-card {
+      flex: 0 0 auto;
+      width: 220px;
+      background: rgba(14,14,14,0.95);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      padding: 2.1rem 1.5rem 1.75rem;
+      backdrop-filter: blur(24px);
+      transform-style: preserve-3d;
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.3s;
+      cursor: default;
       position: relative;
-      width: 260px;
-      height: 520px;
-    }
-    .phone-frame {
-      position: absolute;
-      width: 240px;
-      height: 490px;
-      background: #161616;
-      border-radius: 40px;
-      border: 2px solid rgba(255,255,255,0.1);
-      box-shadow:
-        0 0 0 1px rgba(0,0,0,0.8),
-        0 40px 100px rgba(0,0,0,0.7),
-        inset 0 0 0 1px rgba(255,255,255,0.05);
       overflow: hidden;
-      transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s;
-      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
     }
-    .phone-frame:nth-child(1) {
-      left: 0; top: 0; z-index: 3;
-      transform: rotate(-4deg) translateX(-30px);
-    }
-    .phone-frame:nth-child(2) {
-      left: 10px; top: 20px; z-index: 4;
-      transform: rotate(0deg);
-      box-shadow:
-        0 0 0 1px rgba(0,0,0,0.8),
-        0 60px 120px rgba(217,43,75,0.2),
-        0 40px 80px rgba(0,0,0,0.8),
-        inset 0 0 0 1px rgba(255,255,255,0.06);
-    }
-    .phone-frame:nth-child(3) {
-      left: 20px; top: 10px; z-index: 2;
-      transform: rotate(5deg) translateX(30px);
-    }
-    .phone-frame:hover { z-index: 5; transform: rotate(0deg) translateY(-12px) scale(1.02); box-shadow: 0 0 0 1px rgba(0,0,0,0.8), 0 80px 140px rgba(217,43,75,0.25), 0 60px 100px rgba(0,0,0,0.9); }
-    .phone-notch {
-      position: absolute;
-      top: 12px; left: 50%; transform: translateX(-50%);
-      width: 90px; height: 22px;
-      background: #0a0a0a;
-      border-radius: 100px;
-      z-index: 10;
-    }
-    .phone-screen {
+    .stage-card::before {
+      content: '';
       position: absolute;
       inset: 0;
-      overflow-y: auto;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      background: linear-gradient(135deg, rgba(217,43,75,0.1) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: inherit;
+      pointer-events: none;
     }
-    .phone-screen::-webkit-scrollbar { display: none; }
-    /* App screens */
-    .app-screen {
-      min-height: 100%;
-      padding: 48px 0 0;
-      font-family: 'Open Sans', sans-serif;
+    .stage-card:hover {
+      transform: translateZ(55px) rotateX(-4deg);
+      border-color: rgba(217,43,75,0.55);
+      box-shadow: 0 0 40px rgba(217,43,75,0.25), 0 28px 70px rgba(0,0,0,0.7);
     }
-    .app-bar {
-      position: sticky; top: 0;
-      background: rgba(20,20,20,0.95);
-      backdrop-filter: blur(20px);
-      padding: 0.7rem 1rem;
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      z-index: 9;
-    }
-    .app-bar-title { font-size: 0.82rem; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
-    .app-bar-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.6); }
-    .app-body { padding: 1rem; }
-    .app-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px;
-      padding: 0.9rem;
-      margin-bottom: 0.65rem;
-      transition: border-color 0.25s;
-    }
-    .app-card:hover { border-color: rgba(217,43,75,0.35); }
-    .app-card-title { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
-    .app-card-sub { font-size: 0.65rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
-    .app-tag {
-      display: inline-block;
-      font-size: 0.58rem; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      padding: 0.2rem 0.5rem;
-      border-radius: 100px;
-      margin-bottom: 0.45rem;
-    }
-    .app-tag-red { background: rgba(217,43,75,0.15); color: #D92B4B; border: 1px solid rgba(217,43,75,0.25); }
-    .app-tag-green { background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.2); }
-    .app-tag-blue { background: rgba(96,165,250,0.12); color: #60a5fa; border: 1px solid rgba(96,165,250,0.2); }
-    .app-stat-row { display: flex; gap: 0.5rem; margin: 0.7rem 0; }
-    .app-stat {
-      flex: 1;
-      background: rgba(217,43,75,0.08);
-      border: 1px solid rgba(217,43,75,0.15);
-      border-radius: 8px;
-      padding: 0.6rem;
-      text-align: center;
-    }
-    .app-stat-val { font-size: 0.9rem; font-weight: 800; color: #D92B4B; line-height: 1; }
-    .app-stat-label { font-size: 0.55rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.5px; }
-    .app-map-block {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 10px;
-      height: 90px;
-      margin-bottom: 0.65rem;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .app-map-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 18px 18px;
-    }
-    .app-map-pin {
-      width: 16px; height: 16px;
-      background: #D92B4B;
-      border-radius: 50% 50% 50% 0;
-      transform: rotate(-45deg);
-      position: relative; z-index: 1;
-      box-shadow: 0 0 12px rgba(217,43,75,0.6);
-    }
-    /* Demo label ribbon on phone */
-    .phone-label {
+    .stage-card:hover::before { opacity: 1; }
+    .card-bar {
       position: absolute;
-      bottom: -12px;
-      left: 50%; transform: translateX(-50%);
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
       background: var(--red);
-      color: #fff;
-      font-size: 0.6rem; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 0.3rem 0.85rem;
-      border-radius: 100px;
-      white-space: nowrap;
-      z-index: 10;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
     }
-    /* Phone nav dots */
-    .phone-dots {
-      position: absolute;
-      bottom: 10px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 5px; z-index: 11;
+    .stage-card:hover .card-bar { transform: scaleX(1); }
+    .card-icon {
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      background: rgba(217,43,75,0.09);
+      border: 1px solid rgba(217,43,75,0.18);
+      border-radius: 14px;
     }
-    .phone-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      cursor: pointer; transition: background 0.2s, transform 0.2s;
-    }
-    .phone-dot.active { background: var(--red); transform: scale(1.3); }
+    .stage-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+    .stage-card p { font-size: 0.78rem; color: rgba(255,255,255,0.42); line-height: 1.65; }
 
-    /* ── MARQUEE ───────────────────────────────── */
+    /* ── MARQUEE ─────────────────────────────── */
     #over-teaser { background: var(--black-mid); }
-    #diensten-teaser { background: var(--black); }
-    #cases-teaser { background: var(--black-mid); }
     #cta-section { background: var(--black); padding: 5rem 2rem; }
 
-    /* ── DEMO SECTION ──────────────────────────── */
+    /* ── STATS ───────────────────────────────── */
+    #stats-section {
+      background: var(--black-mid);
+      padding: 5rem 2rem;
+      position: relative;
+    }
+    #stats-section::before, #stats-section::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.2), transparent);
+    }
+    #stats-section::before { top: 0; }
+    #stats-section::after { bottom: 0; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 2rem;
+      max-width: 800px; margin: 0 auto;
+      text-align: center;
+    }
+    .stat-number {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.55) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-suffix { color: var(--red); -webkit-text-fill-color: var(--red); }
+    .stat-label {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); margin-top: 0.5rem;
+    }
+
+    /* ── DEMO SECTION ────────────────────────── */
     #demo-section {
       background: var(--black);
       padding: 7rem 2rem;
@@ -328,9 +213,8 @@
     #demo-section::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.4), transparent);
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.35), transparent);
     }
     .demo-phones-wrap {
       display: flex;
@@ -340,333 +224,246 @@
       margin-top: 4rem;
       flex-wrap: wrap;
     }
-    .demo-phone-unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
+    .demo-phone-unit { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
     .demo-phone {
-      width: 240px;
-      height: 500px;
+      width: 240px; height: 500px;
       background: #111;
       border-radius: 40px;
-      border: 2px solid rgba(255,255,255,0.09);
-      box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,0,0,0.9);
+      border: 2px solid rgba(255,255,255,0.08);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(0,0,0,0.9);
       overflow: hidden;
       position: relative;
       transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s;
     }
     .demo-phone:hover {
-      transform: translateY(-16px) scale(1.03);
-      box-shadow: 0 60px 120px rgba(217,43,75,0.2), 0 40px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,0,0,0.9);
-    }
-    .demo-phone-inner {
-      position: absolute; inset: 0;
-      overflow-y: auto; overflow-x: hidden;
-    }
-    .demo-phone-inner::-webkit-scrollbar { display: none; }
-    .demo-phone-notch {
-      position: absolute; top: 10px;left:50%;transform:translateX(-50%);
-      width: 80px; height: 20px;
-      background: #080808; border-radius: 100px; z-index: 20;
-    }
-    .demo-phone-caption {
-      text-align: center;
-    }
-    .demo-phone-name {
-      font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem;
-    }
-    .demo-phone-tag {
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--red);
-    }
-    /* Featured phone (center) */
-    .demo-phone-unit.featured .demo-phone {
-      width: 260px;
-      height: 540px;
-      border-color: rgba(217,43,75,0.3);
+      transform: translateY(-14px) scale(1.025);
       box-shadow: 0 60px 120px rgba(217,43,75,0.18), 0 40px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,0,0,0.9);
     }
-    .demo-phone-unit.side {
-      opacity: 0.75;
-      transform: scale(0.9);
-      transition: opacity 0.3s, transform 0.3s;
+    .demo-phone-inner { position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden; }
+    .demo-phone-inner::-webkit-scrollbar { display: none; }
+    .demo-phone-notch {
+      position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+      width: 80px; height: 20px; background: #080808; border-radius: 100px; z-index: 20;
     }
+    .demo-phone-caption { text-align: center; }
+    .demo-phone-name { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .demo-phone-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); }
+    .demo-phone-unit.featured .demo-phone {
+      width: 260px; height: 540px;
+      border-color: rgba(217,43,75,0.28);
+      box-shadow: 0 60px 120px rgba(217,43,75,0.15), 0 40px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,0,0,0.9);
+    }
+    .demo-phone-unit.side { opacity: 0.72; transform: scale(0.9); transition: opacity 0.3s, transform 0.3s; }
     .demo-phone-unit.side:hover { opacity: 1; transform: scale(0.93); }
+    /* App screen elements */
+    .app-screen { min-height: 100%; padding: 44px 0 0; font-family: 'Open Sans', sans-serif; }
+    .app-bar {
+      position: sticky; top: 0;
+      background: rgba(18,18,18,0.96); backdrop-filter: blur(20px);
+      padding: 0.65rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 9;
+    }
+    .app-bar-title { font-size: 0.82rem; font-weight: 700; color: #fff; }
+    .app-bar-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.6); }
+    .app-body { padding: 0.9rem; }
+    .app-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 11px; padding: 0.85rem; margin-bottom: 0.6rem;
+    }
+    .app-card-title { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .app-card-sub { font-size: 0.63rem; color: rgba(255,255,255,0.42); line-height: 1.5; }
+    .app-tag {
+      display: inline-block; font-size: 0.57rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 0.18rem 0.5rem; border-radius: 100px; margin-bottom: 0.4rem;
+    }
+    .app-tag-red { background: rgba(217,43,75,0.14); color: #D92B4B; border: 1px solid rgba(217,43,75,0.22); }
+    .app-tag-green { background: rgba(74,222,128,0.1); color: #4ade80; border: 1px solid rgba(74,222,128,0.18); }
+    .app-tag-blue { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.18); }
+    .app-stat-row { display: flex; gap: 0.5rem; margin: 0.65rem 0; }
+    .app-stat {
+      flex: 1; background: rgba(217,43,75,0.07);
+      border: 1px solid rgba(217,43,75,0.14);
+      border-radius: 8px; padding: 0.55rem; text-align: center;
+    }
+    .app-stat-val { font-size: 0.88rem; font-weight: 800; color: #D92B4B; line-height: 1; }
+    .app-stat-label { font-size: 0.53rem; color: rgba(255,255,255,0.38); margin-top: 0.18rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .app-map-block {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 10px; height: 90px; margin-bottom: 0.6rem;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .app-map-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+    .app-map-pin {
+      width: 14px; height: 14px; background: #D92B4B;
+      border-radius: 50% 50% 50% 0; transform: rotate(-45deg);
+      position: relative; z-index: 1; box-shadow: 0 0 10px rgba(217,43,75,0.6);
+    }
 
-    /* ── WALKTHROUGH SECTION ───────────────────── */
+    /* ── WALKTHROUGH ─────────────────────────── */
     #walkthrough {
       background: var(--black-mid);
       padding: 7rem 2rem;
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     #walkthrough::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.3), transparent);
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.25), transparent);
     }
     .walkthrough-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-      margin-top: 4rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center; margin-top: 4rem;
     }
     .walkthrough-steps { display: flex; flex-direction: column; gap: 0; }
     .wt-step {
-      display: flex;
-      gap: 1.5rem;
-      padding: 1.5rem;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s;
-      position: relative;
+      display: flex; gap: 1.5rem;
+      padding: 1.4rem; border-radius: 12px;
+      cursor: pointer; transition: background 0.3s;
+      border: 1px solid transparent;
     }
-    .wt-step.active { background: rgba(217,43,75,0.07); border: 1px solid rgba(217,43,75,0.18); }
-    .wt-step:not(.active) { border: 1px solid transparent; }
+    .wt-step.active { background: rgba(217,43,75,0.06); border-color: rgba(217,43,75,0.16); }
     .wt-step-nr {
-      width: 36px; height: 36px;
-      border-radius: 50%;
+      width: 34px; height: 34px; border-radius: 50%;
       border: 2px solid rgba(217,43,75,0.3);
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.8rem; font-weight: 800; color: var(--red);
-      flex-shrink: 0;
-      transition: background 0.3s, border-color 0.3s;
+      font-size: 0.78rem; font-weight: 800; color: var(--red);
+      flex-shrink: 0; transition: background 0.3s, border-color 0.3s;
     }
-    .wt-step.active .wt-step-nr {
-      background: var(--red); border-color: var(--red); color: #fff;
-    }
+    .wt-step.active .wt-step-nr { background: var(--red); border-color: var(--red); color: #fff; }
     .wt-step-title {
-      font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;
-      color: rgba(255,255,255,0.7);
-      transition: color 0.3s;
+      font-size: 0.93rem; font-weight: 700; margin-bottom: 0.3rem;
+      color: rgba(255,255,255,0.6); transition: color 0.3s;
     }
     .wt-step.active .wt-step-title { color: #fff; }
     .wt-step-desc {
-      font-size: 0.83rem; color: rgba(255,255,255,0.4);
-      line-height: 1.6; max-height: 0; overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.3s;
-      opacity: 0;
+      font-size: 0.82rem; color: rgba(255,255,255,0.38);
+      line-height: 1.65; max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s; opacity: 0;
     }
     .wt-step.active .wt-step-desc { max-height: 200px; opacity: 1; }
-    .wt-connector {
-      width: 2px; height: 20px;
-      background: rgba(217,43,75,0.15);
-      margin-left: calc(1.5rem + 16px);
-    }
+    .wt-connector { width: 2px; height: 18px; background: rgba(217,43,75,0.12); margin-left: calc(1.5rem + 16px); }
     .wt-screen {
-      position: relative;
-      background: #111;
-      border-radius: 24px;
-      border: 2px solid rgba(255,255,255,0.08);
-      overflow: hidden;
-      aspect-ratio: 9/16;
-      max-height: 560px;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 60px rgba(217,43,75,0.08);
+      position: relative; background: #111;
+      border-radius: 24px; border: 2px solid rgba(255,255,255,0.08);
+      overflow: hidden; aspect-ratio: 9/16; max-height: 540px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 50px rgba(217,43,75,0.07);
     }
     .wt-panel {
-      position: absolute; inset: 0;
-      padding: 2.5rem 1.25rem 1.25rem;
-      opacity: 0;
-      transform: translateX(20px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      pointer-events: none;
+      position: absolute; inset: 0; padding: 2.5rem 1.25rem 1.25rem;
+      opacity: 0; transform: translateX(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease; pointer-events: none;
     }
-    .wt-panel.active {
-      opacity: 1; transform: none; pointer-events: auto;
-    }
+    .wt-panel.active { opacity: 1; transform: none; pointer-events: auto; }
     .wt-notch {
       position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
       width: 70px; height: 18px; background: #080808; border-radius: 100px; z-index: 10;
     }
-    /* Walkthrough panel UI elements */
     .wt-panel-header {
-      font-size: 0.85rem; font-weight: 800; color: #fff;
+      font-size: 0.83rem; font-weight: 800; color: #fff;
       margin-bottom: 1rem; margin-top: 0.5rem;
-      display: flex; align-items: center; gap: 0.6rem;
-    }
-    .wt-panel-header-dot {
-      width: 8px; height: 8px; border-radius: 50%; background: var(--red);
-      box-shadow: 0 0 8px rgba(217,43,75,0.7);
-    }
-    .wt-bar {
-      height: 6px; border-radius: 100px;
-      background: rgba(255,255,255,0.06);
-      margin-bottom: 0.45rem;
-      overflow: hidden;
-    }
-    .wt-bar-fill {
-      height: 100%; background: var(--red); border-radius: 100px;
-    }
-    .wt-fake-input {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 8px;
-      padding: 0.6rem 0.75rem;
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 0.5rem;
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .wt-fake-input-icon { color: var(--red); font-size: 0.75rem; }
-    .wt-check-list { display: flex; flex-direction: column; gap: 0.45rem; }
-    .wt-check-item {
       display: flex; align-items: center; gap: 0.55rem;
-      font-size: 0.7rem; color: rgba(255,255,255,0.7);
-      padding: 0.5rem 0.65rem;
-      background: rgba(255,255,255,0.03);
-      border-radius: 7px;
     }
-    .wt-check-icon { color: #4ade80; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .wt-panel-header-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 8px rgba(217,43,75,0.7); }
+    .wt-bar { height: 6px; border-radius: 100px; background: rgba(255,255,255,0.05); margin-bottom: 0.4rem; overflow: hidden; }
+    .wt-bar-fill { height: 100%; background: var(--red); border-radius: 100px; }
+    .wt-fake-input {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px; padding: 0.55rem 0.7rem;
+      font-size: 0.68rem; color: rgba(255,255,255,0.55);
+      margin-bottom: 0.45rem; display: flex; align-items: center; gap: 0.45rem;
+    }
+    .wt-fake-input-icon { color: var(--red); }
+    .wt-check-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .wt-check-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.68rem; color: rgba(255,255,255,0.65);
+      padding: 0.45rem 0.6rem;
+      background: rgba(255,255,255,0.03); border-radius: 7px;
+    }
+    .wt-check-icon { color: #4ade80; font-weight: 700; flex-shrink: 0; }
     .wt-notification {
-      background: rgba(217,43,75,0.12);
-      border: 1px solid rgba(217,43,75,0.25);
-      border-radius: 10px;
-      padding: 0.75rem;
-      display: flex; gap: 0.6rem; align-items: flex-start;
-      margin-bottom: 0.5rem;
+      background: rgba(217,43,75,0.1); border: 1px solid rgba(217,43,75,0.22);
+      border-radius: 10px; padding: 0.7rem;
+      display: flex; gap: 0.55rem; align-items: flex-start; margin-bottom: 0.45rem;
     }
-    .wt-notification-icon { font-size: 1rem; flex-shrink: 0; }
-    .wt-notification-title { font-size: 0.7rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
-    .wt-notification-body { font-size: 0.62rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .wt-notification-title { font-size: 0.68rem; font-weight: 700; color: #fff; margin-bottom: 0.18rem; }
+    .wt-notification-body { font-size: 0.6rem; color: rgba(255,255,255,0.48); line-height: 1.5; }
     .wt-progress {
-      position: absolute;
-      bottom: 16px; left: 50%; transform: translateX(-50%);
+      position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
       display: flex; gap: 6px; z-index: 20;
     }
     .wt-progress-dot {
       width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      transition: background 0.3s, transform 0.3s;
+      background: rgba(255,255,255,0.18);
+      transition: background 0.3s, transform 0.3s; cursor: pointer;
     }
     .wt-progress-dot.active { background: var(--red); transform: scale(1.4); }
 
-    /* ── LAB SECTION ───────────────────────────── */
+    /* ── LAB SECTION ─────────────────────────── */
     #lab-section { background: var(--black); padding: 7rem 2rem; }
     .lab-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
+      gap: 1.5rem; margin-top: 3rem;
     }
     .lab-card {
-      background: var(--black-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
       text-decoration: none; color: var(--white);
       transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
       position: relative;
     }
     .lab-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--red);
-      transform: scaleX(0); transform-origin: left;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--red); transform: scaleX(0); transform-origin: left;
       transition: transform 0.35s ease;
     }
-    .lab-card:hover { transform: translateY(-6px); border-color: rgba(217,43,75,0.4); box-shadow: 0 20px 60px rgba(217,43,75,0.1); }
+    .lab-card:hover { transform: translateY(-6px); border-color: rgba(217,43,75,0.35); box-shadow: 0 20px 60px rgba(217,43,75,0.09); }
     .lab-card:hover::before { transform: scaleX(1); }
-    .lab-card-thumb {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: var(--black-mid);
-      overflow: hidden;
-      position: relative;
-    }
-    .lab-card-thumb img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-    .lab-card:hover .lab-card-thumb img { transform: scale(1.06); }
-    .lab-card-thumb-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.7), transparent 50%);
-    }
+    .lab-card-thumb { width: 100%; aspect-ratio: 16/9; background: var(--black-mid); overflow: hidden; position: relative; }
+    .lab-card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .lab-card:hover .lab-card-thumb img { transform: scale(1.05); }
+    .lab-card-thumb-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.65), transparent 50%); }
     .lab-card-thumb-badge {
       position: absolute; top: 1rem; left: 1rem;
-      font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 0.3rem 0.7rem;
-      border-radius: 100px;
-      background: rgba(10,10,10,0.85);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255,255,255,0.7);
-      backdrop-filter: blur(8px);
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 0.28rem 0.65rem; border-radius: 100px;
+      background: rgba(10,10,10,0.85); border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.65); backdrop-filter: blur(8px);
     }
-    .lab-card-body { padding: 1.5rem; }
-    .lab-card-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .lab-card-desc { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 1.25rem; }
-    .lab-card-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lab-card-body { padding: 1.4rem; }
+    .lab-card-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.45rem; }
+    .lab-card-desc { font-size: 0.82rem; color: rgba(255,255,255,0.48); line-height: 1.65; margin-bottom: 1.1rem; }
+    .lab-card-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
     .lab-chip {
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px;
-      padding: 0.2rem 0.6rem;
-      background: rgba(217,43,75,0.1);
-      border: 1px solid rgba(217,43,75,0.2);
-      border-radius: 100px; color: rgba(255,255,255,0.6);
+      font-size: 0.63rem; font-weight: 700; letter-spacing: 0.5px;
+      padding: 0.18rem 0.55rem;
+      background: rgba(217,43,75,0.08); border: 1px solid rgba(217,43,75,0.18);
+      border-radius: 100px; color: rgba(255,255,255,0.55);
     }
     .lab-card-link {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      margin-top: 1rem;
-      color: var(--red); font-size: 0.8rem; font-weight: 700;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      margin-top: 0.9rem; color: var(--red); font-size: 0.78rem; font-weight: 700;
       transition: gap 0.2s;
     }
-    .lab-card:hover .lab-card-link { gap: 0.65rem; }
+    .lab-card:hover .lab-card-link { gap: 0.6rem; }
 
-    /* ── STATS ─────────────────────────────────── */
-    #stats-section {
-      background: var(--black-mid);
-      padding: 5rem 2rem;
-      position: relative;
-    }
-    #stats-section::before,
-    #stats-section::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.25), transparent);
-    }
-    #stats-section::before { top: 0; }
-    #stats-section::after { bottom: 0; }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem;
-      max-width: 800px; margin: 0 auto;
-      text-align: center;
-    }
-    .stat-item {}
-    .stat-number {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 900;
-      line-height: 1;
-      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .stat-suffix {
-      color: var(--red);
-      -webkit-text-fill-color: var(--red);
-    }
-    .stat-label {
-      font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(255,255,255,0.35); margin-top: 0.5rem;
-    }
-
-    @media (max-width: 920px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 7rem; }
-      .hero-right { height: 380px; }
-      .phone-stack { transform: scale(0.85); }
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 900px) {
+      .cards-row { transform: none; flex-wrap: wrap; gap: 1rem; }
+      .stage-card { width: calc(50% - 0.5rem); }
       .walkthrough-grid { grid-template-columns: 1fr; }
-      .wt-screen { max-height: 400px; }
+      .wt-screen { max-height: 380px; }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 500px) {
+      .stage-card { width: 100%; }
       .demo-phone-unit.side { display: none; }
     }
   </style>
@@ -697,115 +494,80 @@
   <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
 </div>
 
-<!-- ═══ HERO ════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════
+     HERO — Centered headline + 4 service cards
+═══════════════════════════════════════════════ -->
 <section id="hero">
   <canvas id="particles"></canvas>
-  <div class="hero-glow-1"></div>
-  <div class="hero-glow-2"></div>
   <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-eyebrow reveal">
-        <span class="hero-eyebrow-dot"></span>
-        Beschikbaar voor nieuwe projecten
-      </div>
-      <h1 class="hero-title reveal reveal-delay-1">
-        Digitale producten<br/>
-        <span class="line-2">die <em>écht werken.</em></span>
-      </h1>
-      <p class="hero-sub reveal reveal-delay-2">
-        Wij bouwen PWA's, AI-automatisering en maatwerk portals voor organisaties die willen doorpakken. Van eerste schets tot live platform — in één traject.
-      </p>
-      <div class="hero-ctas reveal reveal-delay-3">
-        <a href="diensten.html" class="btn-primary">Bekijk onze diensten</a>
-        <a href="#demo-section" class="btn-ghost">Bekijk live demo's ↓</a>
-      </div>
-      <div class="hero-trust reveal reveal-delay-4">
-        <span class="hero-trust-label">Gebouwd voor</span>
-        <div class="hero-trust-items">
-          <span class="hero-trust-item">Gemeentes</span>
-          <span class="hero-trust-item">Zorgorganisaties</span>
-          <span class="hero-trust-item">Sociaal werkbedrijven</span>
-          <span class="hero-trust-item">MKB</span>
-        </div>
-      </div>
+    <div class="avail-badge reveal"><span class="avail-dot"></span>Beschikbaar voor nieuwe projecten</div>
+    <div class="hero-eyebrow">PWA's, AI & Beheer</div>
+    <h1 class="hero-title reveal reveal-delay-1">
+      Digitale producten<br/><em>die écht werken.</em>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">
+      Twee oprichters. Eén fokus. Wij combineren feilloze techniek met scherp design — voor organisaties die durven doorpakken.
+    </p>
+    <div class="hero-ctas reveal reveal-delay-3">
+      <a href="diensten.html" class="btn-primary">Bekijk onze diensten</a>
+      <a href="cases.html" class="btn-ghost">Bekijk het lab</a>
     </div>
-    <div class="hero-right reveal reveal-delay-2">
-      <div class="phone-stack" id="heroPhoneStack">
-        <!-- Phone 1: BuurtApp -->
-        <div class="phone-frame" id="hp1">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="app-screen">
-              <div class="app-bar">
-                <span class="app-bar-title">BuurtApp</span>
-                <span class="app-bar-dot"></span>
-              </div>
-              <div class="app-body">
-                <div class="app-map-block">
-                  <div class="app-map-grid"></div>
-                  <div class="app-map-pin"></div>
-                </div>
-                <div class="app-stat-row">
-                  <div class="app-stat"><div class="app-stat-val">12</div><div class="app-stat-label">Open</div></div>
-                  <div class="app-stat"><div class="app-stat-val">4</div><div class="app-stat-label">Nieuw</div></div>
-                  <div class="app-stat"><div class="app-stat-val">98%</div><div class="app-stat-label">Opgelost</div></div>
-                </div>
-                <div class="app-card"><span class="app-tag app-tag-red">Melding</span><div class="app-card-title">Kapotte lantaarnpaal</div><div class="app-card-sub">Hoofdstraat 14 · 2 uur geleden</div></div>
-                <div class="app-card"><span class="app-tag app-tag-green">Opgelost</span><div class="app-card-title">Zwerfvuil parkeerterrein</div><div class="app-card-sub">Marktplein · gisteren</div></div>
-                <div class="app-card"><span class="app-tag app-tag-blue">In behandeling</span><div class="app-card-title">Overhangende tak</div><div class="app-card-sub">Bosweg 7 · 3 dagen geleden</div></div>
-              </div>
-            </div>
+
+    <div class="cards-stage reveal reveal-delay-4">
+      <div class="cards-row" id="cards-row">
+        <a href="apps.html" class="stage-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <path d="M8 8 L2 13 L8 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 8 L24 13 L18 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.5 5 L10.5 21" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
           </div>
-        </div>
-        <!-- Phone 2: CVW (center/featured) -->
-        <div class="phone-frame" id="hp2">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="app-screen">
-              <div class="app-bar">
-                <span class="app-bar-title">CVW Portaal</span>
-                <span class="app-bar-dot"></span>
-              </div>
-              <div class="app-body">
-                <div class="app-stat-row">
-                  <div class="app-stat"><div class="app-stat-val">3</div><div class="app-stat-label">Vacatures</div></div>
-                  <div class="app-stat"><div class="app-stat-val">2</div><div class="app-stat-label">Meldingen</div></div>
-                </div>
-                <div class="app-card"><span class="app-tag app-tag-red">Nieuw</span><div class="app-card-title">Teamvergadering vrijdag</div><div class="app-card-sub">10:00 aula B · Alle medewerkers</div></div>
-                <div class="app-card"><span class="app-tag app-tag-green">Open</span><div class="app-card-title">Medewerker logistiek</div><div class="app-card-sub">32-36 uur · reageer voor 15 apr</div></div>
-                <div class="app-card"><span class="app-tag app-tag-blue">Academie</span><div class="app-card-title">Module: Veilig werken</div><div class="app-card-sub">45 min · jij + 12 anderen</div></div>
-              </div>
-            </div>
+          <h3>PWA's &amp; Apps</h3>
+          <p>Razendsnelle maatwerk portalen en web-apps. Zonder bloatware.</p>
+          <div class="card-bar"></div>
+        </a>
+        <a href="automatisering.html" class="stage-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <path d="M13 3 C7.477 3 3 7.477 3 13 S7.477 23 13 23 S23 18.523 23 13 S18.523 3 13 3Z" stroke="#D92B4B" stroke-width="1.8"/>
+              <path d="M13 8 L13 13 L16.5 16.5" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="19" cy="6" r="2.5" fill="#D92B4B" opacity="0.7"/>
+            </svg>
           </div>
-        </div>
-        <!-- Phone 3: Kluswinkel -->
-        <div class="phone-frame" id="hp3">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="app-screen">
-              <div class="app-bar">
-                <span class="app-bar-title">Kluswinkel</span>
-                <span class="app-bar-dot"></span>
-              </div>
-              <div class="app-body">
-                <div class="app-stat-row">
-                  <div class="app-stat"><div class="app-stat-val">8</div><div class="app-stat-label">Vandaag</div></div>
-                  <div class="app-stat"><div class="app-stat-val">2</div><div class="app-stat-label">Voertuigen</div></div>
-                  <div class="app-stat"><div class="app-stat-val">✓</div><div class="app-stat-label">On time</div></div>
-                </div>
-                <div class="app-card"><span class="app-tag app-tag-green">Ingepland</span><div class="app-card-title">Dakgoot vervangen</div><div class="app-card-sub">Jan de Vries · 08:00 – 12:00</div></div>
-                <div class="app-card"><span class="app-tag app-tag-red">Nieuw</span><div class="app-card-title">CV-ketel storing</div><div class="app-card-sub">Meijer, Rozenstraat 3</div></div>
-                <div class="app-card"><span class="app-tag app-tag-blue">Werkbon</span><div class="app-card-title">Schilderwerk buitenkant</div><div class="app-card-sub">#WB-2847 · wacht op handtekening</div></div>
-              </div>
-            </div>
+          <h3>Automatisering</h3>
+          <p>Slimme AI &amp; n8n workflows die processen stroomlijnen.</p>
+          <div class="card-bar"></div>
+        </a>
+        <a href="design.html" class="stage-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <rect x="2" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/>
+              <rect x="15" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/>
+              <rect x="2" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/>
+              <rect x="15" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8" opacity="0.35"/>
+            </svg>
           </div>
-        </div>
+          <h3>Design</h3>
+          <p>Intuïtieve interfaces en robuuste branding. Pixel-perfect.</p>
+          <div class="card-bar"></div>
+        </a>
+        <a href="onderhoud.html" class="stage-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <path d="M13 2 L15.5 9H23L17 13.5L19.5 20.5L13 16L6.5 20.5L9 13.5L3 9H10.5Z" stroke="#D92B4B" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Onderhoud</h3>
+          <p>Managed hosting, actieve monitoring en SLA-responstijden.</p>
+          <div class="card-bar"></div>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ MARQUEE ══════════════════════════════════ -->
+<!-- ═══ MARQUEE ══════════════════ -->
 <div class="marquee-wrap">
   <div class="marquee-content">
     <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span> n8n Workflows <span class="star">✦</span> React <span class="star">✦</span></span>
@@ -813,7 +575,7 @@
   </div>
 </div>
 
-<!-- ═══ STATS ═════════════════════════════════════ -->
+<!-- ═══ STATS ═════════════════════ -->
 <section id="stats-section">
   <div class="container">
     <div class="stats-grid">
@@ -830,19 +592,19 @@
         <div class="stat-label">Laagste MVP prijs</div>
       </div>
       <div class="stat-item reveal reveal-delay-3">
-        <div class="stat-number"><span class="stat-number-val" data-target="2">0</span><span class="stat-suffix"></span></div>
+        <div class="stat-number"><span class="stat-number-val" data-target="2">0</span></div>
         <div class="stat-label">Oprichters, geen overhead</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ DEMO SECTION ═════════════════════════════ -->
+<!-- ═══ DEMO PHONES ═══════════════ -->
 <section id="demo-section">
   <div class="container">
     <p class="section-label reveal">Live Demo's</p>
     <h2 class="section-title reveal reveal-delay-1">Geen screenshots.<br/><em>Échte apps. Probeer zelf.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">Scroll en klik hieronder in de telefoonschermen. Dit zijn live previews van de apps die we bouwden — exact zoals ze werken op een echte gebruiker.</p>
+    <p class="section-sub reveal reveal-delay-2">Scroll en klik hieronder in de telefoonschermen. Live previews van de apps die we bouwden — exact zoals ze werken voor echte gebruikers.</p>
     <div class="demo-phones-wrap">
       <!-- BuurtApp -->
       <div class="demo-phone-unit side reveal reveal-delay-1">
@@ -852,30 +614,26 @@
             <div class="app-screen">
               <div class="app-bar"><span class="app-bar-title">BuurtApp v3.4</span><span class="app-bar-dot"></span></div>
               <div class="app-body">
-                <div class="app-map-block" style="height:110px">
-                  <div class="app-map-grid"></div>
-                  <div class="app-map-pin"></div>
-                </div>
+                <div class="app-map-block" style="height:110px"><div class="app-map-grid"></div><div class="app-map-pin"></div></div>
                 <div class="app-stat-row">
                   <div class="app-stat"><div class="app-stat-val">12</div><div class="app-stat-label">Open</div></div>
                   <div class="app-stat"><div class="app-stat-val">4</div><div class="app-stat-label">Nieuw</div></div>
                   <div class="app-stat"><div class="app-stat-val">98%</div><div class="app-stat-label">Opgelost</div></div>
                 </div>
-                <div class="app-card"><span class="app-tag app-tag-red">Melding</span><div class="app-card-title">Kapotte lantaarnpaal</div><div class="app-card-sub">Hoofdstraat 14 · 2 uur geleden · Wijk Oost</div></div>
-                <div class="app-card"><span class="app-tag app-tag-green">Opgelost ✓</span><div class="app-card-title">Zwerfvuil parkeerterrein</div><div class="app-card-sub">Marktplein · gisteren · Openbare ruimte</div></div>
+                <div class="app-card"><span class="app-tag app-tag-red">Melding</span><div class="app-card-title">Kapotte lantaarnpaal</div><div class="app-card-sub">Hoofdstraat 14 · 2 uur geleden</div></div>
+                <div class="app-card"><span class="app-tag app-tag-green">Opgelost ✓</span><div class="app-card-title">Zwerfvuil parkeerterrein</div><div class="app-card-sub">Marktplein · gisteren</div></div>
                 <div class="app-card"><span class="app-tag app-tag-blue">In behandeling</span><div class="app-card-title">Overhangende tak</div><div class="app-card-sub">Bosweg 7 · 3 dagen geleden</div></div>
-                <div class="app-card"><span class="app-tag app-tag-red">Urgent</span><div class="app-card-title">Losliggende stoeptegel</div><div class="app-card-sub">Schoolstraat 2 · zojuist ingediend</div></div>
-                <div class="app-card"><span class="app-tag app-tag-green">Opgelost ✓</span><div class="app-card-title">Vuilcontainer vol</div><div class="app-card-sub">Plein Noord · 4 dagen geleden</div></div>
+                <div class="app-card"><span class="app-tag app-tag-red">Urgent</span><div class="app-card-title">Losliggende stoeptegel</div><div class="app-card-sub">Schoolstraat 2 · zojuist</div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="demo-phone-caption reveal reveal-delay-1">
+        <div class="demo-phone-caption">
           <div class="demo-phone-name">BuurtApp</div>
-          <div class="demo-phone-tag">Gemeente & wijkteams</div>
+          <div class="demo-phone-tag">Gemeente &amp; wijkteams</div>
         </div>
       </div>
-      <!-- CVW (center/featured) -->
+      <!-- CVW (featured) -->
       <div class="demo-phone-unit featured reveal">
         <div class="demo-phone">
           <div class="demo-phone-notch"></div>
@@ -883,22 +641,21 @@
             <div class="app-screen">
               <div class="app-bar"><span class="app-bar-title">CVW Portaal</span><span class="app-bar-dot"></span></div>
               <div class="app-body">
-                <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-bottom:0.75rem">Welkom terug, <span style="color:#fff;font-weight:700">Kevin</span> 👋</div>
+                <div style="font-size:0.68rem;color:rgba(255,255,255,0.38);margin-bottom:0.7rem">Welkom terug, <span style="color:#fff;font-weight:700">Kevin</span> 👋</div>
                 <div class="app-stat-row">
                   <div class="app-stat"><div class="app-stat-val">3</div><div class="app-stat-label">Vacatures</div></div>
-                  <div class="app-stat"><div class="app-stat-val">2</div><div class="app-stat-label">Meldingen</div></div>
+                  <div class="app-stat"><div class="app-stat-val">2</div><div class="app-stat-label">Nieuw</div></div>
                   <div class="app-stat"><div class="app-stat-val">5</div><div class="app-stat-label">Cursussen</div></div>
                 </div>
                 <div class="app-card"><span class="app-tag app-tag-red">Nieuw bericht</span><div class="app-card-title">Teamvergadering vrijdag</div><div class="app-card-sub">10:00 aula B · alle medewerkers</div></div>
-                <div class="app-card"><span class="app-tag app-tag-green">Open sollicitatie</span><div class="app-card-title">Medewerker logistiek</div><div class="app-card-sub">32–36 uur · reageer voor 15 apr</div></div>
+                <div class="app-card"><span class="app-tag app-tag-green">Open</span><div class="app-card-title">Medewerker logistiek</div><div class="app-card-sub">32–36 uur · reageer voor 15 apr</div></div>
                 <div class="app-card"><span class="app-tag app-tag-blue">Academie</span><div class="app-card-title">Module: Veilig werken</div><div class="app-card-sub">45 min · 12 anderen bezig</div></div>
-                <div class="app-card"><span class="app-tag app-tag-red">Speel & Win 🎯</span><div class="app-card-title">Verdien punten deze week</div><div class="app-card-sub">Ronde 4 loopt nog · 3 dagen</div></div>
-                <div class="app-card"><span class="app-tag app-tag-green">FAQ</span><div class="app-card-title">Verlofaanvraag indienen</div><div class="app-card-sub">Stap-voor-stap uitleg</div></div>
+                <div class="app-card"><span class="app-tag app-tag-red">Speel &amp; Win 🎯</span><div class="app-card-title">Verdien punten deze week</div><div class="app-card-sub">Ronde 4 · nog 3 dagen</div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="demo-phone-caption reveal">
+        <div class="demo-phone-caption">
           <div class="demo-phone-name">CVW Medewerkersportaal</div>
           <div class="demo-phone-tag">Sociaal werkbedrijf</div>
         </div>
@@ -920,14 +677,13 @@
                 <div class="app-card"><span class="app-tag app-tag-red">Nieuw</span><div class="app-card-title">CV-ketel storing</div><div class="app-card-sub">Meijer · Rozenstraat 3 · urgent</div></div>
                 <div class="app-card"><span class="app-tag app-tag-blue">Werkbon</span><div class="app-card-title">Schilderwerk buitenkant</div><div class="app-card-sub">#WB-2847 · wacht op handtekening</div></div>
                 <div class="app-card"><span class="app-tag app-tag-green">Afgerond</span><div class="app-card-title">Lekkage badkamer</div><div class="app-card-sub">Janssen · Kerkweg 5 · gisteren</div></div>
-                <div class="app-card"><span class="app-tag app-tag-blue">Voertuig</span><div class="app-card-title">Bus WB-123-X</div><div class="app-card-sub">APK over 14 dagen · actie vereist</div></div>
               </div>
             </div>
           </div>
         </div>
-        <div class="demo-phone-caption reveal reveal-delay-2">
+        <div class="demo-phone-caption">
           <div class="demo-phone-name">Kluswinkel App</div>
-          <div class="demo-phone-tag">Planning & werkbonnen</div>
+          <div class="demo-phone-tag">Planning &amp; werkbonnen</div>
         </div>
       </div>
     </div>
@@ -937,18 +693,18 @@
   </div>
 </section>
 
-<!-- ═══ WALKTHROUGH ══════════════════════════════ -->
+<!-- ═══ WALKTHROUGH ══════════════ -->
 <section id="walkthrough">
   <div class="container">
     <p class="section-label reveal">Zo werkt het</p>
     <h2 class="section-title reveal reveal-delay-1">Van idee naar<br/><em>live platform.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">Geen eindeloze trajecten. Ons proces is compact, transparant en gericht op resultaat. Elke stap brengt je dichter bij een werkend product.</p>
+    <p class="section-sub reveal reveal-delay-2">Geen eindeloze trajecten. Ons proces is compact, transparant en gericht op resultaat.</p>
     <div class="walkthrough-grid">
       <div class="walkthrough-steps" id="wtSteps">
         <div class="wt-step active" data-panel="0">
           <div class="wt-step-nr">1</div>
           <div>
-            <div class="wt-step-title">Intake & strategie</div>
+            <div class="wt-step-title">Intake &amp; strategie</div>
             <div class="wt-step-desc">We beginnen met een diepgaand gesprek over jouw doelen, gebruikers en processen. In één sessie leggen we de basis voor de gehele aanpak.</div>
           </div>
         </div>
@@ -956,7 +712,7 @@
         <div class="wt-step" data-panel="1">
           <div class="wt-step-nr">2</div>
           <div>
-            <div class="wt-step-title">Design & prototype</div>
+            <div class="wt-step-title">Design &amp; prototype</div>
             <div class="wt-step-desc">We maken interactieve wireframes en een visueel prototype waarop je direct feedback kunt geven. Geen verrassingen later in het traject.</div>
           </div>
         </div>
@@ -964,7 +720,7 @@
         <div class="wt-step" data-panel="2">
           <div class="wt-step-nr">3</div>
           <div>
-            <div class="wt-step-title">Bouw & iteraties</div>
+            <div class="wt-step-title">Bouw &amp; iteraties</div>
             <div class="wt-step-desc">We bouwen in sprints. Na elke sprint is er een werkende versie die je kunt testen. Je houdt volle controle over prioriteiten en scope.</div>
           </div>
         </div>
@@ -972,14 +728,13 @@
         <div class="wt-step" data-panel="3">
           <div class="wt-step-nr">4</div>
           <div>
-            <div class="wt-step-title">Launch & beheer</div>
+            <div class="wt-step-title">Launch &amp; beheer</div>
             <div class="wt-step-desc">We lanceren, monitoren en zorgen voor continuïteit. Met onze managed hosting en SLA ben je nooit alleen na oplevering.</div>
           </div>
         </div>
       </div>
       <div class="wt-screen" id="wtScreen">
         <div class="wt-notch"></div>
-        <!-- Panel 0: Intake -->
         <div class="wt-panel active" id="wtp0">
           <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Intake formulier</div>
           <div class="wt-fake-input"><span class="wt-fake-input-icon">👤</span> Naam organisatie</div>
@@ -991,63 +746,60 @@
             <div class="wt-check-item"><span class="wt-check-icon">✓</span> Functionele eisen verzameld</div>
           </div>
         </div>
-        <!-- Panel 1: Design -->
         <div class="wt-panel" id="wtp1">
           <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Design prototype</div>
-          <div style="background:rgba(217,43,75,0.08);border:1px solid rgba(217,43,75,0.2);border-radius:10px;padding:0.7rem;margin-bottom:0.75rem;">
-            <div style="height:12px;background:rgba(217,43,75,0.3);border-radius:4px;width:60%;margin-bottom:0.5rem"></div>
-            <div style="height:8px;background:rgba(255,255,255,0.06);border-radius:4px;width:90%;margin-bottom:0.3rem"></div>
-            <div style="height:8px;background:rgba(255,255,255,0.06);border-radius:4px;width:75%"></div>
+          <div style="background:rgba(217,43,75,0.07);border:1px solid rgba(217,43,75,0.18);border-radius:10px;padding:0.7rem;margin-bottom:0.7rem">
+            <div style="height:11px;background:rgba(217,43,75,0.28);border-radius:4px;width:60%;margin-bottom:0.45rem"></div>
+            <div style="height:7px;background:rgba(255,255,255,0.05);border-radius:4px;width:90%;margin-bottom:0.28rem"></div>
+            <div style="height:7px;background:rgba(255,255,255,0.05);border-radius:4px;width:75%"></div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.75rem">
-            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:8px;height:55px"></div>
-            <div style="background:rgba(217,43,75,0.08);border:1px solid rgba(217,43,75,0.15);border-radius:8px;height:55px"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.7rem">
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;height:52px"></div>
+            <div style="background:rgba(217,43,75,0.07);border:1px solid rgba(217,43,75,0.14);border-radius:8px;height:52px"></div>
           </div>
           <div class="wt-check-list">
             <div class="wt-check-item"><span class="wt-check-icon">✓</span> Wireframes goedgekeurd</div>
             <div class="wt-check-item"><span class="wt-check-icon">✓</span> Huisstijl toegepast</div>
           </div>
         </div>
-        <!-- Panel 2: Bouw -->
         <div class="wt-panel" id="wtp2">
           <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Sprint voortgang</div>
-          <div style="margin-bottom:0.9rem">
-            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem"><span>Sprint 1</span><span style="color:#4ade80">Afgerond ✓</span></div>
+          <div style="margin-bottom:0.8rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.63rem;color:rgba(255,255,255,0.45);margin-bottom:0.28rem"><span>Sprint 1</span><span style="color:#4ade80">Afgerond ✓</span></div>
             <div class="wt-bar"><div class="wt-bar-fill" style="width:100%"></div></div>
           </div>
-          <div style="margin-bottom:0.9rem">
-            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem"><span>Sprint 2</span><span style="color:#4ade80">Afgerond ✓</span></div>
+          <div style="margin-bottom:0.8rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.63rem;color:rgba(255,255,255,0.45);margin-bottom:0.28rem"><span>Sprint 2</span><span style="color:#4ade80">Afgerond ✓</span></div>
             <div class="wt-bar"><div class="wt-bar-fill" style="width:100%"></div></div>
           </div>
-          <div style="margin-bottom:0.9rem">
-            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem"><span>Sprint 3</span><span style="color:var(--red)">Actief</span></div>
-            <div class="wt-bar"><div class="wt-bar-fill" style="width:65%"></div></div>
+          <div style="margin-bottom:0.8rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.63rem;color:rgba(255,255,255,0.45);margin-bottom:0.28rem"><span>Sprint 3</span><span style="color:var(--red)">Actief</span></div>
+            <div class="wt-bar"><div class="wt-bar-fill" style="width:62%"></div></div>
           </div>
           <div class="wt-check-list">
             <div class="wt-check-item"><span class="wt-check-icon">✓</span> Auth module live</div>
             <div class="wt-check-item"><span class="wt-check-icon">✓</span> Dashboard live</div>
-            <div class="wt-check-item" style="opacity:0.5"><span style="color:rgba(255,255,255,0.3)">○</span> Notificaties in bouw</div>
+            <div class="wt-check-item" style="opacity:0.45"><span style="color:rgba(255,255,255,0.25)">○</span> Notificaties in bouw</div>
           </div>
         </div>
-        <!-- Panel 3: Launch -->
         <div class="wt-panel" id="wtp3">
           <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Lancering status</div>
           <div class="wt-notification">
-            <span class="wt-notification-icon">🚀</span>
+            <span style="font-size:0.9rem;flex-shrink:0">🚀</span>
             <div>
               <div class="wt-notification-title">Deployment geslaagd!</div>
               <div class="wt-notification-body">app.jouworganisatie.nl is live — 0 fouten</div>
             </div>
           </div>
-          <div class="wt-notification" style="background:rgba(74,222,128,0.08);border-color:rgba(74,222,128,0.2)">
-            <span class="wt-notification-icon">🛡️</span>
+          <div class="wt-notification" style="background:rgba(74,222,128,0.07);border-color:rgba(74,222,128,0.18)">
+            <span style="font-size:0.9rem;flex-shrink:0">🛡️</span>
             <div>
               <div class="wt-notification-title">Monitoring actief</div>
               <div class="wt-notification-body">Uptime 100% · laatste 30 dagen</div>
             </div>
           </div>
-          <div class="wt-notification" style="background:rgba(96,165,250,0.08);border-color:rgba(96,165,250,0.2)">
-            <span class="wt-notification-icon">📞</span>
+          <div class="wt-notification" style="background:rgba(96,165,250,0.07);border-color:rgba(96,165,250,0.18)">
+            <span style="font-size:0.9rem;flex-shrink:0">📞</span>
             <div>
               <div class="wt-notification-title">SLA actief</div>
               <div class="wt-notification-body">Responstijd &lt; 4 uur · direct contact</div>
@@ -1065,12 +817,12 @@
   </div>
 </section>
 
-<!-- ═══ LAB ═══════════════════════════════════════ -->
+<!-- ═══ LAB GRID ══════════════════ -->
 <section id="lab-section">
   <div class="container">
     <p class="section-label reveal">Webbiecorn Lab</p>
     <h2 class="section-title reveal reveal-delay-1">Werk dat de<br/><em>norm verlegt.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">Van concept tot complexe app. Hier vind je de producten die we bouwden — elk met zijn eigen verhaal, uitdaging en aanpak.</p>
+    <p class="section-sub reveal reveal-delay-2">Van concept tot complexe app. Hier vind je de producten die we bouwden — elk met zijn eigen verhaal en aanpak.</p>
     <div class="lab-grid">
       <a href="case-cvw.html" class="lab-card reveal reveal-delay-1">
         <div class="lab-card-thumb">
@@ -1080,13 +832,8 @@
         </div>
         <div class="lab-card-body">
           <div class="lab-card-name">Concern voor Werk</div>
-          <div class="lab-card-desc">Volledig maatwerk intern portaal voor 300+ medewerkers. Nieuws, vacatures, academie, meldpunt en spelmodule in één uitrol.</div>
-          <div class="lab-card-chips">
-            <span class="lab-chip">React</span>
-            <span class="lab-chip">Firebase</span>
-            <span class="lab-chip">PWA</span>
-            <span class="lab-chip">MVP ~€15K</span>
-          </div>
+          <div class="lab-card-desc">Maatwerk intern portaal voor 300+ medewerkers. Nieuws, vacatures, academie, meldpunt en spelmodule in één uitrol.</div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Firebase</span><span class="lab-chip">PWA</span><span class="lab-chip">MVP ~€15K</span></div>
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
@@ -1099,12 +846,7 @@
         <div class="lab-card-body">
           <div class="lab-card-name">BuurtApp v3.4</div>
           <div class="lab-card-desc">White-label meld- en buurtapp voor gemeentes en wijkteams. Kaartmodule, meldingen, chat en dossiers in één schaalbaar platform.</div>
-          <div class="lab-card-chips">
-            <span class="lab-chip">React</span>
-            <span class="lab-chip">Leaflet</span>
-            <span class="lab-chip">Firebase</span>
-            <span class="lab-chip">White-label</span>
-          </div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Leaflet</span><span class="lab-chip">Firebase</span><span class="lab-chip">White-label</span></div>
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
@@ -1116,12 +858,8 @@
         </div>
         <div class="lab-card-body">
           <div class="lab-card-name">Kluswinkel App</div>
-          <div class="lab-card-desc">Planning board, werkbonnen, voertuigbeheer en klantafspraken gecentraliseerd. Gebouwd voor de dagelijkse operatie van een klusbedrijf.</div>
-          <div class="lab-card-chips">
-            <span class="lab-chip">React</span>
-            <span class="lab-chip">Firebase</span>
-            <span class="lab-chip">PWA</span>
-          </div>
+          <div class="lab-card-desc">Planning board, werkbonnen, voertuigbeheer en klantafspraken gecentraliseerd. Gebouwd voor de dagelijkse operatie.</div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Firebase</span><span class="lab-chip">PWA</span></div>
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
@@ -1134,11 +872,7 @@
         <div class="lab-card-body">
           <div class="lab-card-name">Roasted Rebels</div>
           <div class="lab-card-desc">Fictieve koffiebranderij voor nachtbrakers. Volledige merkidentiteit: fotografie, illustratie, branding en digital.</div>
-          <div class="lab-card-chips">
-            <span class="lab-chip">Branding</span>
-            <span class="lab-chip">Fotografie</span>
-            <span class="lab-chip">Illustratie</span>
-          </div>
+          <div class="lab-card-chips"><span class="lab-chip">Branding</span><span class="lab-chip">Fotografie</span><span class="lab-chip">Illustratie</span></div>
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
@@ -1151,19 +885,15 @@
         <div class="lab-card-body">
           <div class="lab-card-name">Webbiecorn OS</div>
           <div class="lab-card-desc">Onze eigen interne werkomgeving. Project management, klantoverzichten en AI-tooling samengebracht in één dashboard.</div>
-          <div class="lab-card-chips">
-            <span class="lab-chip">React</span>
-            <span class="lab-chip">n8n</span>
-            <span class="lab-chip">Intern</span>
-          </div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">n8n</span><span class="lab-chip">Intern</span></div>
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="automatisering.html" class="lab-card reveal reveal-delay-3" style="background:linear-gradient(135deg,rgba(217,43,75,0.08),var(--black-card));border-color:rgba(217,43,75,0.2)">
+      <a href="automatisering.html" class="lab-card reveal reveal-delay-3" style="background:linear-gradient(135deg,rgba(217,43,75,0.07),var(--black-card));border-color:rgba(217,43,75,0.18)">
         <div class="lab-card-thumb" style="background:var(--black);display:flex;align-items:center;justify-content:center">
           <div style="text-align:center;padding:2rem">
-            <div style="font-size:2.5rem;margin-bottom:0.75rem">🤖</div>
-            <div style="font-size:0.8rem;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase">AI & n8n</div>
+            <div style="font-size:2.5rem;margin-bottom:0.6rem">🤖</div>
+            <div style="font-size:0.72rem;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase">AI &amp; n8n</div>
           </div>
           <div class="lab-card-thumb-overlay"></div>
           <div class="lab-card-thumb-badge">Automatisering</div>
@@ -1171,12 +901,7 @@
         <div class="lab-card-body">
           <div class="lab-card-name">AI Workflows op maat</div>
           <div class="lab-card-desc">Van slimme notificatieflows tot volledige bedrijfsautomatisering met n8n en AI. Tijdwinst van dag één.</div>
-          <div class="lab-card-chips">
-            <span class="lab-chip">n8n</span>
-            <span class="lab-chip">AI</span>
-            <span class="lab-chip">Webhooks</span>
-            <span class="lab-chip">Integraties</span>
-          </div>
+          <div class="lab-card-chips"><span class="lab-chip">n8n</span><span class="lab-chip">AI</span><span class="lab-chip">Webhooks</span><span class="lab-chip">Integraties</span></div>
           <span class="lab-card-link">Bekijk mogelijkheden →</span>
         </div>
       </a>
@@ -1187,7 +912,7 @@
   </div>
 </section>
 
-<!-- ═══ OVER TEASER ══════════════════════════════ -->
+<!-- ═══ OVER TEASER ═══════════════ -->
 <section id="over-teaser">
   <div class="container">
     <div class="over-grid">
@@ -1202,13 +927,13 @@
       </div>
       <div class="team-grid reveal reveal-delay-3">
         <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Creative Direction</div><div class="team-role">Branding · UX/UI · Contentproductie</div></div></div>
-        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Tech & Strategy</div><div class="team-role">PWA's · Automatisering · Managed Hosting</div></div></div>
+        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Tech &amp; Strategy</div><div class="team-role">PWA's · Automatisering · Managed Hosting</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CTA ════════════════════════════════════════ -->
+<!-- ═══ CTA ════════════════════════ -->
 <section id="cta-section">
   <div class="container">
     <div class="cta-banner reveal">
@@ -1224,7 +949,11 @@
 
 <footer>
   <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
-  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="lab.html">Lab</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp;
+  <a href="diensten.html">Diensten</a> &nbsp;|&nbsp;
+  <a href="cases.html">Cases</a> &nbsp;|&nbsp;
+  <a href="lab.html">Lab</a> &nbsp;|&nbsp;
+  <a href="contact.html">Contact</a></p>
 </footer>
 
 <script>
@@ -1249,53 +978,49 @@ const obs = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 reveals.forEach(el => obs.observe(el));
 
-// ── Particle canvas ────────────────────────────
+// ── Particles ─────────────────────────────────
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 let W, H, particles = [], animId = null;
 function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
 window.addEventListener('resize', resize); resize();
 function rand(a,b) { return Math.random()*(b-a)+a; }
-for (let i=0;i<90;i++) particles.push({x:rand(0,W||window.innerWidth),y:rand(0,H||window.innerHeight),r:rand(0.8,2.5),dx:rand(-0.25,0.25),dy:rand(-0.25,0.25),alpha:rand(0.08,0.45),color:Math.random()>0.88?'#D92B4B':'#ffffff'});
+for (let i = 0; i < 70; i++) particles.push({
+  x: rand(0,W||window.innerWidth), y: rand(0,H||window.innerHeight),
+  r: rand(1,2.5), dx: rand(-0.2,0.2), dy: rand(-0.2,0.2),
+  alpha: rand(0.06,0.3), color: Math.random() > 0.9 ? '#D92B4B' : '#ffffff'
+});
 function draw() {
   ctx.clearRect(0,0,W,H);
   particles.forEach(p => {
-    ctx.globalAlpha=p.alpha; ctx.fillStyle=p.color;
+    ctx.globalAlpha = p.alpha; ctx.fillStyle = p.color;
     ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
-    p.x+=p.dx; p.y+=p.dy;
-    if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+    p.x += p.dx; p.y += p.dy;
+    if(p.x < 0) p.x = W; if(p.x > W) p.x = 0;
+    if(p.y < 0) p.y = H; if(p.y > H) p.y = 0;
   });
-  ctx.globalAlpha=1;
-  for(let i=0;i<particles.length;i++) for(let j=i+1;j<particles.length;j++) {
-    const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, dist=Math.sqrt(dx*dx+dy*dy);
-    if(dist<100){ctx.globalAlpha=(1-dist/100)*0.1;ctx.strokeStyle='#ffffff';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();}
-  }
-  ctx.globalAlpha=1; animId = requestAnimationFrame(draw);
+  ctx.globalAlpha = 1;
+  animId = requestAnimationFrame(draw);
 }
 draw();
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) { cancelAnimationFrame(animId); animId = null; }
-  else if (!animId) { draw(); }
+  else if (!animId) draw();
 });
 
-// ── Cursor spotlight ───────────────────────────
+// ── Cards stage parallax ───────────────────────
+const cardsRow = document.getElementById('cards-row');
+let mx = 0, my = 0, cx = 0, cy = 0;
 const _spotlight = document.getElementById('cursor-spotlight');
-let mx=0,my=0;
-window.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  if(_spotlight){ _spotlight.style.left=e.clientX+'px'; _spotlight.style.top=e.clientY+'px'; _spotlight.classList.add('active'); }
+window.addEventListener('mousemove', e => {
+  mx = (e.clientX / window.innerWidth - 0.5) * 2;
+  my = (e.clientY / window.innerHeight - 0.5) * 2;
+  if (_spotlight) { _spotlight.style.left = e.clientX + 'px'; _spotlight.style.top = e.clientY + 'px'; _spotlight.classList.add('active'); }
 });
-
-// ── Hero phone parallax ────────────────────────
-let hpx=0,hpy=0,hpcx=0,hpcy=0;
-const hp1=document.getElementById('hp1'),hp2=document.getElementById('hp2'),hp3=document.getElementById('hp3');
-window.addEventListener('mousemove',e=>{ hpx=(e.clientX/window.innerWidth-0.5)*2; hpy=(e.clientY/window.innerHeight-0.5)*2; });
-(function hploop(){
-  hpcx+=(hpx-hpcx)*0.06; hpcy+=(hpy-hpcy)*0.06;
-  if(hp1) hp1.style.transform=`rotate(-4deg) translateX(${-30+hpcx*8}px) translateY(${hpcy*6}px)`;
-  if(hp2) hp2.style.transform=`rotate(0deg) translateX(${hpcx*4}px) translateY(${hpcy*4}px)`;
-  if(hp3) hp3.style.transform=`rotate(5deg) translateX(${30+hpcx*8}px) translateY(${hpcy*6}px)`;
-  requestAnimationFrame(hploop);
+(function loop() {
+  cx += (mx - cx) * 0.07; cy += (my - cy) * 0.07;
+  if (cardsRow) cardsRow.style.transform = 'rotateX(' + (22 + cy * -4) + 'deg) rotateY(' + (cx * 4) + 'deg)';
+  requestAnimationFrame(loop);
 })();
 
 // ── Walkthrough ────────────────────────────────
@@ -1304,14 +1029,13 @@ const wtPanels = document.querySelectorAll('.wt-panel');
 const wtDots = document.querySelectorAll('.wt-progress-dot');
 let wtCurrent = 0;
 function activateWT(idx) {
-  wtSteps.forEach((s,i) => s.classList.toggle('active', i===idx));
-  wtPanels.forEach((p,i) => p.classList.toggle('active', i===idx));
-  wtDots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  wtSteps.forEach((s,i) => s.classList.toggle('active', i === idx));
+  wtPanels.forEach((p,i) => p.classList.toggle('active', i === idx));
+  wtDots.forEach((d,i) => d.classList.toggle('active', i === idx));
   wtCurrent = idx;
 }
 wtSteps.forEach((step, i) => step.addEventListener('click', () => activateWT(i)));
 wtDots.forEach((dot, i) => dot.addEventListener('click', () => activateWT(i)));
-// Auto-advance
 setInterval(() => activateWT((wtCurrent + 1) % 4), 4000);
 
 // ── Counter animation ──────────────────────────
@@ -1320,391 +1044,29 @@ const statObs = new IntersectionObserver((entries) => {
     if (e.isIntersecting) {
       const target = parseInt(e.target.dataset.target, 10);
       let start = 0;
-      const dur = 1200;
-      const step = 16;
-      const inc = target / (dur / step);
+      const inc = target / (1200 / 16);
       const timer = setInterval(() => {
         start = Math.min(start + inc, target);
         e.target.textContent = Math.floor(start);
         if (start >= target) clearInterval(timer);
-      }, step);
+      }, 16);
       statObs.unobserve(e.target);
     }
   });
 }, { threshold: 0.5 });
 document.querySelectorAll('.stat-number-val').forEach(el => statObs.observe(el));
 
-// ── Page fade transition ───────────────────────
-document.querySelectorAll("a[href]").forEach(a => {
-  if(a.host === window.location.host && !a.hash && !a.hasAttribute("download")) {
-    a.addEventListener("click", e => {
-      if(e.ctrlKey || e.metaKey || e.shiftKey) return;
+// ── Page fade ─────────────────────────────────
+document.querySelectorAll('a[href]').forEach(a => {
+  if (a.host === window.location.host && !a.hash && !a.hasAttribute('download')) {
+    a.addEventListener('click', e => {
+      if (e.ctrlKey || e.metaKey || e.shiftKey) return;
       e.preventDefault();
-      document.body.classList.add("fade-out");
+      document.body.classList.add('fade-out');
       setTimeout(() => window.location = a.href, 250);
     });
   }
 });
-</script>
-</body>
-</html>
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Webbiecorn",
-    "url": "https://webbiecorn.com",
-    "logo": "https://webbiecorn.com/webbiecorn-logo.svg",
-    "email": "hallo@webbiecorn.com",
-    "sameAs": [
-      "https://www.instagram.com/webbiecorn",
-      "https://www.linkedin.com/company/webbiecorn"
-    ],
-    "description": "Digitaal bureau voor PWA's, AI-automatisering, design en managed hosting.",
-    "foundingDate": "2024",
-    "areaServed": "NL",
-    "knowsLanguage": "nl"
-  }
-  </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('a[href]').forEach((anchor) => {
-        if (anchor.host === window.location.host && !anchor.hash && !anchor.hasAttribute('download')) {
-          anchor.addEventListener('click', (event) => {
-            if (event.ctrlKey || event.metaKey || event.shiftKey) {
-              return;
-            }
-            event.preventDefault();
-            document.body.classList.add('fade-out');
-            setTimeout(() => {
-              window.location = anchor.href;
-            }, 250);
-          });
-        }
-      });
-    });
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    #hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
-    canvas#particles { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; min-height: 100vh; justify-content: center; }
-    .hero-content { max-width: 760px; }
-    .hero-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; border: 1px solid var(--red); padding: 0.35rem 1rem; border-radius: 2px; }
-    .hero-title { font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -2px; margin-bottom: 1.5rem; }
-    .hero-title em { font-style: normal; color: var(--red); }
-    .hero-sub { font-size: clamp(1rem, 2vw, 1.2rem); color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 640px; margin: 0 auto 2.5rem; }
-    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .cards-stage { margin-top: 4rem; width: 100%; perspective: 1100px; perspective-origin: 50% 30%; }
-    .cards-row { display: flex; gap: 1.2rem; justify-content: center; transform: rotateX(24deg); transform-style: preserve-3d; will-change: transform; }
-    .stage-card { flex: 0 0 auto; width: 220px; background: rgba(12,12,12,0.92); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 2.1rem 1.5rem 2rem; backdrop-filter: blur(20px); transform-style: preserve-3d; transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.3s; cursor: default; position: relative; overflow: hidden; }
-    .stage-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(217,43,75,0.12) 0%, transparent 55%); opacity: 0; transition: opacity 0.3s; border-radius: inherit; pointer-events: none; }
-    .stage-card:hover { transform: translateZ(60px) rotateX(-5deg); border-color: rgba(217,43,75,0.6); box-shadow: 0 0 42px rgba(217,43,75,0.32), 0 28px 72px rgba(0,0,0,0.65); }
-    .stage-card:hover::after { opacity: 1; }
-    .card-nth-2 { transform: translateZ(20px); } .card-nth-3 { transform: translateZ(12px); }
-    .card-nth-2:hover { transform: translateZ(62px) rotateX(-5deg); } .card-nth-3:hover { transform: translateZ(58px) rotateX(-5deg); }
-    .card-icon { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; background: rgba(217,43,75,0.1); border-radius: 14px; }
-    .stage-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
-    .stage-card p { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.6; }
-    .card-bar { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
-    .stage-card:hover .card-bar { transform: scaleX(1); }
-    .avail-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 0.4rem 1rem; margin-bottom: 1.5rem; }
-    .avail-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 0 rgba(74,222,128,0.5); animation: pulse-dot 2s ease-in-out infinite; flex-shrink: 0; }
-    @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.5)} 50%{box-shadow:0 0 0 6px rgba(74,222,128,0)} }
-    @media (max-width: 880px) { .cards-row { flex-wrap: wrap; transform: none; gap: 1rem; } .stage-card { width: calc(50% - 0.5rem); } }
-    @media (max-width: 480px) { .stage-card { width: 100%; } }
-    a.stage-card { text-decoration: none; color: inherit; }
-    #over-teaser { background: var(--black-mid); }
-    #diensten-teaser { background: var(--black); }
-    #cases-teaser { background: var(--black-mid); }
-    #cta-section { background: var(--black); padding: 5rem 2rem; }
-  </style>
-</head>
-<body>
-<div id="scroll-progress"></div>
-<div id="cursor-spotlight"></div>
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">
-    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
-    <span class="nav-logo-text">Webbie<span>corn</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="over.html">Over ons</a></li>
-    <li><a href="diensten.html">Diensten</a></li>
-    <li><a href="cases.html">Cases</a></li>
-    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="over.html" onclick="closeMobile()">Over ons</a>
-  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
-  <a href="cases.html" onclick="closeMobile()">Cases</a>
-  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
-</div>
-
-<section id="hero">
-  <canvas id="particles"></canvas>
-  <div class="hero-inner" id="hero-inner">
-    <div class="hero-content" id="hero-content">
-      <div class="avail-badge reveal"><span class="avail-dot"></span> Beschikbaar voor nieuwe projecten</div>
-      <span class="hero-eyebrow">PWA's, AI & beheer</span>
-      <h1 class="hero-title">Wij creëren jouw<br/><em>digitale impact.</em></h1>
-      <p class="hero-sub">Twee oprichters. Eén ijzersterke focus. Wij combineren feilloze techniek met scherp design — voor ondernemers die durven voorop te lopen.</p>
-      <div class="hero-ctas">
-        <a href="diensten.html" class="btn-primary">Bekijk onze diensten</a>
-        <a href="cases.html" class="btn-ghost">Bekijk het lab</a>
-      </div>
-    </div>
-    <div class="cards-stage">
-      <div class="cards-row" id="cards-row">
-        <a href="apps.html" class="stage-card card-nth-1">
-          <div class="card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M8 8 L2 13 L8 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 8 L24 13 L18 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 5 L10.5 21" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <h3>PWA's & Apps</h3><p>Razendsnelle maatwerk portalen en web-apps. Zonder bloatware.</p><div class="card-bar"></div>
-        </a>
-        <a href="automatisering.html" class="stage-card card-nth-2">
-          <div class="card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M12 4 L22 14 L12 24 L2 14 Z" stroke="#D92B4B" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 8 L18 14 L12 20 L6 14 Z" stroke="#D92B4B" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-          <h3>Automatisering</h3><p>Slimme AI & n8n workflows die processen stroomlijnen.</p><div class="card-bar"></div>
-        </a>
-        <a href="design.html" class="stage-card card-nth-3">
-          <div class="card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/><rect x="15" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/><rect x="2" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/><rect x="15" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8" opacity="0.35"/></svg></div>
-          <h3>Design</h3><p>Intuïtieve interfaces en robuuste branding. Pixel-perfect.</p><div class="card-bar"></div>
-        </a>
-        <a href="onderhoud.html" class="stage-card card-nth-4">
-          <div class="card-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="11" stroke="#D92B4B" stroke-width="1.8"/><path d="M13 6v7l4.5 4.5" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Onderhoud</h3><p>Managed hosting, actieve monitoring en SLA-responstijden.</p><div class="card-bar"></div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="marquee-wrap">
-  <div class="marquee-content">
-    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span></span>
-    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span></span>
-    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span></span>
-    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span></span>
-  </div>
-</div>
-
-<section class="proof-strip">
-  <div class="container">
-    <div class="proof-grid">
-      <a href="case-cvw.html" class="proof-item reveal">
-        <div class="proof-label">Concern voor Werk</div>
-        <div class="proof-headline">Maatwerk MVP rond €15K</div>
-        <div class="proof-text">Intern medewerkersportaal met nieuws, vacatures, academie, meldpunt en admin-dashboard in één uitrol.</div>
-        <div class="proof-link">Bekijk case →</div>
-      </a>
-      <a href="case-buurtapp.html" class="proof-item reveal reveal-delay-1">
-        <div class="proof-label">BuurtApp</div>
-        <div class="proof-headline">White-label PWA in uitrol</div>
-        <div class="proof-text">Kaartmodule, meldingen, chat en dossiers samengebracht in een schaalbare app voor gemeentes en wijkteams.</div>
-        <div class="proof-link">Bekijk case →</div>
-      </a>
-      <a href="case-kluswinkel.html" class="proof-item reveal reveal-delay-2">
-        <div class="proof-label">Kluswinkel App</div>
-        <div class="proof-headline">Planning en werkbonnen in één flow</div>
-        <div class="proof-text">Dagelijkse operatie gecentraliseerd met planning board, voertuigbeheer, afspraken en werkbonafhandeling.</div>
-        <div class="proof-link">Bekijk case →</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="over-teaser">
-  <div class="container">
-    <div class="over-grid">
-      <div>
-        <p class="section-label reveal">Over Webbiecorn</p>
-        <h2 class="section-title reveal reveal-delay-1">Vergeet de<br/><em>traditionele bureaus.</em></h2>
-        <div class="over-card reveal reveal-delay-2">
-          <p>Wij zijn Webbiecorn. Een compact bureau dat design, techniek en beheer combineert in een strak uitvoerbaar traject. Van eerste concept tot live platform.</p>
-          <p>Geen trage trajecten, geen vage offertes, geen overhead-circus. Wij bouwen digitale producten die processen versimpelen en organisaties direct vooruithelpen.</p>
-        </div>
-        <a href="over.html" class="teaser-link reveal reveal-delay-3">Lees ons verhaal →</a>
-      </div>
-      <div class="team-grid reveal reveal-delay-3">
-        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Creative Direction</div><div class="team-role">Branding · UX/UI · Contentproductie</div></div></div>
-        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Tech & Strategy</div><div class="team-role">PWA's · Automatisering · Managed Hosting</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="diensten-teaser">
-  <div class="container">
-    <p class="section-label reveal">Wat wij doen</p>
-    <h2 class="section-title reveal reveal-delay-1">Digitale slagkracht.<br/><em>Van concept tot beheer.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">Wij bouwen de kern van je digitale infrastructuur. Maatwerk applicaties, foutloze automatisering en naadloos design.</p>
-    <div class="diensten-grid">
-      <a href="apps.html" class="dienst-card dienst-link-card reveal reveal-delay-1"><div class="dienst-icon">⚡</div><div class="dienst-title">PWA's & Maatwerk Apps</div><div class="dienst-desc">Volwaardige bedrijfsportalen en supersnelle webapplicaties in React. Inclusief pakketten voor MVP, platformgroei en white-label uitrol.</div><div class="dienst-link-row">Bekijk pagina & pakketten →</div></a>
-      <a href="automatisering.html" class="dienst-card dienst-link-card reveal reveal-delay-2"><div class="dienst-icon">🔗</div><div class="dienst-title">AI & Automatisering (n8n)</div><div class="dienst-desc">Van quick wins tot complete operationele flows. Gericht op tijdswinst, minder fouten en schaalbare processen.</div><div class="dienst-link-row">Bekijk pagina & pakketten →</div></a>
-      <a href="design.html" class="dienst-card dienst-link-card reveal reveal-delay-3"><div class="dienst-icon">✏️</div><div class="dienst-title">Design & Identiteit</div><div class="dienst-desc">Branding, UX/UI en visuele systemen die je platform geloofwaardig, herkenbaar en gebruiksvriendelijk maken.</div><div class="dienst-link-row">Bekijk pagina & pakketten →</div></a>
-      <a href="onderhoud.html" class="dienst-card dienst-link-card reveal reveal-delay-4"><div class="dienst-icon">🛡️</div><div class="dienst-title">Onderhoud & Managed Hosting</div><div class="dienst-desc">Maandelijkse pakketten voor monitoring, updates, incidentrespons en doorlopende technische ondersteuning.</div><div class="dienst-link-row">Bekijk pagina & pakketten →</div></a>
-    </div>
-    <a href="diensten.html" class="teaser-link reveal">Alle diensten en tarieven →</a>
-  </div>
-</section>
-
-<section id="social-proof">
-  <div class="container">
-    <p class="section-label reveal">Wat klanten zeggen</p>
-    <h2 class="section-title reveal reveal-delay-1">Geen woorden,<br/><em>maar resultaten.</em></h2>
-    <div class="quotes-grid">
-      <div class="quote-card reveal reveal-delay-1">
-        <div class="quote-mark">&ldquo;</div>
-        <p class="quote-text">Ze begrijpen wat je nodig hebt nog voor je het zelf goed kunt uitleggen. Het resultaat was meteen raak — visueel en technisch.</p>
-        <div class="quote-author">
-          <div class="quote-avatar">R</div>
-          <div><div class="quote-name">Regio-organisatie</div><div class="quote-role">Buurtapp-klant</div></div>
-        </div>
-      </div>
-      <div class="quote-card reveal reveal-delay-2">
-        <div class="quote-mark">&ldquo;</div>
-        <p class="quote-text">Van logo tot werkende app in één traject. Geen verrassingen in de rekening, geen gedoe met externe partijen. Precies wat we nodig hadden.</p>
-        <div class="quote-author">
-          <div class="quote-avatar">C</div>
-          <div><div class="quote-name">Concern voor Werk</div><div class="quote-role">Sociaal werkbedrijf</div></div>
-        </div>
-      </div>
-      <div class="quote-card reveal reveal-delay-3">
-        <div class="quote-mark">&ldquo;</div>
-        <p class="quote-text">Strak, snel en eerlijk. Ze denken mee als partner, niet als uurschrijver. Het portaal staat er en het werkt gewoon.</p>
-        <div class="quote-author">
-          <div class="quote-avatar">K</div>
-          <div><div class="quote-name">Kluswinkel klant</div><div class="quote-role">Plannings-app</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="visie-split">
-  <div class="container">
-    <div class="split-layout">
-      <div class="split-text reveal">
-        <p class="section-label">Onze Werkwijze</p>
-        <h2 class="section-title">Niet lullen,<br/><em>maar leveren.</em></h2>
-        <p class="section-sub" style="margin-top: 1.5rem; text-align: left; max-width: 100%;">
-          We geloven niet in eindeloze theesessies of dikke rapporten. Wij zijn makers. We luisteren naar je probleem, schetsen de oplossing en bouwen het. Razendsnel en zonder ruis op de lijn.
-        </p>
-        <a href="over.html" class="btn-ghost" style="margin-top: 2rem; display: inline-block;">Lees hoe wij werken</a>
-      </div>
-      <div class="split-image reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=1000&auto=format&fit=crop" alt="Desk workspace" loading="lazy" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="cases-teaser">
-  <div class="container">
-    <p class="section-label reveal">Het lab</p>
-    <h2 class="section-title reveal reveal-delay-1">Werk dat de<br/><em>norm verlegt.</em></h2>
-    <div class="cases-grid">
-      <a href="case-roasted-rebels.html" class="case-card reveal reveal-delay-1">
-        <div class="case-image">
-          <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=800&auto=format&fit=crop" alt="Concept Branding" loading="lazy" />
-        </div>
-        <div class="case-content">
-          <div class="case-tag">Concept</div>
-          <div class="case-title">Roasted Rebels</div>
-          <div class="case-desc">Fictieve koffiebranderij voor nachtbrakers. Volledige merkidentiteit: fotografie, illustratie, branding en digital.</div>
-        </div>
-      </a>
-      <a href="case-buurtapp.html" class="case-card reveal reveal-delay-2">
-        <div class="case-image">
-          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop" alt="App Development" loading="lazy" />
-        </div>
-        <div class="case-content">
-          <div class="case-tag">Web App</div>
-          <div class="case-title">BuurtApp v3.4</div>
-          <div class="case-desc">Digitale buurt- en meldingsapp voor gemeentes. React + Firebase, succesvol uitgerold bij meerdere organisaties.</div>
-        </div>
-      </a>
-      <a href="case-cvw.html" class="case-card reveal reveal-delay-3">
-        <div class="case-image">
-          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" alt="Internal Portal" loading="lazy" />
-        </div>
-        <div class="case-content">
-          <div class="case-tag">Medewerkersportaal</div>
-          <div class="case-title">Concern voor Werk</div>
-          <div class="case-desc">Op maat gemaakt intern portaal. Compleet met nieuws, vacatures, dossiers en meldpunt.</div>
-        </div>
-      </a>
-    </div>
-    <a href="cases.html" class="teaser-link reveal" style="margin-top: 3rem;">Ontdek ons werk →</a>
-  </div>
-</section>
-
-<section id="cta-section">
-  <div class="container">
-    <div class="cta-banner reveal">
-      <h2>Klaar voor de volgende stap?</h2>
-      <p>Laten we het hebben over jouw project. Geen eindeloze brainstorms, maar concrete plannen en tastbaar resultaat.</p>
-      <div class="btn-group">
-        <a href="contact.html" class="btn-primary">Start je project</a>
-        <a href="diensten.html" class="btn-ghost">Bekijk tarieven</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
-  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
-</footer>
-
-<script>
-  const navbar = document.getElementById('navbar');
-  const _sp = document.getElementById('scroll-progress');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
-    if (_sp) _sp.style.width = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) + '%';
-  });
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
-  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.12 });
-  reveals.forEach(el => obs.observe(el));
-  document.querySelectorAll('.dienst-card').forEach(card => {
-    card.addEventListener('mousemove', e => { const r = card.getBoundingClientRect(); const x = (e.clientX-r.left)/r.width-0.5; const y = (e.clientY-r.top)/r.height-0.5; card.style.transform = `perspective(600px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-4px)`; });
-    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-  });
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  let W, H, particles = [], animId = null;
-  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
-  window.addEventListener('resize', resize); resize();
-  function rand(a,b) { return Math.random()*(b-a)+a; }
-  for (let i=0;i<80;i++) particles.push({x:rand(0,W||window.innerWidth),y:rand(0,H||window.innerHeight),r:rand(1,3),dx:rand(-0.3,0.3),dy:rand(-0.3,0.3),alpha:rand(0.1,0.5),color:Math.random()>0.85?'#D92B4B':'#ffffff'});
-  function draw() {
-    ctx.clearRect(0,0,W,H);
-    particles.forEach(p => { ctx.globalAlpha=p.alpha; ctx.fillStyle=p.color; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); p.x+=p.dx; p.y+=p.dy; if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0; });
-    ctx.globalAlpha=1;
-    for(let i=0;i<particles.length;i++) for(let j=i+1;j<particles.length;j++) { const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy); if(dist<120){ctx.globalAlpha=(1-dist/120)*0.12;ctx.strokeStyle='#ffffff';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();} }
-    ctx.globalAlpha=1; animId = requestAnimationFrame(draw);
-  }
-  draw();
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) { cancelAnimationFrame(animId); animId = null; }
-    else if (!animId) { draw(); }
-  });
-  const cardsRow=document.getElementById('cards-row'), heroContent=document.getElementById('hero-content');
-  let mx=0,my=0,cx=0,cy=0;
-  const _spotlight = document.getElementById('cursor-spotlight');
-  window.addEventListener('mousemove',e=>{
-    mx=(e.clientX/window.innerWidth-0.5)*2; my=(e.clientY/window.innerHeight-0.5)*2;
-    if(_spotlight){ _spotlight.style.left=e.clientX+'px'; _spotlight.style.top=e.clientY+'px'; _spotlight.classList.add('active'); }
-  });
-  (function loop(){cx+=(mx-cx)*0.07;cy+=(my-cy)*0.07;if(cardsRow)cardsRow.style.transform=`rotateX(${24+cy*-4}deg) rotateY(${cx*5}deg)`;if(heroContent)heroContent.style.transform=`translateX(${cx*-12}px) translateY(${cy*-8}px)`;requestAnimationFrame(loop);})();
-  document.querySelectorAll("a[href]").forEach(a => { if(a.host === window.location.host && !a.hash && !a.hasAttribute("download")) { a.addEventListener("click", e => { if(e.ctrlKey || e.metaKey || e.shiftKey) return; e.preventDefault(); document.body.classList.add("fade-out"); setTimeout(() => window.location = a.href, 250); }); } });
 </script>
 </body>
 </html>
