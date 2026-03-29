@@ -13,9 +13,10 @@ import Layout from '../layouts/Layout.astro';
 </div>
 
 <!-- ═══════════════════════════════════════════
-     HERO — Centered headline + 4 service cards
+     HERO — Interactive Mesh + Giant Typography
 ═══════════════════════════════════════════════ -->
 <section id="hero-premium">
+  <canvas id="hero-mesh"></canvas>
   <div class="aurora-bg">
     <div class="aurora-glow aurora-1"></div>
     <div class="aurora-glow aurora-2"></div>
@@ -28,22 +29,22 @@ import Layout from '../layouts/Layout.astro';
       <span>Direct beschikbaar voor nieuwe projecten</span>
     </div>
     
-    <h1 class="hero-title">
-      <div class="text-line reveal-slide">Webbiecorn bouwt</div>
-      <div class="text-line reveal-slide delay-1">digitale platformen met</div>
-      <div class="text-line reveal-slide delay-2 hero-gradient-text">Ongekende Slagkracht.</div>
+    <h1 class="hero-title hero-title-xl">
+      <div class="text-line reveal-slide">Wij bouwen</div>
+      <div class="text-line reveal-slide delay-1">platformen die</div>
+      <div class="text-line reveal-slide delay-2 hero-gradient-text">presteren.</div>
     </h1>
     
     <p class="hero-sub reveal-hero">
-      Een gedreven team van technische experts. Wij combineren <span class="highlight">feilloze architectuur</span> met <span class="highlight">premium design</span> — voor organisaties die sneller en slimmer willen opereren.
+      Premium code, zero compromises. Van <span class="highlight">architectuur</span> tot <span class="highlight">launch</span> — wij leveren platformen die organisaties versnellen.
     </p>
     
     <div class="hero-ctas reveal-hero">
-      <a href="diensten.html" class="btn-primary magnetic-btn">
+      <a href="contact.html" class="btn-primary magnetic-btn">
         <span class="btn-text">Start je project</span>
         <span class="btn-arrow">→</span>
       </a>
-      <a href="cases.html" class="btn-ghost magnetic-btn">Bekijk het lab</a>
+      <a href="cases.html" class="btn-ghost magnetic-btn">Bekijk ons werk</a>
     </div>
 
     <div class="cards-stage reveal-hero">
@@ -56,7 +57,7 @@ import Layout from '../layouts/Layout.astro';
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M8 8 L2 13 L8 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 8 L24 13 L18 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5 5 L10.5 21" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round"/></svg>
             </div>
             <h3>PWA's &amp; Apps</h3>
-            <p>Razendsnelle maatwerk portals en web-apps. Zero bloatware, 100% performance.</p>
+            <p>Maatwerk apps. Razend snel. Geen bloat.</p>
           </div>
         </a>
 
@@ -67,7 +68,7 @@ import Layout from '../layouts/Layout.astro';
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 3 C7.477 3 3 7.477 3 13 S7.477 23 13 23 S23 18.523 23 13 S18.523 3 13 3Z" stroke="#D92B4B" stroke-width="1.8"/><path d="M13 8 L13 13 L16.5 16.5" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="6" r="2.5" fill="#D92B4B" opacity="0.7"/></svg>
             </div>
             <h3>AI Workflows</h3>
-            <p>Slimme AI & n8n automatisering die handmatige processen overbodig maakt.</p>
+            <p>Automatiseer het saaie. Wij pluggen AI in je workflows.</p>
           </div>
         </a>
 
@@ -78,7 +79,7 @@ import Layout from '../layouts/Layout.astro';
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="2" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/><rect x="15" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/><rect x="2" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/><rect x="15" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8" opacity="0.35"/></svg>
             </div>
             <h3>UX/UI Design</h3>
-            <p>Datagedreven interfaces en robuuste branding. Pixel-perfect ontworpen voor conversie.</p>
+            <p>Interfaces die converteren. Design dat blijft hangen.</p>
           </div>
         </a>
 
@@ -89,7 +90,7 @@ import Layout from '../layouts/Layout.astro';
               <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2 L15.5 9H23L17 13.5L19.5 20.5L13 16L6.5 20.5L9 13.5L3 9H10.5Z" stroke="#D92B4B" stroke-width="1.8" stroke-linejoin="round"/></svg>
             </div>
             <h3>Managed Hosting</h3>
-            <p>Actieve monitoring, dedicated infrastructuur en scherpe SLA-responstijden.</p>
+            <p>Altijd online. Wij draaien, monitoren en schalen je infra.</p>
           </div>
         </a>
 
@@ -129,32 +130,51 @@ import Layout from '../layouts/Layout.astro';
 <section id="stats-section">
   <div class="container">
     <div class="stats-grid">
-      <div class="stat-item reveal">
-        <div class="stat-number"><span class="stat-number-val" data-target="3">0</span><span class="stat-suffix">+</span></div>
-        <div class="stat-label">Live platforms</div>
+      <div class="stat-item gsap-reveal">
+        <div class="stat-number"><span class="stat-number-val" data-target="12">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Opgeleverde projecten</div>
       </div>
-      <div class="stat-item reveal reveal-delay-1">
-        <div class="stat-number"><span class="stat-number-val" data-target="100">0</span><span class="stat-suffix">%</span></div>
-        <div class="stat-label">Maatwerk</div>
+      <div class="stat-item gsap-reveal">
+        <div class="stat-number"><span class="stat-suffix">&lt;</span><span class="stat-number-val" data-target="30">0</span></div>
+        <div class="stat-label">Dagen van idee tot live</div>
       </div>
-      <div class="stat-item reveal-hero">
-        <div class="stat-number"><span class="stat-number-val" data-target="4">0</span><span class="stat-suffix"> wkn</span></div>
-        <div class="stat-label">Gem. MVP Launchtijd</div>
+      <div class="stat-item gsap-reveal">
+        <div class="stat-number"><span class="stat-number-val" data-target="99">0</span><span class="stat-suffix">.9%</span></div>
+        <div class="stat-label">Uptime garantie</div>
       </div>
-      <div class="stat-item reveal reveal-delay-3">
-        <div class="stat-number"><span class="stat-number-val" data-target="4">0</span></div>
-        <div class="stat-label">Disciplines onder één dak</div>
+      <div class="stat-item gsap-reveal">
+        <div class="stat-number end-to-end-stat">End‑to‑end</div>
+        <div class="stat-label">Design · Code · AI · Hosting</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══ SOCIAL PROOF ═════════════════ -->
+<section id="testimonial-strip">
+  <div class="container">
+    <div class="testimonial-card gsap-reveal">
+      <div class="testimonial-quote">"Webbiecorn leverde onze complete medewerkers-app in 3 weken op. Sneller dan verwacht, en de kwaliteit is top."</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">DG</div>
+        <div>
+          <div class="testimonial-name">Dennis Goudbeek</div>
+          <div class="testimonial-role">IT-manager, Concern voor Werk</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION DIVIDER ══════════ -->
+<div class="section-divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80Z" fill="var(--black-mid)"/></svg></div>
+
 <!-- ═══ WEBBIE GRID (Zo Werkt Het) ══════════════ -->
 <section id="walkthrough-grid-section">
   <div class="container">
-    <p class="section-label reveal-slide">Onze succesformule</p>
-    <h2 class="section-title reveal-slide delay-1">Geen wollige trajecten.<br/><em class="hero-gradient-text">Pure executiekracht.</em></h2>
-    <p class="section-sub reveal-slide delay-2">We bouwen in snelle iteraties. Vanaf de eerste schets tot aan de schaalbare live-omgeving, je hebt overal grip op.</p>
+    <p class="section-label gsap-reveal">Onze succesformule</p>
+    <h2 class="section-title gsap-reveal">Geen wollige trajecten.<br/><em class="hero-gradient-text">Pure executiekracht.</em></h2>
+    <p class="section-sub gsap-reveal">Snelle iteraties. Volledige transparantie. Van eerste schets tot schaalbare live-omgeving.</p>
 
     <div class="bento-walkthrough reveal-slide delay-2">
       <!-- Stap 1 -->
@@ -221,8 +241,8 @@ import Layout from '../layouts/Layout.astro';
 <section id="lab-section">
   <div class="container">
     <p class="section-label reveal">Webbiecorn Lab</p>
-    <h2 class="section-title reveal reveal-delay-1">Werk dat de<br/><em>norm verlegt.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">Van concept tot complexe app. Hier vind je de producten die we bouwden — elk met zijn eigen verhaal en aanpak.</p>
+    <h2 class="section-title gsap-reveal">Werk dat de<br/><em>norm verlegt.</em></h2>
+    <p class="section-sub gsap-reveal">Van concept tot complexe app. Elk project een eigen verhaal en aanpak.</p>
     <div class="lab-grid">
       <a href="case-cvw.html" class="lab-card reveal reveal-delay-1">
         <div class="lab-card-thumb">
@@ -233,7 +253,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="lab-card-body">
           <div class="lab-card-name">Concern voor Werk</div>
           <div class="lab-card-desc">Maatwerk intern portaal voor 300+ medewerkers. Nieuws, vacatures, academie, meldpunt en spelmodule in één uitrol.</div>
-          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Firebase</span><span class="lab-chip">PWA</span><span class="lab-chip">MVP vanaf €4.5K</span></div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Firebase</span><span class="lab-chip">PWA</span></div>
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
@@ -320,8 +340,8 @@ import Layout from '../layouts/Layout.astro';
         <p class="section-label reveal">Over Webbiecorn</p>
         <h2 class="section-title reveal reveal-delay-1">Vergeet de<br/><em>traditionele bureaus.</em></h2>
         <div class="over-card reveal reveal-delay-2">
-          <p>Wij zijn Webbiecorn. Een compact bureau dat design, techniek en beheer combineert in een strak uitvoerbaar traject. Van eerste concept tot live platform.</p>
-          <p>Geen trage trajecten, geen vage offertes, geen overhead-circus. Wij bouwen digitale producten die processen versimpelen en organisaties direct vooruithelpen.</p>
+          <p>Compact team. Grote output. Wij combineren design, code en beheer in een strak traject — van concept tot productie.</p>
+          <p>Geen overhead, geen vage offertes. Alleen digitale producten die processen versimpelen en organisaties vooruithelpen.</p>
         </div>
         <a href="over.html" class="teaser-link reveal reveal-delay-3">Lees ons verhaal →</a>
       </div>
@@ -385,11 +405,11 @@ import Layout from '../layouts/Layout.astro';
 <section id="cta-section">
   <div class="container">
     <div class="cta-banner reveal">
-      <h2>Klaar voor de volgende stap?</h2>
-      <p>Laten we het hebben over jouw project. Geen eindeloze brainstorms, maar concrete plannen en tastbaar resultaat.</p>
+      <h2>Klaar om te bouwen?</h2>
+      <p>Geen eindeloze brainstorms. Wij leveren concrete plannen en tastbaar resultaat.</p>
       <div class="btn-group">
-        <a href="contact.html" class="btn-primary">Start je project</a>
-        <a href="diensten.html" class="btn-ghost">Bekijk tarieven</a>
+        <a href="contact.html" class="btn-primary magnetic-btn"><span class="btn-text">Start je project</span> <span class="btn-arrow">→</span></a>
+        <a href="diensten.html" class="btn-ghost magnetic-btn">Bekijk onze diensten</a>
       </div>
     </div>
   </div>
