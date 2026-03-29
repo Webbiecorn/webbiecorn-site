@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Webbiecorn — PWA's, AI Automatisering en Managed Hosting</title>
-  <meta name="description" content="Webbiecorn bouwt PWA's, maatwerk portals, AI-automatisering en managed hosting voor organisaties die digitaal willen opschalen." />
+  <title>Webbiecorn — Digitale producten die écht werken</title>
+  <meta name="description" content="Webbiecorn bouwt PWA's, AI-automatisering en maatwerk portals. Bekijk live demo's van onze apps en ontdek wat we voor jouw organisatie kunnen doen." />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://webbiecorn.com/" />
-  <meta property="og:title" content="Webbiecorn — PWA's, AI Automatisering en Managed Hosting" />
-  <meta property="og:description" content="Maatwerk PWA's, slimme n8n-workflows, strak design en managed hosting. Gebouwd voor organisaties die willen doorpakken." />
+  <meta property="og:title" content="Webbiecorn — Digitale producten die écht werken" />
+  <meta property="og:description" content="Maatwerk PWA's, slimme AI-workflows en strak design. Bekijk live demo's van onze apps." />
   <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Webbiecorn — PWA's, AI Automatisering en Managed Hosting" />
-  <meta name="twitter:description" content="Maatwerk PWA's, slimme n8n-workflows, strak design en managed hosting. Gebouwd voor organisaties die willen doorpakken." />
+  <meta name="twitter:title" content="Webbiecorn — Digitale producten die écht werken" />
+  <meta name="twitter:description" content="Maatwerk PWA's, slimme AI-workflows en strak design. Bekijk live demo's van onze apps." />
   <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
   <meta name="theme-color" content="#0d0d0d" />
   <link rel="canonical" href="https://webbiecorn.com/" />
@@ -21,6 +21,1333 @@
   <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
   <link rel="icon" type="image/png" href="webbiecorn-logo.png" />
   <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Webbiecorn",
+    "url": "https://webbiecorn.com",
+    "logo": "https://webbiecorn.com/webbiecorn-logo.svg",
+    "email": "hallo@webbiecorn.com",
+    "sameAs": ["https://www.instagram.com/webbiecorn","https://www.linkedin.com/company/webbiecorn"],
+    "description": "Digitaal bureau voor PWA's, AI-automatisering, design en managed hosting.",
+    "foundingDate": "2024",
+    "areaServed": "NL",
+    "knowsLanguage": "nl"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HERO ──────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--black);
+    }
+    canvas#particles {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+    }
+    .hero-glow-1 {
+      position: absolute;
+      top: -15%; left: -10%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(217,43,75,0.18) 0%, transparent 60%);
+      pointer-events: none; z-index: 1;
+      animation: glow-drift 8s ease-in-out infinite alternate;
+    }
+    .hero-glow-2 {
+      position: absolute;
+      bottom: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(217,43,75,0.09) 0%, transparent 60%);
+      pointer-events: none; z-index: 1;
+      animation: glow-drift 10s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes glow-drift {
+      0%   { transform: translate(0,0); }
+      100% { transform: translate(40px, 40px); }
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 6rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-left { }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--red); margin-bottom: 1.75rem;
+      border: 1px solid rgba(217,43,75,0.35);
+      padding: 0.4rem 1rem 0.4rem 0.75rem;
+      border-radius: 100px;
+      background: rgba(217,43,75,0.06);
+      backdrop-filter: blur(8px);
+    }
+    .hero-eyebrow-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 0 0 rgba(217,43,75,0.5);
+      animation: pulse-dot 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-dot {
+      0%,100%{box-shadow:0 0 0 0 rgba(217,43,75,0.5)}
+      50%{box-shadow:0 0 0 6px rgba(217,43,75,0)}
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -2.5px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .line-2 { display: block; }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.75;
+      max-width: 460px;
+      margin-bottom: 2.5rem;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── TRUST LOGOS (hero bottom) ─────────────── */
+    .hero-trust {
+      margin-top: 3rem;
+      display: flex; align-items: center; gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-trust-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .hero-trust-items {
+      display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;
+    }
+    .hero-trust-item {
+      font-size: 0.78rem; font-weight: 700;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.5px;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero-trust-item:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
+
+    /* ── PHONE MOCKUP STACK (hero right) ───────── */
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 560px;
+    }
+    .phone-stack {
+      position: relative;
+      width: 260px;
+      height: 520px;
+    }
+    .phone-frame {
+      position: absolute;
+      width: 240px;
+      height: 490px;
+      background: #161616;
+      border-radius: 40px;
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.8),
+        0 40px 100px rgba(0,0,0,0.7),
+        inset 0 0 0 1px rgba(255,255,255,0.05);
+      overflow: hidden;
+      transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s;
+      cursor: pointer;
+    }
+    .phone-frame:nth-child(1) {
+      left: 0; top: 0; z-index: 3;
+      transform: rotate(-4deg) translateX(-30px);
+    }
+    .phone-frame:nth-child(2) {
+      left: 10px; top: 20px; z-index: 4;
+      transform: rotate(0deg);
+      box-shadow:
+        0 0 0 1px rgba(0,0,0,0.8),
+        0 60px 120px rgba(217,43,75,0.2),
+        0 40px 80px rgba(0,0,0,0.8),
+        inset 0 0 0 1px rgba(255,255,255,0.06);
+    }
+    .phone-frame:nth-child(3) {
+      left: 20px; top: 10px; z-index: 2;
+      transform: rotate(5deg) translateX(30px);
+    }
+    .phone-frame:hover { z-index: 5; transform: rotate(0deg) translateY(-12px) scale(1.02); box-shadow: 0 0 0 1px rgba(0,0,0,0.8), 0 80px 140px rgba(217,43,75,0.25), 0 60px 100px rgba(0,0,0,0.9); }
+    .phone-notch {
+      position: absolute;
+      top: 12px; left: 50%; transform: translateX(-50%);
+      width: 90px; height: 22px;
+      background: #0a0a0a;
+      border-radius: 100px;
+      z-index: 10;
+    }
+    .phone-screen {
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    .phone-screen::-webkit-scrollbar { display: none; }
+    /* App screens */
+    .app-screen {
+      min-height: 100%;
+      padding: 48px 0 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .app-bar {
+      position: sticky; top: 0;
+      background: rgba(20,20,20,0.95);
+      backdrop-filter: blur(20px);
+      padding: 0.7rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 9;
+    }
+    .app-bar-title { font-size: 0.82rem; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
+    .app-bar-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.6); }
+    .app-body { padding: 1rem; }
+    .app-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 0.9rem;
+      margin-bottom: 0.65rem;
+      transition: border-color 0.25s;
+    }
+    .app-card:hover { border-color: rgba(217,43,75,0.35); }
+    .app-card-title { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; }
+    .app-card-sub { font-size: 0.65rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+    .app-tag {
+      display: inline-block;
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 100px;
+      margin-bottom: 0.45rem;
+    }
+    .app-tag-red { background: rgba(217,43,75,0.15); color: #D92B4B; border: 1px solid rgba(217,43,75,0.25); }
+    .app-tag-green { background: rgba(74,222,128,0.12); color: #4ade80; border: 1px solid rgba(74,222,128,0.2); }
+    .app-tag-blue { background: rgba(96,165,250,0.12); color: #60a5fa; border: 1px solid rgba(96,165,250,0.2); }
+    .app-stat-row { display: flex; gap: 0.5rem; margin: 0.7rem 0; }
+    .app-stat {
+      flex: 1;
+      background: rgba(217,43,75,0.08);
+      border: 1px solid rgba(217,43,75,0.15);
+      border-radius: 8px;
+      padding: 0.6rem;
+      text-align: center;
+    }
+    .app-stat-val { font-size: 0.9rem; font-weight: 800; color: #D92B4B; line-height: 1; }
+    .app-stat-label { font-size: 0.55rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .app-map-block {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      height: 90px;
+      margin-bottom: 0.65rem;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .app-map-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+    .app-map-pin {
+      width: 16px; height: 16px;
+      background: #D92B4B;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      position: relative; z-index: 1;
+      box-shadow: 0 0 12px rgba(217,43,75,0.6);
+    }
+    /* Demo label ribbon on phone */
+    .phone-label {
+      position: absolute;
+      bottom: -12px;
+      left: 50%; transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      white-space: nowrap;
+      z-index: 10;
+    }
+    /* Phone nav dots */
+    .phone-dots {
+      position: absolute;
+      bottom: 10px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 5px; z-index: 11;
+    }
+    .phone-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer; transition: background 0.2s, transform 0.2s;
+    }
+    .phone-dot.active { background: var(--red); transform: scale(1.3); }
+
+    /* ── MARQUEE ───────────────────────────────── */
+    #over-teaser { background: var(--black-mid); }
+    #diensten-teaser { background: var(--black); }
+    #cases-teaser { background: var(--black-mid); }
+    #cta-section { background: var(--black); padding: 5rem 2rem; }
+
+    /* ── DEMO SECTION ──────────────────────────── */
+    #demo-section {
+      background: var(--black);
+      padding: 7rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #demo-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.4), transparent);
+    }
+    .demo-phones-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 2rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+    .demo-phone-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .demo-phone {
+      width: 240px;
+      height: 500px;
+      background: #111;
+      border-radius: 40px;
+      border: 2px solid rgba(255,255,255,0.09);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,0,0,0.9);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s;
+    }
+    .demo-phone:hover {
+      transform: translateY(-16px) scale(1.03);
+      box-shadow: 0 60px 120px rgba(217,43,75,0.2), 0 40px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,0,0,0.9);
+    }
+    .demo-phone-inner {
+      position: absolute; inset: 0;
+      overflow-y: auto; overflow-x: hidden;
+    }
+    .demo-phone-inner::-webkit-scrollbar { display: none; }
+    .demo-phone-notch {
+      position: absolute; top: 10px;left:50%;transform:translateX(-50%);
+      width: 80px; height: 20px;
+      background: #080808; border-radius: 100px; z-index: 20;
+    }
+    .demo-phone-caption {
+      text-align: center;
+    }
+    .demo-phone-name {
+      font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem;
+    }
+    .demo-phone-tag {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--red);
+    }
+    /* Featured phone (center) */
+    .demo-phone-unit.featured .demo-phone {
+      width: 260px;
+      height: 540px;
+      border-color: rgba(217,43,75,0.3);
+      box-shadow: 0 60px 120px rgba(217,43,75,0.18), 0 40px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(0,0,0,0.9);
+    }
+    .demo-phone-unit.side {
+      opacity: 0.75;
+      transform: scale(0.9);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .demo-phone-unit.side:hover { opacity: 1; transform: scale(0.93); }
+
+    /* ── WALKTHROUGH SECTION ───────────────────── */
+    #walkthrough {
+      background: var(--black-mid);
+      padding: 7rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #walkthrough::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.3), transparent);
+    }
+    .walkthrough-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+    .walkthrough-steps { display: flex; flex-direction: column; gap: 0; }
+    .wt-step {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+      position: relative;
+    }
+    .wt-step.active { background: rgba(217,43,75,0.07); border: 1px solid rgba(217,43,75,0.18); }
+    .wt-step:not(.active) { border: 1px solid transparent; }
+    .wt-step-nr {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 2px solid rgba(217,43,75,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 800; color: var(--red);
+      flex-shrink: 0;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .wt-step.active .wt-step-nr {
+      background: var(--red); border-color: var(--red); color: #fff;
+    }
+    .wt-step-title {
+      font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem;
+      color: rgba(255,255,255,0.7);
+      transition: color 0.3s;
+    }
+    .wt-step.active .wt-step-title { color: #fff; }
+    .wt-step-desc {
+      font-size: 0.83rem; color: rgba(255,255,255,0.4);
+      line-height: 1.6; max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s;
+      opacity: 0;
+    }
+    .wt-step.active .wt-step-desc { max-height: 200px; opacity: 1; }
+    .wt-connector {
+      width: 2px; height: 20px;
+      background: rgba(217,43,75,0.15);
+      margin-left: calc(1.5rem + 16px);
+    }
+    .wt-screen {
+      position: relative;
+      background: #111;
+      border-radius: 24px;
+      border: 2px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      aspect-ratio: 9/16;
+      max-height: 560px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 60px rgba(217,43,75,0.08);
+    }
+    .wt-panel {
+      position: absolute; inset: 0;
+      padding: 2.5rem 1.25rem 1.25rem;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    .wt-panel.active {
+      opacity: 1; transform: none; pointer-events: auto;
+    }
+    .wt-notch {
+      position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+      width: 70px; height: 18px; background: #080808; border-radius: 100px; z-index: 10;
+    }
+    /* Walkthrough panel UI elements */
+    .wt-panel-header {
+      font-size: 0.85rem; font-weight: 800; color: #fff;
+      margin-bottom: 1rem; margin-top: 0.5rem;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .wt-panel-header-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--red);
+      box-shadow: 0 0 8px rgba(217,43,75,0.7);
+    }
+    .wt-bar {
+      height: 6px; border-radius: 100px;
+      background: rgba(255,255,255,0.06);
+      margin-bottom: 0.45rem;
+      overflow: hidden;
+    }
+    .wt-bar-fill {
+      height: 100%; background: var(--red); border-radius: 100px;
+    }
+    .wt-fake-input {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .wt-fake-input-icon { color: var(--red); font-size: 0.75rem; }
+    .wt-check-list { display: flex; flex-direction: column; gap: 0.45rem; }
+    .wt-check-item {
+      display: flex; align-items: center; gap: 0.55rem;
+      font-size: 0.7rem; color: rgba(255,255,255,0.7);
+      padding: 0.5rem 0.65rem;
+      background: rgba(255,255,255,0.03);
+      border-radius: 7px;
+    }
+    .wt-check-icon { color: #4ade80; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+    .wt-notification {
+      background: rgba(217,43,75,0.12);
+      border: 1px solid rgba(217,43,75,0.25);
+      border-radius: 10px;
+      padding: 0.75rem;
+      display: flex; gap: 0.6rem; align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+    .wt-notification-icon { font-size: 1rem; flex-shrink: 0; }
+    .wt-notification-title { font-size: 0.7rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+    .wt-notification-body { font-size: 0.62rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .wt-progress {
+      position: absolute;
+      bottom: 16px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 20;
+    }
+    .wt-progress-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .wt-progress-dot.active { background: var(--red); transform: scale(1.4); }
+
+    /* ── LAB SECTION ───────────────────────────── */
+    #lab-section { background: var(--black); padding: 7rem 2rem; }
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .lab-card {
+      background: var(--black-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none; color: var(--white);
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+    .lab-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .lab-card:hover { transform: translateY(-6px); border-color: rgba(217,43,75,0.4); box-shadow: 0 20px 60px rgba(217,43,75,0.1); }
+    .lab-card:hover::before { transform: scaleX(1); }
+    .lab-card-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--black-mid);
+      overflow: hidden;
+      position: relative;
+    }
+    .lab-card-thumb img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .lab-card:hover .lab-card-thumb img { transform: scale(1.06); }
+    .lab-card-thumb-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.7), transparent 50%);
+    }
+    .lab-card-thumb-badge {
+      position: absolute; top: 1rem; left: 1rem;
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+      background: rgba(10,10,10,0.85);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+    }
+    .lab-card-body { padding: 1.5rem; }
+    .lab-card-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .lab-card-desc { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 1.25rem; }
+    .lab-card-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .lab-chip {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px;
+      padding: 0.2rem 0.6rem;
+      background: rgba(217,43,75,0.1);
+      border: 1px solid rgba(217,43,75,0.2);
+      border-radius: 100px; color: rgba(255,255,255,0.6);
+    }
+    .lab-card-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 1rem;
+      color: var(--red); font-size: 0.8rem; font-weight: 700;
+      transition: gap 0.2s;
+    }
+    .lab-card:hover .lab-card-link { gap: 0.65rem; }
+
+    /* ── STATS ─────────────────────────────────── */
+    #stats-section {
+      background: var(--black-mid);
+      padding: 5rem 2rem;
+      position: relative;
+    }
+    #stats-section::before,
+    #stats-section::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.25), transparent);
+    }
+    #stats-section::before { top: 0; }
+    #stats-section::after { bottom: 0; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      max-width: 800px; margin: 0 auto;
+      text-align: center;
+    }
+    .stat-item {}
+    .stat-number {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-suffix {
+      color: var(--red);
+      -webkit-text-fill-color: var(--red);
+    }
+    .stat-label {
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-top: 0.5rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 7rem; }
+      .hero-right { height: 380px; }
+      .phone-stack { transform: scale(0.85); }
+      .walkthrough-grid { grid-template-columns: 1fr; }
+      .wt-screen { max-height: 400px; }
+    }
+    @media (max-width: 600px) {
+      .demo-phone-unit.side { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div id="scroll-progress"></div>
+<div id="cursor-spotlight"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
+    <span class="nav-logo-text">Webbie<span>corn</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="over.html">Over ons</a></li>
+    <li><a href="diensten.html">Diensten</a></li>
+    <li><a href="cases.html">Cases</a></li>
+    <li><a href="lab.html">Lab</a></li>
+    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="lab.html" onclick="closeMobile()">Lab</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<!-- ═══ HERO ════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow reveal">
+        <span class="hero-eyebrow-dot"></span>
+        Beschikbaar voor nieuwe projecten
+      </div>
+      <h1 class="hero-title reveal reveal-delay-1">
+        Digitale producten<br/>
+        <span class="line-2">die <em>écht werken.</em></span>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Wij bouwen PWA's, AI-automatisering en maatwerk portals voor organisaties die willen doorpakken. Van eerste schets tot live platform — in één traject.
+      </p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a href="diensten.html" class="btn-primary">Bekijk onze diensten</a>
+        <a href="#demo-section" class="btn-ghost">Bekijk live demo's ↓</a>
+      </div>
+      <div class="hero-trust reveal reveal-delay-4">
+        <span class="hero-trust-label">Gebouwd voor</span>
+        <div class="hero-trust-items">
+          <span class="hero-trust-item">Gemeentes</span>
+          <span class="hero-trust-item">Zorgorganisaties</span>
+          <span class="hero-trust-item">Sociaal werkbedrijven</span>
+          <span class="hero-trust-item">MKB</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right reveal reveal-delay-2">
+      <div class="phone-stack" id="heroPhoneStack">
+        <!-- Phone 1: BuurtApp -->
+        <div class="phone-frame" id="hp1">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-screen">
+              <div class="app-bar">
+                <span class="app-bar-title">BuurtApp</span>
+                <span class="app-bar-dot"></span>
+              </div>
+              <div class="app-body">
+                <div class="app-map-block">
+                  <div class="app-map-grid"></div>
+                  <div class="app-map-pin"></div>
+                </div>
+                <div class="app-stat-row">
+                  <div class="app-stat"><div class="app-stat-val">12</div><div class="app-stat-label">Open</div></div>
+                  <div class="app-stat"><div class="app-stat-val">4</div><div class="app-stat-label">Nieuw</div></div>
+                  <div class="app-stat"><div class="app-stat-val">98%</div><div class="app-stat-label">Opgelost</div></div>
+                </div>
+                <div class="app-card"><span class="app-tag app-tag-red">Melding</span><div class="app-card-title">Kapotte lantaarnpaal</div><div class="app-card-sub">Hoofdstraat 14 · 2 uur geleden</div></div>
+                <div class="app-card"><span class="app-tag app-tag-green">Opgelost</span><div class="app-card-title">Zwerfvuil parkeerterrein</div><div class="app-card-sub">Marktplein · gisteren</div></div>
+                <div class="app-card"><span class="app-tag app-tag-blue">In behandeling</span><div class="app-card-title">Overhangende tak</div><div class="app-card-sub">Bosweg 7 · 3 dagen geleden</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Phone 2: CVW (center/featured) -->
+        <div class="phone-frame" id="hp2">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-screen">
+              <div class="app-bar">
+                <span class="app-bar-title">CVW Portaal</span>
+                <span class="app-bar-dot"></span>
+              </div>
+              <div class="app-body">
+                <div class="app-stat-row">
+                  <div class="app-stat"><div class="app-stat-val">3</div><div class="app-stat-label">Vacatures</div></div>
+                  <div class="app-stat"><div class="app-stat-val">2</div><div class="app-stat-label">Meldingen</div></div>
+                </div>
+                <div class="app-card"><span class="app-tag app-tag-red">Nieuw</span><div class="app-card-title">Teamvergadering vrijdag</div><div class="app-card-sub">10:00 aula B · Alle medewerkers</div></div>
+                <div class="app-card"><span class="app-tag app-tag-green">Open</span><div class="app-card-title">Medewerker logistiek</div><div class="app-card-sub">32-36 uur · reageer voor 15 apr</div></div>
+                <div class="app-card"><span class="app-tag app-tag-blue">Academie</span><div class="app-card-title">Module: Veilig werken</div><div class="app-card-sub">45 min · jij + 12 anderen</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Phone 3: Kluswinkel -->
+        <div class="phone-frame" id="hp3">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-screen">
+              <div class="app-bar">
+                <span class="app-bar-title">Kluswinkel</span>
+                <span class="app-bar-dot"></span>
+              </div>
+              <div class="app-body">
+                <div class="app-stat-row">
+                  <div class="app-stat"><div class="app-stat-val">8</div><div class="app-stat-label">Vandaag</div></div>
+                  <div class="app-stat"><div class="app-stat-val">2</div><div class="app-stat-label">Voertuigen</div></div>
+                  <div class="app-stat"><div class="app-stat-val">✓</div><div class="app-stat-label">On time</div></div>
+                </div>
+                <div class="app-card"><span class="app-tag app-tag-green">Ingepland</span><div class="app-card-title">Dakgoot vervangen</div><div class="app-card-sub">Jan de Vries · 08:00 – 12:00</div></div>
+                <div class="app-card"><span class="app-tag app-tag-red">Nieuw</span><div class="app-card-title">CV-ketel storing</div><div class="app-card-sub">Meijer, Rozenstraat 3</div></div>
+                <div class="app-card"><span class="app-tag app-tag-blue">Werkbon</span><div class="app-card-title">Schilderwerk buitenkant</div><div class="app-card-sub">#WB-2847 · wacht op handtekening</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ══════════════════════════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-content">
+    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span> n8n Workflows <span class="star">✦</span> React <span class="star">✦</span></span>
+    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span> n8n Workflows <span class="star">✦</span> React <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ═══ STATS ═════════════════════════════════════ -->
+<section id="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="stat-number-val" data-target="3">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Live platforms</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number"><span class="stat-number-val" data-target="100">0</span><span class="stat-suffix">%</span></div>
+        <div class="stat-label">Maatwerk</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number"><span class="stat-number-val" data-target="15">0</span><span class="stat-suffix">K+</span></div>
+        <div class="stat-label">Laagste MVP prijs</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number"><span class="stat-number-val" data-target="2">0</span><span class="stat-suffix"></span></div>
+        <div class="stat-label">Oprichters, geen overhead</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DEMO SECTION ═════════════════════════════ -->
+<section id="demo-section">
+  <div class="container">
+    <p class="section-label reveal">Live Demo's</p>
+    <h2 class="section-title reveal reveal-delay-1">Geen screenshots.<br/><em>Échte apps. Probeer zelf.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Scroll en klik hieronder in de telefoonschermen. Dit zijn live previews van de apps die we bouwden — exact zoals ze werken op een echte gebruiker.</p>
+    <div class="demo-phones-wrap">
+      <!-- BuurtApp -->
+      <div class="demo-phone-unit side reveal reveal-delay-1">
+        <div class="demo-phone">
+          <div class="demo-phone-notch"></div>
+          <div class="demo-phone-inner">
+            <div class="app-screen">
+              <div class="app-bar"><span class="app-bar-title">BuurtApp v3.4</span><span class="app-bar-dot"></span></div>
+              <div class="app-body">
+                <div class="app-map-block" style="height:110px">
+                  <div class="app-map-grid"></div>
+                  <div class="app-map-pin"></div>
+                </div>
+                <div class="app-stat-row">
+                  <div class="app-stat"><div class="app-stat-val">12</div><div class="app-stat-label">Open</div></div>
+                  <div class="app-stat"><div class="app-stat-val">4</div><div class="app-stat-label">Nieuw</div></div>
+                  <div class="app-stat"><div class="app-stat-val">98%</div><div class="app-stat-label">Opgelost</div></div>
+                </div>
+                <div class="app-card"><span class="app-tag app-tag-red">Melding</span><div class="app-card-title">Kapotte lantaarnpaal</div><div class="app-card-sub">Hoofdstraat 14 · 2 uur geleden · Wijk Oost</div></div>
+                <div class="app-card"><span class="app-tag app-tag-green">Opgelost ✓</span><div class="app-card-title">Zwerfvuil parkeerterrein</div><div class="app-card-sub">Marktplein · gisteren · Openbare ruimte</div></div>
+                <div class="app-card"><span class="app-tag app-tag-blue">In behandeling</span><div class="app-card-title">Overhangende tak</div><div class="app-card-sub">Bosweg 7 · 3 dagen geleden</div></div>
+                <div class="app-card"><span class="app-tag app-tag-red">Urgent</span><div class="app-card-title">Losliggende stoeptegel</div><div class="app-card-sub">Schoolstraat 2 · zojuist ingediend</div></div>
+                <div class="app-card"><span class="app-tag app-tag-green">Opgelost ✓</span><div class="app-card-title">Vuilcontainer vol</div><div class="app-card-sub">Plein Noord · 4 dagen geleden</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-phone-caption reveal reveal-delay-1">
+          <div class="demo-phone-name">BuurtApp</div>
+          <div class="demo-phone-tag">Gemeente & wijkteams</div>
+        </div>
+      </div>
+      <!-- CVW (center/featured) -->
+      <div class="demo-phone-unit featured reveal">
+        <div class="demo-phone">
+          <div class="demo-phone-notch"></div>
+          <div class="demo-phone-inner">
+            <div class="app-screen">
+              <div class="app-bar"><span class="app-bar-title">CVW Portaal</span><span class="app-bar-dot"></span></div>
+              <div class="app-body">
+                <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);margin-bottom:0.75rem">Welkom terug, <span style="color:#fff;font-weight:700">Kevin</span> 👋</div>
+                <div class="app-stat-row">
+                  <div class="app-stat"><div class="app-stat-val">3</div><div class="app-stat-label">Vacatures</div></div>
+                  <div class="app-stat"><div class="app-stat-val">2</div><div class="app-stat-label">Meldingen</div></div>
+                  <div class="app-stat"><div class="app-stat-val">5</div><div class="app-stat-label">Cursussen</div></div>
+                </div>
+                <div class="app-card"><span class="app-tag app-tag-red">Nieuw bericht</span><div class="app-card-title">Teamvergadering vrijdag</div><div class="app-card-sub">10:00 aula B · alle medewerkers</div></div>
+                <div class="app-card"><span class="app-tag app-tag-green">Open sollicitatie</span><div class="app-card-title">Medewerker logistiek</div><div class="app-card-sub">32–36 uur · reageer voor 15 apr</div></div>
+                <div class="app-card"><span class="app-tag app-tag-blue">Academie</span><div class="app-card-title">Module: Veilig werken</div><div class="app-card-sub">45 min · 12 anderen bezig</div></div>
+                <div class="app-card"><span class="app-tag app-tag-red">Speel & Win 🎯</span><div class="app-card-title">Verdien punten deze week</div><div class="app-card-sub">Ronde 4 loopt nog · 3 dagen</div></div>
+                <div class="app-card"><span class="app-tag app-tag-green">FAQ</span><div class="app-card-title">Verlofaanvraag indienen</div><div class="app-card-sub">Stap-voor-stap uitleg</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-phone-caption reveal">
+          <div class="demo-phone-name">CVW Medewerkersportaal</div>
+          <div class="demo-phone-tag">Sociaal werkbedrijf</div>
+        </div>
+      </div>
+      <!-- Kluswinkel -->
+      <div class="demo-phone-unit side reveal reveal-delay-2">
+        <div class="demo-phone">
+          <div class="demo-phone-notch"></div>
+          <div class="demo-phone-inner">
+            <div class="app-screen">
+              <div class="app-bar"><span class="app-bar-title">Kluswinkel App</span><span class="app-bar-dot"></span></div>
+              <div class="app-body">
+                <div class="app-stat-row">
+                  <div class="app-stat"><div class="app-stat-val">8</div><div class="app-stat-label">Vandaag</div></div>
+                  <div class="app-stat"><div class="app-stat-val">2</div><div class="app-stat-label">Voertuigen</div></div>
+                  <div class="app-stat"><div class="app-stat-val">✓</div><div class="app-stat-label">On time</div></div>
+                </div>
+                <div class="app-card"><span class="app-tag app-tag-green">Ingepland</span><div class="app-card-title">Dakgoot vervangen</div><div class="app-card-sub">De Vries · Elm 12 · 08:00–12:00</div></div>
+                <div class="app-card"><span class="app-tag app-tag-red">Nieuw</span><div class="app-card-title">CV-ketel storing</div><div class="app-card-sub">Meijer · Rozenstraat 3 · urgent</div></div>
+                <div class="app-card"><span class="app-tag app-tag-blue">Werkbon</span><div class="app-card-title">Schilderwerk buitenkant</div><div class="app-card-sub">#WB-2847 · wacht op handtekening</div></div>
+                <div class="app-card"><span class="app-tag app-tag-green">Afgerond</span><div class="app-card-title">Lekkage badkamer</div><div class="app-card-sub">Janssen · Kerkweg 5 · gisteren</div></div>
+                <div class="app-card"><span class="app-tag app-tag-blue">Voertuig</span><div class="app-card-title">Bus WB-123-X</div><div class="app-card-sub">APK over 14 dagen · actie vereist</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-phone-caption reveal reveal-delay-2">
+          <div class="demo-phone-name">Kluswinkel App</div>
+          <div class="demo-phone-tag">Planning & werkbonnen</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem">
+      <a href="cases.html" class="teaser-link reveal">Bekijk alle cases en technische details →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WALKTHROUGH ══════════════════════════════ -->
+<section id="walkthrough">
+  <div class="container">
+    <p class="section-label reveal">Zo werkt het</p>
+    <h2 class="section-title reveal reveal-delay-1">Van idee naar<br/><em>live platform.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Geen eindeloze trajecten. Ons proces is compact, transparant en gericht op resultaat. Elke stap brengt je dichter bij een werkend product.</p>
+    <div class="walkthrough-grid">
+      <div class="walkthrough-steps" id="wtSteps">
+        <div class="wt-step active" data-panel="0">
+          <div class="wt-step-nr">1</div>
+          <div>
+            <div class="wt-step-title">Intake & strategie</div>
+            <div class="wt-step-desc">We beginnen met een diepgaand gesprek over jouw doelen, gebruikers en processen. In één sessie leggen we de basis voor de gehele aanpak.</div>
+          </div>
+        </div>
+        <div class="wt-connector"></div>
+        <div class="wt-step" data-panel="1">
+          <div class="wt-step-nr">2</div>
+          <div>
+            <div class="wt-step-title">Design & prototype</div>
+            <div class="wt-step-desc">We maken interactieve wireframes en een visueel prototype waarop je direct feedback kunt geven. Geen verrassingen later in het traject.</div>
+          </div>
+        </div>
+        <div class="wt-connector"></div>
+        <div class="wt-step" data-panel="2">
+          <div class="wt-step-nr">3</div>
+          <div>
+            <div class="wt-step-title">Bouw & iteraties</div>
+            <div class="wt-step-desc">We bouwen in sprints. Na elke sprint is er een werkende versie die je kunt testen. Je houdt volle controle over prioriteiten en scope.</div>
+          </div>
+        </div>
+        <div class="wt-connector"></div>
+        <div class="wt-step" data-panel="3">
+          <div class="wt-step-nr">4</div>
+          <div>
+            <div class="wt-step-title">Launch & beheer</div>
+            <div class="wt-step-desc">We lanceren, monitoren en zorgen voor continuïteit. Met onze managed hosting en SLA ben je nooit alleen na oplevering.</div>
+          </div>
+        </div>
+      </div>
+      <div class="wt-screen" id="wtScreen">
+        <div class="wt-notch"></div>
+        <!-- Panel 0: Intake -->
+        <div class="wt-panel active" id="wtp0">
+          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Intake formulier</div>
+          <div class="wt-fake-input"><span class="wt-fake-input-icon">👤</span> Naam organisatie</div>
+          <div class="wt-fake-input"><span class="wt-fake-input-icon">📋</span> Omschrijf je uitdaging...</div>
+          <div class="wt-fake-input"><span class="wt-fake-input-icon">📅</span> Gewenste startdatum</div>
+          <div class="wt-check-list">
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Doelgroep gedefinieerd</div>
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Budget indicatie besproken</div>
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Functionele eisen verzameld</div>
+          </div>
+        </div>
+        <!-- Panel 1: Design -->
+        <div class="wt-panel" id="wtp1">
+          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Design prototype</div>
+          <div style="background:rgba(217,43,75,0.08);border:1px solid rgba(217,43,75,0.2);border-radius:10px;padding:0.7rem;margin-bottom:0.75rem;">
+            <div style="height:12px;background:rgba(217,43,75,0.3);border-radius:4px;width:60%;margin-bottom:0.5rem"></div>
+            <div style="height:8px;background:rgba(255,255,255,0.06);border-radius:4px;width:90%;margin-bottom:0.3rem"></div>
+            <div style="height:8px;background:rgba(255,255,255,0.06);border-radius:4px;width:75%"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.75rem">
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:8px;height:55px"></div>
+            <div style="background:rgba(217,43,75,0.08);border:1px solid rgba(217,43,75,0.15);border-radius:8px;height:55px"></div>
+          </div>
+          <div class="wt-check-list">
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Wireframes goedgekeurd</div>
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Huisstijl toegepast</div>
+          </div>
+        </div>
+        <!-- Panel 2: Bouw -->
+        <div class="wt-panel" id="wtp2">
+          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Sprint voortgang</div>
+          <div style="margin-bottom:0.9rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem"><span>Sprint 1</span><span style="color:#4ade80">Afgerond ✓</span></div>
+            <div class="wt-bar"><div class="wt-bar-fill" style="width:100%"></div></div>
+          </div>
+          <div style="margin-bottom:0.9rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem"><span>Sprint 2</span><span style="color:#4ade80">Afgerond ✓</span></div>
+            <div class="wt-bar"><div class="wt-bar-fill" style="width:100%"></div></div>
+          </div>
+          <div style="margin-bottom:0.9rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:rgba(255,255,255,0.5);margin-bottom:0.3rem"><span>Sprint 3</span><span style="color:var(--red)">Actief</span></div>
+            <div class="wt-bar"><div class="wt-bar-fill" style="width:65%"></div></div>
+          </div>
+          <div class="wt-check-list">
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Auth module live</div>
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Dashboard live</div>
+            <div class="wt-check-item" style="opacity:0.5"><span style="color:rgba(255,255,255,0.3)">○</span> Notificaties in bouw</div>
+          </div>
+        </div>
+        <!-- Panel 3: Launch -->
+        <div class="wt-panel" id="wtp3">
+          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Lancering status</div>
+          <div class="wt-notification">
+            <span class="wt-notification-icon">🚀</span>
+            <div>
+              <div class="wt-notification-title">Deployment geslaagd!</div>
+              <div class="wt-notification-body">app.jouworganisatie.nl is live — 0 fouten</div>
+            </div>
+          </div>
+          <div class="wt-notification" style="background:rgba(74,222,128,0.08);border-color:rgba(74,222,128,0.2)">
+            <span class="wt-notification-icon">🛡️</span>
+            <div>
+              <div class="wt-notification-title">Monitoring actief</div>
+              <div class="wt-notification-body">Uptime 100% · laatste 30 dagen</div>
+            </div>
+          </div>
+          <div class="wt-notification" style="background:rgba(96,165,250,0.08);border-color:rgba(96,165,250,0.2)">
+            <span class="wt-notification-icon">📞</span>
+            <div>
+              <div class="wt-notification-title">SLA actief</div>
+              <div class="wt-notification-body">Responstijd &lt; 4 uur · direct contact</div>
+            </div>
+          </div>
+        </div>
+        <div class="wt-progress" id="wtProgress">
+          <div class="wt-progress-dot active" data-idx="0"></div>
+          <div class="wt-progress-dot" data-idx="1"></div>
+          <div class="wt-progress-dot" data-idx="2"></div>
+          <div class="wt-progress-dot" data-idx="3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LAB ═══════════════════════════════════════ -->
+<section id="lab-section">
+  <div class="container">
+    <p class="section-label reveal">Webbiecorn Lab</p>
+    <h2 class="section-title reveal reveal-delay-1">Werk dat de<br/><em>norm verlegt.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Van concept tot complexe app. Hier vind je de producten die we bouwden — elk met zijn eigen verhaal, uitdaging en aanpak.</p>
+    <div class="lab-grid">
+      <a href="case-cvw.html" class="lab-card reveal reveal-delay-1">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" alt="CVW portaal" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Medewerkersportaal</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">Concern voor Werk</div>
+          <div class="lab-card-desc">Volledig maatwerk intern portaal voor 300+ medewerkers. Nieuws, vacatures, academie, meldpunt en spelmodule in één uitrol.</div>
+          <div class="lab-card-chips">
+            <span class="lab-chip">React</span>
+            <span class="lab-chip">Firebase</span>
+            <span class="lab-chip">PWA</span>
+            <span class="lab-chip">MVP ~€15K</span>
+          </div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="case-buurtapp.html" class="lab-card reveal reveal-delay-2">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop" alt="BuurtApp" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Web App</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">BuurtApp v3.4</div>
+          <div class="lab-card-desc">White-label meld- en buurtapp voor gemeentes en wijkteams. Kaartmodule, meldingen, chat en dossiers in één schaalbaar platform.</div>
+          <div class="lab-card-chips">
+            <span class="lab-chip">React</span>
+            <span class="lab-chip">Leaflet</span>
+            <span class="lab-chip">Firebase</span>
+            <span class="lab-chip">White-label</span>
+          </div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="case-kluswinkel.html" class="lab-card reveal reveal-delay-3">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" alt="Kluswinkel app" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Planning App</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">Kluswinkel App</div>
+          <div class="lab-card-desc">Planning board, werkbonnen, voertuigbeheer en klantafspraken gecentraliseerd. Gebouwd voor de dagelijkse operatie van een klusbedrijf.</div>
+          <div class="lab-card-chips">
+            <span class="lab-chip">React</span>
+            <span class="lab-chip">Firebase</span>
+            <span class="lab-chip">PWA</span>
+          </div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="case-roasted-rebels.html" class="lab-card reveal reveal-delay-1">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=800&auto=format&fit=crop" alt="Roasted Rebels" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Concept · Branding</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">Roasted Rebels</div>
+          <div class="lab-card-desc">Fictieve koffiebranderij voor nachtbrakers. Volledige merkidentiteit: fotografie, illustratie, branding en digital.</div>
+          <div class="lab-card-chips">
+            <span class="lab-chip">Branding</span>
+            <span class="lab-chip">Fotografie</span>
+            <span class="lab-chip">Illustratie</span>
+          </div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="case-webbiecorn-os.html" class="lab-card reveal reveal-delay-2">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" alt="Webbiecorn OS" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Intern Tool</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">Webbiecorn OS</div>
+          <div class="lab-card-desc">Onze eigen interne werkomgeving. Project management, klantoverzichten en AI-tooling samengebracht in één dashboard.</div>
+          <div class="lab-card-chips">
+            <span class="lab-chip">React</span>
+            <span class="lab-chip">n8n</span>
+            <span class="lab-chip">Intern</span>
+          </div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="automatisering.html" class="lab-card reveal reveal-delay-3" style="background:linear-gradient(135deg,rgba(217,43,75,0.08),var(--black-card));border-color:rgba(217,43,75,0.2)">
+        <div class="lab-card-thumb" style="background:var(--black);display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;padding:2rem">
+            <div style="font-size:2.5rem;margin-bottom:0.75rem">🤖</div>
+            <div style="font-size:0.8rem;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase">AI & n8n</div>
+          </div>
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Automatisering</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">AI Workflows op maat</div>
+          <div class="lab-card-desc">Van slimme notificatieflows tot volledige bedrijfsautomatisering met n8n en AI. Tijdwinst van dag één.</div>
+          <div class="lab-card-chips">
+            <span class="lab-chip">n8n</span>
+            <span class="lab-chip">AI</span>
+            <span class="lab-chip">Webhooks</span>
+            <span class="lab-chip">Integraties</span>
+          </div>
+          <span class="lab-card-link">Bekijk mogelijkheden →</span>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:3rem">
+      <a href="lab.html" class="btn-ghost reveal">Bekijk het volledige lab →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OVER TEASER ══════════════════════════════ -->
+<section id="over-teaser">
+  <div class="container">
+    <div class="over-grid">
+      <div>
+        <p class="section-label reveal">Over Webbiecorn</p>
+        <h2 class="section-title reveal reveal-delay-1">Vergeet de<br/><em>traditionele bureaus.</em></h2>
+        <div class="over-card reveal reveal-delay-2">
+          <p>Wij zijn Webbiecorn. Een compact bureau dat design, techniek en beheer combineert in een strak uitvoerbaar traject. Van eerste concept tot live platform.</p>
+          <p>Geen trage trajecten, geen vage offertes, geen overhead-circus. Wij bouwen digitale producten die processen versimpelen en organisaties direct vooruithelpen.</p>
+        </div>
+        <a href="over.html" class="teaser-link reveal reveal-delay-3">Lees ons verhaal →</a>
+      </div>
+      <div class="team-grid reveal reveal-delay-3">
+        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Creative Direction</div><div class="team-role">Branding · UX/UI · Contentproductie</div></div></div>
+        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Tech & Strategy</div><div class="team-role">PWA's · Automatisering · Managed Hosting</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════ -->
+<section id="cta-section">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Klaar voor de volgende stap?</h2>
+      <p>Laten we het hebben over jouw project. Geen eindeloze brainstorms, maar concrete plannen en tastbaar resultaat.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn-primary">Start je project</a>
+        <a href="diensten.html" class="btn-ghost">Bekijk tarieven</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <strong style="color:rgba(255,255,255,0.6)">Webbiecorn</strong> — Build once. Reuse everywhere. &nbsp;|&nbsp;
+  <a href="over.html">Over ons</a> &nbsp;|&nbsp; <a href="diensten.html">Diensten</a> &nbsp;|&nbsp; <a href="cases.html">Cases</a> &nbsp;|&nbsp; <a href="lab.html">Lab</a> &nbsp;|&nbsp; <a href="contact.html">Contact</a></p>
+</footer>
+
+<script>
+// ── Navbar scroll ──────────────────────────────
+const navbar = document.getElementById('navbar');
+const _sp = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  if (_sp) _sp.style.width = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) + '%';
+});
+
+// ── Mobile menu ────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
+
+// ── Reveal on scroll ───────────────────────────
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+
+// ── Particle canvas ────────────────────────────
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [], animId = null;
+function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+window.addEventListener('resize', resize); resize();
+function rand(a,b) { return Math.random()*(b-a)+a; }
+for (let i=0;i<90;i++) particles.push({x:rand(0,W||window.innerWidth),y:rand(0,H||window.innerHeight),r:rand(0.8,2.5),dx:rand(-0.25,0.25),dy:rand(-0.25,0.25),alpha:rand(0.08,0.45),color:Math.random()>0.88?'#D92B4B':'#ffffff'});
+function draw() {
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p => {
+    ctx.globalAlpha=p.alpha; ctx.fillStyle=p.color;
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+    p.x+=p.dx; p.y+=p.dy;
+    if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+  });
+  ctx.globalAlpha=1;
+  for(let i=0;i<particles.length;i++) for(let j=i+1;j<particles.length;j++) {
+    const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y, dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<100){ctx.globalAlpha=(1-dist/100)*0.1;ctx.strokeStyle='#ffffff';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();}
+  }
+  ctx.globalAlpha=1; animId = requestAnimationFrame(draw);
+}
+draw();
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { cancelAnimationFrame(animId); animId = null; }
+  else if (!animId) { draw(); }
+});
+
+// ── Cursor spotlight ───────────────────────────
+const _spotlight = document.getElementById('cursor-spotlight');
+let mx=0,my=0;
+window.addEventListener('mousemove',e=>{
+  mx=e.clientX; my=e.clientY;
+  if(_spotlight){ _spotlight.style.left=e.clientX+'px'; _spotlight.style.top=e.clientY+'px'; _spotlight.classList.add('active'); }
+});
+
+// ── Hero phone parallax ────────────────────────
+let hpx=0,hpy=0,hpcx=0,hpcy=0;
+const hp1=document.getElementById('hp1'),hp2=document.getElementById('hp2'),hp3=document.getElementById('hp3');
+window.addEventListener('mousemove',e=>{ hpx=(e.clientX/window.innerWidth-0.5)*2; hpy=(e.clientY/window.innerHeight-0.5)*2; });
+(function hploop(){
+  hpcx+=(hpx-hpcx)*0.06; hpcy+=(hpy-hpcy)*0.06;
+  if(hp1) hp1.style.transform=`rotate(-4deg) translateX(${-30+hpcx*8}px) translateY(${hpcy*6}px)`;
+  if(hp2) hp2.style.transform=`rotate(0deg) translateX(${hpcx*4}px) translateY(${hpcy*4}px)`;
+  if(hp3) hp3.style.transform=`rotate(5deg) translateX(${30+hpcx*8}px) translateY(${hpcy*6}px)`;
+  requestAnimationFrame(hploop);
+})();
+
+// ── Walkthrough ────────────────────────────────
+const wtSteps = document.querySelectorAll('.wt-step');
+const wtPanels = document.querySelectorAll('.wt-panel');
+const wtDots = document.querySelectorAll('.wt-progress-dot');
+let wtCurrent = 0;
+function activateWT(idx) {
+  wtSteps.forEach((s,i) => s.classList.toggle('active', i===idx));
+  wtPanels.forEach((p,i) => p.classList.toggle('active', i===idx));
+  wtDots.forEach((d,i) => d.classList.toggle('active', i===idx));
+  wtCurrent = idx;
+}
+wtSteps.forEach((step, i) => step.addEventListener('click', () => activateWT(i)));
+wtDots.forEach((dot, i) => dot.addEventListener('click', () => activateWT(i)));
+// Auto-advance
+setInterval(() => activateWT((wtCurrent + 1) % 4), 4000);
+
+// ── Counter animation ──────────────────────────
+const statObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const target = parseInt(e.target.dataset.target, 10);
+      let start = 0;
+      const dur = 1200;
+      const step = 16;
+      const inc = target / (dur / step);
+      const timer = setInterval(() => {
+        start = Math.min(start + inc, target);
+        e.target.textContent = Math.floor(start);
+        if (start >= target) clearInterval(timer);
+      }, step);
+      statObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-number-val').forEach(el => statObs.observe(el));
+
+// ── Page fade transition ───────────────────────
+document.querySelectorAll("a[href]").forEach(a => {
+  if(a.host === window.location.host && !a.hash && !a.hasAttribute("download")) {
+    a.addEventListener("click", e => {
+      if(e.ctrlKey || e.metaKey || e.shiftKey) return;
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => window.location = a.href, 250);
+    });
+  }
+});
+</script>
+</body>
+</html>
   {
     "@context": "https://schema.org",
     "@type": "Organization",
