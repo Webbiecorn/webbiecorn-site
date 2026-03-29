@@ -30,10 +30,9 @@ const { title = "Webbiecorn — Digitale producten die écht werken" } = Astro.p
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-  <!-- GSAP + ScrollTrigger + Lenis -->
+  <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js" defer></script>
   <style>
     /* ── HERO ─────────────────────────────────── */
     #hero {
@@ -543,68 +542,6 @@ document.addEventListener('astro:page-load', () => {
     }
   }
 
-  // ── Cards stage parallax ───────────────────────
-  if (_cardsLoopId) cancelAnimationFrame(_cardsLoopId);
-
-  const cardsRow = document.getElementById('cards-row');
-  let mx = 0, my = 0, cx = 0, cy = 0;
-  if (!_globalInit) {
-    window.addEventListener('mousemove', e => {
-      mx = (e.clientX / window.innerWidth - 0.5) * 2;
-      my = (e.clientY / window.innerHeight - 0.5) * 2;
-      const _spotlight = document.getElementById('cursor-spotlight');
-      if (_spotlight) {
-        _spotlight.style.left = e.clientX + 'px';
-        _spotlight.style.top = e.clientY + 'px';
-        _spotlight.classList.add('active');
-      }
-    });
-  }
-
-  function loopCards() {
-    if (!document.getElementById('cards-row')) return;
-    cx += (mx - cx) * 0.07; cy += (my - cy) * 0.07;
-    const cr = document.getElementById('cards-row');
-    if (cr) cr.style.transform = 'rotateX(' + (22 + cy * -4) + 'deg) rotateY(' + (cx * 4) + 'deg)';
-    _cardsLoopId = requestAnimationFrame(loopCards);
-  }
-  if (cardsRow) loopCards();
-
-  // ── Walkthrough ────────────────────────────────
-  if (_wtInterval) clearInterval(_wtInterval);
-  const wtSteps = document.querySelectorAll('.wt-step');
-  const wtPanels = document.querySelectorAll('.wt-panel');
-  const wtDots = document.querySelectorAll('.wt-progress-dot');
-  const wtConnectors = document.querySelectorAll('.wt-connector');
-  const wtGrid = document.querySelector('.walkthrough-grid');
-
-  if (wtSteps.length) {
-    let wtCurrent = 0;
-    let autoPlay = true;
-
-    function activateWT(idx) {
-      wtSteps.forEach((s,i) => s.classList.toggle('active', i === idx));
-      wtPanels.forEach((p,i) => p.classList.toggle('active', i === idx));
-      wtDots.forEach((d,i) => d.classList.toggle('active', i === idx));
-      wtConnectors.forEach((c,i) => c.classList.toggle('active', i < idx));
-      wtCurrent = idx;
-    }
-
-    wtSteps.forEach((step, i) => step.addEventListener('click', () => { autoPlay = false; activateWT(i); }));
-    wtDots.forEach((dot, i) => dot.addEventListener('click', () => { autoPlay = false; activateWT(i); }));
-
-    if (wtGrid) {
-      wtGrid.addEventListener('mouseenter', () => autoPlay = false);
-      wtGrid.addEventListener('mouseleave', () => autoPlay = true);
-      // for mobile touches
-      wtGrid.addEventListener('touchstart', () => autoPlay = false, {passive: true});
-    }
-
-    _wtInterval = setInterval(() => {
-      if (autoPlay) activateWT((wtCurrent + 1) % wtSteps.length);
-    }, 4500); // slightly longer reading time
-  }
-
   // ── Counter animation ──────────────────────────
   const statObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -625,22 +562,6 @@ document.addEventListener('astro:page-load', () => {
   }, { threshold: 0.5 });
   document.querySelectorAll('.stat-number-val').forEach(el => statObs.observe(el));
 
-
-
-  // ── Lenis Smooth Scroll ────────────────────────
-  if (typeof Lenis !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    // Connect Lenis to GSAP ScrollTrigger
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((time) => lenis.raf(time * 1000));
-      gsap.ticker.lagSmoothing(0);
-    }
-  }
-
   // ── Magnetic Buttons ───────────────────────────
   document.querySelectorAll('.magnetic-btn').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
@@ -657,6 +578,9 @@ document.addEventListener('astro:page-load', () => {
   });
 
   // ── GSAP Reveal Animations ─────────────────────
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     gsap.utils.toArray('.gsap-reveal').forEach(el => {
       gsap.from(el, {
@@ -691,26 +615,9 @@ document.addEventListener('astro:page-load', () => {
     });
   }
 
-  // ── Interactive Terminal Animation ───────────────
-  const termBody = document.getElementById('terminal-body');
-  if (termBody) {
-    const termLines = termBody.querySelectorAll('.terminal-line');
-    const termObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          termLines.forEach((line, i) => {
-            setTimeout(() => line.classList.add('visible'), i * 400);
-          });
-          termObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    termObs.observe(termBody);
-  }
-
   // ── Prefers Reduced Motion ─────────────────────
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.reveal, .gsap-reveal, .gsap-reveal-left, .gsap-reveal-right, .terminal-line').forEach(el => {
+    document.querySelectorAll('.reveal, .gsap-reveal, .gsap-reveal-left, .gsap-reveal-right').forEach(el => {
       el.style.opacity = '1'; el.style.transform = 'none';
     });
   }
