@@ -1197,11 +1197,11 @@ h1, h2, h3 {
 }
 @media (max-width: 900px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 2.5rem;
   }
   .footer-brand {
-    grid-column: span 2;
+    grid-column: span 3;
     padding-right: 0;
   }
 }
