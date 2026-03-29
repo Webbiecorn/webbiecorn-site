@@ -1,0 +1,375 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Webbiecorn — Digitale producten die écht werken">
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="over.html" onclick="closeMobile()">Over ons</a>
+  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
+  <a href="cases.html" onclick="closeMobile()">Cases</a>
+  <a href="lab.html" onclick="closeMobile()">Lab</a>
+  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO — Centered headline + 4 service cards
+═══════════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-inner">
+    <div class="avail-badge reveal"><span class="avail-dot"></span>Beschikbaar voor nieuwe projecten</div>
+    <div class="hero-eyebrow">PWA's, AI & Beheer</div>
+    <h1 class="hero-title reveal reveal-delay-1">
+      Digitale producten<br/><em>die écht werken.</em>
+    </h1>
+    <p class="hero-sub reveal reveal-delay-2">
+      Een gedreven team van experts. Eén focus. Wij combineren feilloze techniek met scherp design — voor organisaties die durven doorpakken.
+    </p>
+    <div class="hero-ctas reveal reveal-delay-3">
+      <a href="diensten.html" class="btn-primary">Bekijk onze diensten</a>
+      <a href="cases.html" class="btn-ghost">Bekijk het lab</a>
+    </div>
+
+    <div class="cards-stage reveal reveal-delay-4">
+      <div class="cards-row" id="cards-row">
+        <a href="apps.html" class="stage-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <path d="M8 8 L2 13 L8 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M18 8 L24 13 L18 18" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.5 5 L10.5 21" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>PWA's &amp; Apps</h3>
+          <p>Razendsnelle maatwerk portalen en web-apps. Zonder bloatware.</p>
+          <div class="card-bar"></div>
+        </a>
+        <a href="automatisering.html" class="stage-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <path d="M13 3 C7.477 3 3 7.477 3 13 S7.477 23 13 23 S23 18.523 23 13 S18.523 3 13 3Z" stroke="#D92B4B" stroke-width="1.8"/>
+              <path d="M13 8 L13 13 L16.5 16.5" stroke="#D92B4B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="19" cy="6" r="2.5" fill="#D92B4B" opacity="0.7"/>
+            </svg>
+          </div>
+          <h3>Automatisering</h3>
+          <p>Slimme AI &amp; n8n workflows die processen stroomlijnen.</p>
+          <div class="card-bar"></div>
+        </a>
+        <a href="design.html" class="stage-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <rect x="2" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/>
+              <rect x="15" y="2" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/>
+              <rect x="2" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8"/>
+              <rect x="15" y="15" width="9" height="9" rx="2" stroke="#D92B4B" stroke-width="1.8" opacity="0.35"/>
+            </svg>
+          </div>
+          <h3>Design</h3>
+          <p>Intuïtieve interfaces en robuuste branding. Pixel-perfect.</p>
+          <div class="card-bar"></div>
+        </a>
+        <a href="onderhoud.html" class="stage-card">
+          <div class="card-icon">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+              <path d="M13 2 L15.5 9H23L17 13.5L19.5 20.5L13 16L6.5 20.5L9 13.5L3 9H10.5Z" stroke="#D92B4B" stroke-width="1.8" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Onderhoud</h3>
+          <p>Managed hosting, actieve monitoring en SLA-responstijden.</p>
+          <div class="card-bar"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ══════════════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-content">
+    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span> n8n Workflows <span class="star">✦</span> React <span class="star">✦</span></span>
+    <span>PWA's <span class="star">✦</span> AI Automatisering <span class="star">✦</span> UX/UI Design <span class="star">✦</span> Managed Hosting <span class="star">✦</span> n8n Workflows <span class="star">✦</span> React <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ═══ STATS ═════════════════════ -->
+<section id="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="stat-number-val" data-target="3">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">Live platforms</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number"><span class="stat-number-val" data-target="100">0</span><span class="stat-suffix">%</span></div>
+        <div class="stat-label">Maatwerk</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number"><span class="stat-number-val" data-target="15">0</span><span class="stat-suffix">K+</span></div>
+        <div class="stat-label">Laagste MVP prijs</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <div class="stat-number"><span class="stat-number-val" data-target="4">0</span></div>
+        <div class="stat-label">Disciplines onder één dak</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WALKTHROUGH ══════════════ -->
+<section id="walkthrough">
+  <div class="container">
+    <p class="section-label reveal">Zo werkt het</p>
+    <h2 class="section-title reveal reveal-delay-1">Van idee naar<br/><em>live platform.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Geen eindeloze trajecten. Ons proces is compact, transparant en gericht op resultaat.</p>
+    <div class="walkthrough-grid">
+      <div class="walkthrough-steps" id="wtSteps">
+        <div class="wt-step active" data-panel="0">
+          <div class="wt-step-nr">1</div>
+          <div>
+            <div class="wt-step-title">Intake &amp; strategie</div>
+            <div class="wt-step-desc">We beginnen met een diepgaand gesprek over jouw doelen, gebruikers en processen. In één sessie leggen we de basis voor de gehele aanpak.</div>
+          </div>
+        </div>
+        <div class="wt-connector"></div>
+        <div class="wt-step" data-panel="1">
+          <div class="wt-step-nr">2</div>
+          <div>
+            <div class="wt-step-title">Design &amp; prototype</div>
+            <div class="wt-step-desc">We maken interactieve wireframes en een visueel prototype waarop je direct feedback kunt geven. Geen verrassingen later in het traject.</div>
+          </div>
+        </div>
+        <div class="wt-connector"></div>
+        <div class="wt-step" data-panel="2">
+          <div class="wt-step-nr">3</div>
+          <div>
+            <div class="wt-step-title">Bouw &amp; iteraties</div>
+            <div class="wt-step-desc">We bouwen in sprints. Na elke sprint is er een werkende versie die je kunt testen. Je houdt volle controle over prioriteiten en scope.</div>
+          </div>
+        </div>
+        <div class="wt-connector"></div>
+        <div class="wt-step" data-panel="3">
+          <div class="wt-step-nr">4</div>
+          <div>
+            <div class="wt-step-title">Launch &amp; beheer</div>
+            <div class="wt-step-desc">We lanceren, monitoren en zorgen voor continuïteit. Met onze managed hosting en SLA ben je nooit alleen na oplevering.</div>
+          </div>
+        </div>
+      </div>
+      <div class="wt-screen" id="wtScreen">
+        <div class="wt-notch"></div>
+        <div class="wt-panel active" id="wtp0">
+          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Intake formulier</div>
+          <div class="wt-fake-input"><span class="wt-fake-input-icon">👤</span> Naam organisatie</div>
+          <div class="wt-fake-input"><span class="wt-fake-input-icon">📋</span> Omschrijf je uitdaging...</div>
+          <div class="wt-fake-input"><span class="wt-fake-input-icon">📅</span> Gewenste startdatum</div>
+          <div class="wt-check-list">
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Doelgroep gedefinieerd</div>
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Budget indicatie besproken</div>
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Functionele eisen verzameld</div>
+          </div>
+        </div>
+        <div class="wt-panel" id="wtp1">
+          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Design prototype</div>
+          <div style="background:rgba(217,43,75,0.07);border:1px solid rgba(217,43,75,0.18);border-radius:10px;padding:0.7rem;margin-bottom:0.7rem">
+            <div style="height:11px;background:rgba(217,43,75,0.28);border-radius:4px;width:60%;margin-bottom:0.45rem"></div>
+            <div style="height:7px;background:rgba(255,255,255,0.05);border-radius:4px;width:90%;margin-bottom:0.28rem"></div>
+            <div style="height:7px;background:rgba(255,255,255,0.05);border-radius:4px;width:75%"></div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.7rem">
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;height:52px"></div>
+            <div style="background:rgba(217,43,75,0.07);border:1px solid rgba(217,43,75,0.14);border-radius:8px;height:52px"></div>
+          </div>
+          <div class="wt-check-list">
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Wireframes goedgekeurd</div>
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Huisstijl toegepast</div>
+          </div>
+        </div>
+        <div class="wt-panel" id="wtp2">
+          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Sprint voortgang</div>
+          <div style="margin-bottom:0.8rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.63rem;color:rgba(255,255,255,0.45);margin-bottom:0.28rem"><span>Sprint 1</span><span style="color:#4ade80">Afgerond ✓</span></div>
+            <div class="wt-bar"><div class="wt-bar-fill" style="width:100%"></div></div>
+          </div>
+          <div style="margin-bottom:0.8rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.63rem;color:rgba(255,255,255,0.45);margin-bottom:0.28rem"><span>Sprint 2</span><span style="color:#4ade80">Afgerond ✓</span></div>
+            <div class="wt-bar"><div class="wt-bar-fill" style="width:100%"></div></div>
+          </div>
+          <div style="margin-bottom:0.8rem">
+            <div style="display:flex;justify-content:space-between;font-size:0.63rem;color:rgba(255,255,255,0.45);margin-bottom:0.28rem"><span>Sprint 3</span><span style="color:var(--red)">Actief</span></div>
+            <div class="wt-bar"><div class="wt-bar-fill" style="width:62%"></div></div>
+          </div>
+          <div class="wt-check-list">
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Auth module live</div>
+            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Dashboard live</div>
+            <div class="wt-check-item" style="opacity:0.45"><span style="color:rgba(255,255,255,0.25)">○</span> Notificaties in bouw</div>
+          </div>
+        </div>
+        <div class="wt-panel" id="wtp3">
+          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Lancering status</div>
+          <div class="wt-notification">
+            <span style="font-size:0.9rem;flex-shrink:0">🚀</span>
+            <div>
+              <div class="wt-notification-title">Deployment geslaagd!</div>
+              <div class="wt-notification-body">app.jouworganisatie.nl is live — 0 fouten</div>
+            </div>
+          </div>
+          <div class="wt-notification" style="background:rgba(74,222,128,0.07);border-color:rgba(74,222,128,0.18)">
+            <span style="font-size:0.9rem;flex-shrink:0">🛡️</span>
+            <div>
+              <div class="wt-notification-title">Monitoring actief</div>
+              <div class="wt-notification-body">Uptime 100% · laatste 30 dagen</div>
+            </div>
+          </div>
+          <div class="wt-notification" style="background:rgba(96,165,250,0.07);border-color:rgba(96,165,250,0.18)">
+            <span style="font-size:0.9rem;flex-shrink:0">📞</span>
+            <div>
+              <div class="wt-notification-title">SLA actief</div>
+              <div class="wt-notification-body">Responstijd &lt; 4 uur · direct contact</div>
+            </div>
+          </div>
+        </div>
+        <div class="wt-progress" id="wtProgress">
+          <div class="wt-progress-dot active" data-idx="0"></div>
+          <div class="wt-progress-dot" data-idx="1"></div>
+          <div class="wt-progress-dot" data-idx="2"></div>
+          <div class="wt-progress-dot" data-idx="3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LAB GRID ══════════════════ -->
+<section id="lab-section">
+  <div class="container">
+    <p class="section-label reveal">Webbiecorn Lab</p>
+    <h2 class="section-title reveal reveal-delay-1">Werk dat de<br/><em>norm verlegt.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Van concept tot complexe app. Hier vind je de producten die we bouwden — elk met zijn eigen verhaal en aanpak.</p>
+    <div class="lab-grid">
+      <a href="case-cvw.html" class="lab-card reveal reveal-delay-1">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" alt="CVW portaal" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Medewerkersportaal</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">Concern voor Werk</div>
+          <div class="lab-card-desc">Maatwerk intern portaal voor 300+ medewerkers. Nieuws, vacatures, academie, meldpunt en spelmodule in één uitrol.</div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Firebase</span><span class="lab-chip">PWA</span><span class="lab-chip">MVP ~€15K</span></div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="case-buurtapp.html" class="lab-card reveal reveal-delay-2">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop" alt="BuurtApp" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Web App</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">BuurtApp v3.4</div>
+          <div class="lab-card-desc">White-label meld- en buurtapp voor gemeentes en wijkteams. Kaartmodule, meldingen, chat en dossiers in één schaalbaar platform.</div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Leaflet</span><span class="lab-chip">Firebase</span><span class="lab-chip">White-label</span></div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="case-kluswinkel.html" class="lab-card reveal reveal-delay-3">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" alt="Kluswinkel app" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Planning App</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">Kluswinkel App</div>
+          <div class="lab-card-desc">Planning board, werkbonnen, voertuigbeheer en klantafspraken gecentraliseerd. Gebouwd voor de dagelijkse operatie.</div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Firebase</span><span class="lab-chip">PWA</span></div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="case-roasted-rebels.html" class="lab-card reveal reveal-delay-1">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=800&auto=format&fit=crop" alt="Roasted Rebels" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Concept · Branding</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">Roasted Rebels</div>
+          <div class="lab-card-desc">Fictieve koffiebranderij voor nachtbrakers. Volledige merkidentiteit: fotografie, illustratie, branding en digital.</div>
+          <div class="lab-card-chips"><span class="lab-chip">Branding</span><span class="lab-chip">Fotografie</span><span class="lab-chip">Illustratie</span></div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="case-webbiecorn-os.html" class="lab-card reveal reveal-delay-2">
+        <div class="lab-card-thumb">
+          <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" alt="Webbiecorn OS" loading="lazy" />
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Intern Tool</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">Webbiecorn OS</div>
+          <div class="lab-card-desc">Onze eigen interne werkomgeving. Project management, klantoverzichten en AI-tooling samengebracht in één dashboard.</div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">n8n</span><span class="lab-chip">Intern</span></div>
+          <span class="lab-card-link">Bekijk case →</span>
+        </div>
+      </a>
+      <a href="automatisering.html" class="lab-card reveal reveal-delay-3" style="background:linear-gradient(135deg,rgba(217,43,75,0.07),var(--black-card));border-color:rgba(217,43,75,0.18)">
+        <div class="lab-card-thumb" style="background:var(--black);display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;padding:2rem">
+            <div style="font-size:2.5rem;margin-bottom:0.6rem">🤖</div>
+            <div style="font-size:0.72rem;font-weight:700;color:var(--red);letter-spacing:2px;text-transform:uppercase">AI &amp; n8n</div>
+          </div>
+          <div class="lab-card-thumb-overlay"></div>
+          <div class="lab-card-thumb-badge">Automatisering</div>
+        </div>
+        <div class="lab-card-body">
+          <div class="lab-card-name">AI Workflows op maat</div>
+          <div class="lab-card-desc">Van slimme notificatieflows tot volledige bedrijfsautomatisering met n8n en AI. Tijdwinst van dag één.</div>
+          <div class="lab-card-chips"><span class="lab-chip">n8n</span><span class="lab-chip">AI</span><span class="lab-chip">Webhooks</span><span class="lab-chip">Integraties</span></div>
+          <span class="lab-card-link">Bekijk mogelijkheden →</span>
+        </div>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:3rem">
+      <a href="lab.html" class="btn-ghost reveal">Bekijk het volledige lab →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OVER TEASER ═══════════════ -->
+<section id="over-teaser">
+  <div class="container">
+    <div class="over-grid">
+      <div>
+        <p class="section-label reveal">Over Webbiecorn</p>
+        <h2 class="section-title reveal reveal-delay-1">Vergeet de<br/><em>traditionele bureaus.</em></h2>
+        <div class="over-card reveal reveal-delay-2">
+          <p>Wij zijn Webbiecorn. Een compact bureau dat design, techniek en beheer combineert in een strak uitvoerbaar traject. Van eerste concept tot live platform.</p>
+          <p>Geen trage trajecten, geen vage offertes, geen overhead-circus. Wij bouwen digitale producten die processen versimpelen en organisaties direct vooruithelpen.</p>
+        </div>
+        <a href="over.html" class="teaser-link reveal reveal-delay-3">Lees ons verhaal →</a>
+      </div>
+      <div class="team-grid reveal reveal-delay-3">
+        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Creative Direction</div><div class="team-role">Branding · UX/UI · Contentproductie</div></div></div>
+        <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Tech &amp; Strategy</div><div class="team-role">PWA's · Automatisering · Managed Hosting</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════ -->
+<section id="cta-section">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2>Klaar voor de volgende stap?</h2>
+      <p>Laten we het hebben over jouw project. Geen eindeloze brainstorms, maar concrete plannen en tastbaar resultaat.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn-primary">Start je project</a>
+        <a href="diensten.html" class="btn-ghost">Bekijk tarieven</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</Layout>
