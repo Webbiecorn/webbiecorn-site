@@ -254,7 +254,8 @@ const { title = "Webbiecorn — Digitale producten die écht werken" } = Astro.p
       transition: max-height 0.4s ease, opacity 0.3s; opacity: 0;
     }
     .wt-step.active .wt-step-desc { max-height: 200px; opacity: 1; }
-    .wt-connector { width: 2px; height: 18px; background: rgba(217,43,75,0.12); margin-left: calc(1.5rem + 16px); }
+    .wt-connector { width: 2px; height: 18px; background: rgba(217,43,75,0.12); margin-left: calc(1.5rem + 16px); transition: background 0.4s ease; }
+    .wt-connector.active { background: #D92B4B; }
     .wt-screen {
       position: relative; background: #111;
       border-radius: 24px; border: 2px solid rgba(255,255,255,0.08);
@@ -263,10 +264,29 @@ const { title = "Webbiecorn — Digitale producten die écht werken" } = Astro.p
     }
     .wt-panel {
       position: absolute; inset: 0; padding: 2.5rem 1.25rem 1.25rem;
-      opacity: 0; transform: translateX(20px);
-      transition: opacity 0.4s ease, transform 0.4s ease; pointer-events: none;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); pointer-events: none;
     }
     .wt-panel.active { opacity: 1; transform: none; pointer-events: auto; }
+    
+    /* Micro-animations in panels */
+    .wt-check-item, .wt-fake-input, .wt-notification {
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .wt-panel.active .wt-check-item, 
+    .wt-panel.active .wt-fake-input, 
+    .wt-panel.active .wt-notification {
+      opacity: 1; transform: none;
+    }
+    .wt-panel.active .wt-check-item:nth-child(1) { transition-delay: 0.15s; }
+    .wt-panel.active .wt-check-item:nth-child(2) { transition-delay: 0.25s; }
+    .wt-panel.active .wt-check-item:nth-child(3) { transition-delay: 0.35s; }
+    .wt-panel.active .wt-fake-input:nth-child(2) { transition-delay: 0.15s; }
+    .wt-panel.active .wt-fake-input:nth-child(3) { transition-delay: 0.25s; }
+    .wt-panel.active .wt-fake-input:nth-child(4) { transition-delay: 0.35s; }
+    .wt-panel.active .wt-notification:nth-child(2) { transition-delay: 0.15s; }
+    .wt-panel.active .wt-notification:nth-child(3) { transition-delay: 0.30s; }
     .wt-notch {
       position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
       width: 70px; height: 18px; background: #080808; border-radius: 100px; z-index: 10;
@@ -518,17 +538,34 @@ document.addEventListener('astro:page-load', () => {
   const wtSteps = document.querySelectorAll('.wt-step');
   const wtPanels = document.querySelectorAll('.wt-panel');
   const wtDots = document.querySelectorAll('.wt-progress-dot');
+  const wtConnectors = document.querySelectorAll('.wt-connector');
+  const wtGrid = document.querySelector('.walkthrough-grid');
+
   if (wtSteps.length) {
     let wtCurrent = 0;
+    let autoPlay = true;
+
     function activateWT(idx) {
       wtSteps.forEach((s,i) => s.classList.toggle('active', i === idx));
       wtPanels.forEach((p,i) => p.classList.toggle('active', i === idx));
       wtDots.forEach((d,i) => d.classList.toggle('active', i === idx));
+      wtConnectors.forEach((c,i) => c.classList.toggle('active', i < idx));
       wtCurrent = idx;
     }
-    wtSteps.forEach((step, i) => step.addEventListener('click', () => activateWT(i)));
-    wtDots.forEach((dot, i) => dot.addEventListener('click', () => activateWT(i)));
-    _wtInterval = setInterval(() => activateWT((wtCurrent + 1) % wtSteps.length), 4000);
+
+    wtSteps.forEach((step, i) => step.addEventListener('click', () => { autoPlay = false; activateWT(i); }));
+    wtDots.forEach((dot, i) => dot.addEventListener('click', () => { autoPlay = false; activateWT(i); }));
+    
+    if (wtGrid) {
+      wtGrid.addEventListener('mouseenter', () => autoPlay = false);
+      wtGrid.addEventListener('mouseleave', () => autoPlay = true);
+      // for mobile touches
+      wtGrid.addEventListener('touchstart', () => autoPlay = false, {passive: true});
+    }
+
+    _wtInterval = setInterval(() => {
+      if (autoPlay) activateWT((wtCurrent + 1) % wtSteps.length);
+    }, 4500); // slightly longer reading time
   }
 
   // ── Counter animation ──────────────────────────
