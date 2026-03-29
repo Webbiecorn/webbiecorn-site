@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy naar webbiecorn.com (addon domain)
+      - name: Deploy naar webbiecorn.com
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -20,22 +20,6 @@ jobs:
           protocol: ftps
           local-dir: ./
           server-dir: /domains/webbiecorn.com/public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            AI_CONTEXT.md
-            .github/**
-
-      - name: Deploy naar webbiecorn.nl (main domain)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./
-          server-dir: /domains/webbiecorn.nl/public_html/
           exclude: |
             **/.git*
             **/.git*/**
