@@ -118,9 +118,9 @@ import Layout from '../layouts/Layout.astro';
         <div class="stat-number"><span class="stat-number-val" data-target="100">0</span><span class="stat-suffix">%</span></div>
         <div class="stat-label">Maatwerk</div>
       </div>
-      <div class="stat-item reveal reveal-delay-2">
-        <div class="stat-number"><span class="stat-number-val" data-target="15">0</span><span class="stat-suffix">K+</span></div>
-        <div class="stat-label">Laagste MVP prijs</div>
+      <div class="stat-item reveal-hero">
+        <div class="stat-number"><span class="stat-number-val" data-target="4">0</span><span class="stat-suffix"> wkn</span></div>
+        <div class="stat-label">Gem. MVP Launchtijd</div>
       </div>
       <div class="stat-item reveal reveal-delay-3">
         <div class="stat-number"><span class="stat-number-val" data-target="4">0</span></div>
@@ -130,126 +130,70 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
-<!-- ═══ WALKTHROUGH ══════════════ -->
-<section id="walkthrough">
+<!-- ═══ WEBBIE GRID (Zo Werkt Het) ══════════════ -->
+<section id="walkthrough-grid-section">
   <div class="container">
-    <p class="section-label reveal">Onze werkwijze</p>
-    <h2 class="section-title reveal reveal-delay-1">Jouw visie.<br/><em>Keiharde executie.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">Geen oeverloos gepraat of stropdassentrajecten. Wij hanteren een strak, transparant proces dat is gebouwd op snelheid en concreet resultaat.</p>
-    <div class="walkthrough-grid">
-      <div class="walkthrough-steps" id="wtSteps">
-        <div class="wt-step active" data-panel="0">
-          <div class="wt-step-nr">1</div>
-          <div>
-            <div class="wt-step-title">1. Ontdekken &amp; afkaderen</div>
-            <div class="wt-step-desc">Geen dikke rapporten, maar een scherpe intake. We graven tot de kern van je uitdaging, definiëren de doelgroep en bepalen direct de scope.</div>
-          </div>
+    <p class="section-label reveal-slide">Onze succesformule</p>
+    <h2 class="section-title reveal-slide delay-1">Geen wollige trajecten.<br/><em class="hero-gradient-text">Pure executiekracht.</em></h2>
+    <p class="section-sub reveal-slide delay-2">We bouwen in snelle iteraties. Vanaf de eerste schets tot aan de schaalbare live-omgeving, je hebt overal grip op.</p>
+
+    <div class="bento-walkthrough reveal-slide delay-2">
+      <!-- Stap 1 -->
+      <div class="bento-card bento-large group-hover-trigger">
+        <div class="bento-header">
+          <div class="bento-number">01</div>
+          <h3>Ontdekken &amp; Afkaderen</h3>
         </div>
-        <div class="wt-connector"></div>
-        <div class="wt-step" data-panel="1">
-          <div class="wt-step-nr">2</div>
-          <div>
-            <div class="wt-step-title">2. UX Design &amp; Prototype</div>
-            <div class="wt-step-desc">We maken het idee direct visueel. Met wekelijkse feedbackrondes en een klikbaar prototype weet je precies wat je krijgt, vórdat we coderen.</div>
-          </div>
+        <p>Geen dikke rapporten, maar een scherpe intake. We definiëren de doelgroep en bepalen direct de MVP-scope en budget.</p>
+        <div class="bento-visual">
+          <div class="bento-pill">Scope bepaling</div>
+          <div class="bento-pill highlight">Technische architectuur</div>
+          <div class="bento-pill">Roadmap in kaart</div>
         </div>
-        <div class="wt-connector"></div>
-        <div class="wt-step" data-panel="2">
-          <div class="wt-step-nr">3</div>
-          <div>
-            <div class="wt-step-title">3. Aglie Development</div>
-            <div class="wt-step-desc">We bouwen in snelle, transparante sprints. Korte lijntjes, frequente testversies en altijd 100% grip op de technische voortgang.</div>
-          </div>
+      </div>
+
+      <!-- Stap 2 -->
+      <div class="bento-card bento-small">
+        <div class="bento-header">
+          <div class="bento-number">02</div>
+          <h3>UX &amp; Prototype</h3>
         </div>
-        <div class="wt-connector"></div>
-        <div class="wt-step" data-panel="3">
-          <div class="wt-step-nr">4</div>
-          <div>
-            <div class="wt-step-title">4. Launch, Run &amp; Groei</div>
-            <div class="wt-step-desc">Live! Maar daar stopt het niet. We monitoren prestaties, zorgen voor bliksemsnelle hosting en optimaliseren actief voor verdere groei.</div>
+        <p>Je krijgt binnen no-time een interactief, klikbaar prototype in de huisstijl.</p>
+        <div class="bento-visual-minimal">
+          <div class="wireframe-box"></div>
+          <div class="wireframe-box fill"></div>
+        </div>
+      </div>
+
+      <!-- Stap 3 -->
+      <div class="bento-card bento-small">
+        <div class="bento-header">
+          <div class="bento-number">03</div>
+          <h3>Agile Development</h3>
+        </div>
+        <p>Transparante sprints. Korte lijntjes. Wekelijkse test-updates zonder verrassingen.</p>
+        <div class="bento-visual-minimal code-style">
+          <span>&lt;Code /&gt;</span>
+        </div>
+      </div>
+
+      <!-- Stap 4 -->
+      <div class="bento-card bento-large group-hover-trigger">
+        <div class="bento-header">
+          <div class="bento-number">04</div>
+          <h3>Launch, Run &amp; Groei</h3>
+        </div>
+        <p>Live! We hosten je platform razendsnel, monitoren op uptime en blijven itereren voor groei.</p>
+        <div class="bento-visual launch-visual">
+          <div class="launch-graph">
+            <div class="graph-bar w-1"></div>
+            <div class="graph-bar w-2"></div>
+            <div class="graph-bar w-3"></div>
+            <div class="graph-bar w-4 highlight-bar"></div>
           </div>
         </div>
       </div>
-      <div class="wt-screen" id="wtScreen">
-        <div class="wt-notch"></div>
-        <div class="wt-panel active" id="wtp0">
-          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Intake formulier</div>
-          <div class="wt-fake-input"><span class="wt-fake-input-icon">👤</span> Naam organisatie</div>
-          <div class="wt-fake-input"><span class="wt-fake-input-icon">📋</span> Omschrijf je uitdaging...</div>
-          <div class="wt-fake-input"><span class="wt-fake-input-icon">📅</span> Gewenste startdatum</div>
-          <div class="wt-check-list">
-            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Doelgroep gedefinieerd</div>
-            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Budget indicatie besproken</div>
-            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Functionele eisen verzameld</div>
-          </div>
-        </div>
-        <div class="wt-panel" id="wtp1">
-          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Design prototype</div>
-          <div style="background:rgba(217,43,75,0.07);border:1px solid rgba(217,43,75,0.18);border-radius:10px;padding:0.7rem;margin-bottom:0.7rem">
-            <div style="height:11px;background:rgba(217,43,75,0.28);border-radius:4px;width:60%;margin-bottom:0.45rem"></div>
-            <div style="height:7px;background:rgba(255,255,255,0.05);border-radius:4px;width:90%;margin-bottom:0.28rem"></div>
-            <div style="height:7px;background:rgba(255,255,255,0.05);border-radius:4px;width:75%"></div>
-          </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.7rem">
-            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;height:52px"></div>
-            <div style="background:rgba(217,43,75,0.07);border:1px solid rgba(217,43,75,0.14);border-radius:8px;height:52px"></div>
-          </div>
-          <div class="wt-check-list">
-            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Wireframes goedgekeurd</div>
-            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Huisstijl toegepast</div>
-          </div>
-        </div>
-        <div class="wt-panel" id="wtp2">
-          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Sprint voortgang</div>
-          <div style="margin-bottom:0.8rem">
-            <div style="display:flex;justify-content:space-between;font-size:0.63rem;color:rgba(255,255,255,0.45);margin-bottom:0.28rem"><span>Sprint 1</span><span style="color:#4ade80">Afgerond ✓</span></div>
-            <div class="wt-bar"><div class="wt-bar-fill" style="width:100%"></div></div>
-          </div>
-          <div style="margin-bottom:0.8rem">
-            <div style="display:flex;justify-content:space-between;font-size:0.63rem;color:rgba(255,255,255,0.45);margin-bottom:0.28rem"><span>Sprint 2</span><span style="color:#4ade80">Afgerond ✓</span></div>
-            <div class="wt-bar"><div class="wt-bar-fill" style="width:100%"></div></div>
-          </div>
-          <div style="margin-bottom:0.8rem">
-            <div style="display:flex;justify-content:space-between;font-size:0.63rem;color:rgba(255,255,255,0.45);margin-bottom:0.28rem"><span>Sprint 3</span><span style="color:var(--red)">Actief</span></div>
-            <div class="wt-bar"><div class="wt-bar-fill" style="width:62%"></div></div>
-          </div>
-          <div class="wt-check-list">
-            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Auth module live</div>
-            <div class="wt-check-item"><span class="wt-check-icon">✓</span> Dashboard live</div>
-            <div class="wt-check-item" style="opacity:0.45"><span style="color:rgba(255,255,255,0.25)">○</span> Notificaties in bouw</div>
-          </div>
-        </div>
-        <div class="wt-panel" id="wtp3">
-          <div class="wt-panel-header"><div class="wt-panel-header-dot"></div>Lancering status</div>
-          <div class="wt-notification">
-            <span style="font-size:0.9rem;flex-shrink:0">🚀</span>
-            <div>
-              <div class="wt-notification-title">Deployment geslaagd!</div>
-              <div class="wt-notification-body">app.jouworganisatie.nl is live — 0 fouten</div>
-            </div>
-          </div>
-          <div class="wt-notification" style="background:rgba(74,222,128,0.07);border-color:rgba(74,222,128,0.18)">
-            <span style="font-size:0.9rem;flex-shrink:0">🛡️</span>
-            <div>
-              <div class="wt-notification-title">Monitoring actief</div>
-              <div class="wt-notification-body">Uptime 100% · laatste 30 dagen</div>
-            </div>
-          </div>
-          <div class="wt-notification" style="background:rgba(96,165,250,0.07);border-color:rgba(96,165,250,0.18)">
-            <span style="font-size:0.9rem;flex-shrink:0">📞</span>
-            <div>
-              <div class="wt-notification-title">SLA actief</div>
-              <div class="wt-notification-body">Responstijd &lt; 4 uur · direct contact</div>
-            </div>
-          </div>
-        </div>
-        <div class="wt-progress" id="wtProgress">
-          <div class="wt-progress-dot active" data-idx="0"></div>
-          <div class="wt-progress-dot" data-idx="1"></div>
-          <div class="wt-progress-dot" data-idx="2"></div>
-          <div class="wt-progress-dot" data-idx="3"></div>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -270,7 +214,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="lab-card-body">
           <div class="lab-card-name">Concern voor Werk</div>
           <div class="lab-card-desc">Maatwerk intern portaal voor 300+ medewerkers. Nieuws, vacatures, academie, meldpunt en spelmodule in één uitrol.</div>
-          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Firebase</span><span class="lab-chip">PWA</span><span class="lab-chip">MVP ~€15K</span></div>
+          <div class="lab-card-chips"><span class="lab-chip">React</span><span class="lab-chip">Firebase</span><span class="lab-chip">PWA</span><span class="lab-chip">MVP vanaf €4.5K</span></div>
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
@@ -908,126 +852,171 @@ import Layout from '../layouts/Layout.astro';
       position: relative; z-index: 1; box-shadow: 0 0 10px rgba(217,43,75,0.6);
     }
 
-    /* ── WALKTHROUGH ─────────────────────────── */
-    #walkthrough {
-      background: var(--black-mid);
-      padding: 7rem 2rem;
-      position: relative; overflow: hidden;
-    }
-    #walkthrough::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(217,43,75,0.25), transparent);
-    }
-    .walkthrough-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center; margin-top: 4rem;
-    }
-    .walkthrough-steps { display: flex; flex-direction: column; gap: 0; }
-    .wt-step {
-      display: flex; gap: 1.5rem;
-      padding: 1.4rem; border-radius: 12px;
-      cursor: pointer; transition: background 0.3s;
-      border: 1px solid transparent;
-    }
-    .wt-step.active { background: rgba(217,43,75,0.06); border-color: rgba(217,43,75,0.16); }
-    .wt-step-nr {
-      width: 34px; height: 34px; border-radius: 50%;
-      border: 2px solid rgba(217,43,75,0.3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.78rem; font-weight: 800; color: var(--red);
-      flex-shrink: 0; transition: background 0.3s, border-color 0.3s;
-    }
-    .wt-step.active .wt-step-nr { background: var(--red); border-color: var(--red); color: #fff; }
-    .wt-step-title {
-      font-size: 0.93rem; font-weight: 700; margin-bottom: 0.3rem;
-      color: rgba(255,255,255,0.6); transition: color 0.3s;
-    }
-    .wt-step.active .wt-step-title { color: #fff; }
-    .wt-step-desc {
-      font-size: 0.82rem; color: rgba(255,255,255,0.38);
-      line-height: 1.65; max-height: 0; overflow: hidden;
-      transition: max-height 0.4s ease, opacity 0.3s; opacity: 0;
-    }
-    .wt-step.active .wt-step-desc { max-height: 200px; opacity: 1; }
-    .wt-connector { width: 2px; height: 18px; background: rgba(217,43,75,0.12); margin-left: calc(1.5rem + 16px); transition: background 0.4s ease; }
-    .wt-connector.active { background: #D92B4B; }
-    .wt-screen {
-      position: relative; background: #111;
-      border-radius: 24px; border: 2px solid rgba(255,255,255,0.08);
-      overflow: hidden; aspect-ratio: 9/16; max-height: 540px;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.6), 0 0 50px rgba(217,43,75,0.07);
-    }
-    .wt-panel {
-      position: absolute; inset: 0; padding: 2.5rem 1.25rem 1.25rem;
-      opacity: 0; transform: translateY(12px);
-      transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); pointer-events: none;
-    }
-    .wt-panel.active { opacity: 1; transform: none; pointer-events: auto; }
-    
-    /* Micro-animations in panels */
-    .wt-check-item, .wt-fake-input, .wt-notification {
-      opacity: 0; transform: translateY(8px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-    }
-    .wt-panel.active .wt-check-item, 
-    .wt-panel.active .wt-fake-input, 
-    .wt-panel.active .wt-notification {
-      opacity: 1; transform: none;
-    }
-    .wt-panel.active .wt-check-item:nth-child(1) { transition-delay: 0.15s; }
-    .wt-panel.active .wt-check-item:nth-child(2) { transition-delay: 0.25s; }
-    .wt-panel.active .wt-check-item:nth-child(3) { transition-delay: 0.35s; }
-    .wt-panel.active .wt-fake-input:nth-child(2) { transition-delay: 0.15s; }
-    .wt-panel.active .wt-fake-input:nth-child(3) { transition-delay: 0.25s; }
-    .wt-panel.active .wt-fake-input:nth-child(4) { transition-delay: 0.35s; }
-    .wt-panel.active .wt-notification:nth-child(2) { transition-delay: 0.15s; }
-    .wt-panel.active .wt-notification:nth-child(3) { transition-delay: 0.30s; }
-    .wt-notch {
-      position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
-      width: 70px; height: 18px; background: #080808; border-radius: 100px; z-index: 10;
-    }
-    .wt-panel-header {
-      font-size: 0.83rem; font-weight: 800; color: #fff;
-      margin-bottom: 1rem; margin-top: 0.5rem;
-      display: flex; align-items: center; gap: 0.55rem;
-    }
-    .wt-panel-header-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 8px rgba(217,43,75,0.7); }
-    .wt-bar { height: 6px; border-radius: 100px; background: rgba(255,255,255,0.05); margin-bottom: 0.4rem; overflow: hidden; }
-    .wt-bar-fill { height: 100%; background: var(--red); border-radius: 100px; }
-    .wt-fake-input {
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 8px; padding: 0.55rem 0.7rem;
-      font-size: 0.68rem; color: rgba(255,255,255,0.55);
-      margin-bottom: 0.45rem; display: flex; align-items: center; gap: 0.45rem;
-    }
-    .wt-fake-input-icon { color: var(--red); }
-    .wt-check-list { display: flex; flex-direction: column; gap: 0.4rem; }
-    .wt-check-item {
-      display: flex; align-items: center; gap: 0.5rem;
-      font-size: 0.68rem; color: rgba(255,255,255,0.65);
-      padding: 0.45rem 0.6rem;
-      background: rgba(255,255,255,0.03); border-radius: 7px;
-    }
-    .wt-check-icon { color: #4ade80; font-weight: 700; flex-shrink: 0; }
-    .wt-notification {
-      background: rgba(217,43,75,0.1); border: 1px solid rgba(217,43,75,0.22);
-      border-radius: 10px; padding: 0.7rem;
-      display: flex; gap: 0.55rem; align-items: flex-start; margin-bottom: 0.45rem;
-    }
-    .wt-notification-title { font-size: 0.68rem; font-weight: 700; color: #fff; margin-bottom: 0.18rem; }
-    .wt-notification-body { font-size: 0.6rem; color: rgba(255,255,255,0.48); line-height: 1.5; }
-    .wt-progress {
-      position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 6px; z-index: 20;
-    }
-    .wt-progress-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: rgba(255,255,255,0.18);
-      transition: background 0.3s, transform 0.3s; cursor: pointer;
-    }
-    .wt-progress-dot.active { background: var(--red); transform: scale(1.4); }
+    /* ── WEBBIE BENTO WALKTHROUGH ──────── */
+#walkthrough-grid-section {
+  padding: 8rem 0;
+  position: relative;
+}
 
-    /* ── LAB SECTION ─────────────────────────── */
+.bento-walkthrough {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.bento-card {
+  background: rgba(20,20,20,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.bento-card:hover {
+  border-color: rgba(217, 43, 75, 0.4);
+  transform: translateY(-5px);
+}
+
+.bento-large {
+  grid-column: span 1;
+}
+
+.bento-small {
+  grid-column: span 1;
+}
+
+.bento-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bento-number {
+  background: rgba(217,43,75,0.1);
+  color: #D92B4B;
+  font-family: monospace;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(217,43,75,0.2);
+}
+
+.bento-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.bento-card p {
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+/* Visuals inside Bento */
+.bento-visual {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+.bento-pill {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: #aaa;
+  transition: all 0.3s ease;
+}
+.bento-pill.highlight {
+  background: rgba(217,43,75,0.15);
+  color: #fff;
+  border-color: rgba(217,43,75,0.4);
+}
+
+/* Wireframe blocks for UI card */
+.bento-visual-minimal {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: auto;
+  align-items: flex-end;
+}
+.wireframe-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px dashed rgba(255,255,255,0.15);
+  border-radius: 8px;
+  height: 40px;
+  width: 100%;
+}
+.wireframe-box.fill {
+  background: rgba(217,43,75,0.1);
+  border: 1px solid rgba(217,43,75,0.3);
+  height: 60px;
+}
+
+/* Code visual */
+.code-style {
+  font-family: monospace;
+  color: #D92B4B;
+  font-size: 1.1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Launch Graph */
+.launch-visual {
+    width: 100%;
+}
+.launch-graph {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4rem;
+  height: 60px;
+  width: 100%;
+}
+.graph-bar {
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px 4px 0 0;
+  width: 25%;
+  transition: height 1s ease;
+}
+.w-1 { height: 30%; }
+.w-2 { height: 45%; }
+.w-3 { height: 60%; }
+.w-4 { height: 95%; background: linear-gradient(180deg, #D92B4B 0%, rgba(217,43,75,0.2) 100%); }
+
+/* Interactive Hover state for group */
+.group-hover-trigger:hover .bento-pill {
+  border-color: rgba(255,255,255,0.3); color: #fff;
+}
+.group-hover-trigger:hover .w-1 { height: 50%; }
+.group-hover-trigger:hover .w-2 { height: 75%; }
+.group-hover-trigger:hover .w-3 { height: 100%; }
+
+@media (max-width: 900px) {
+  .bento-walkthrough {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── LAB SECTION ─────────────────────────── */
     #lab-section { background: var(--black); padding: 7rem 2rem; }
     .lab-grid {
       display: grid;
