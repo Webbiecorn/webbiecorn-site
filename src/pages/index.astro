@@ -532,9 +532,9 @@ import Layout from '../layouts/Layout.astro';
 
     function typeWriter() {
       if (currentPhrase >= phrases.length) return;
-      
+
       const phrase = phrases[currentPhrase];
-      
+
       if (phrase.isBreak) {
         textTarget.innerHTML += "<br/>";
         currentPhrase++;
@@ -555,7 +555,7 @@ import Layout from '../layouts/Layout.astro';
 
       if (currentChar < phrase.text.length) {
         // Randomize speed for realistic typing effect
-        const speed = Math.random() * 50 + 40; 
+        const speed = Math.random() * 50 + 40;
         setTimeout(typeWriter, speed);
       } else {
         // Next phrase
