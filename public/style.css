@@ -1173,28 +1173,13 @@ h1, h2, h3 {
   font-size: 0.85rem;
   color: rgba(255,255,255,0.35);
   line-height: 1.65;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.6rem;
 }
-.footer-socials {
-  display: flex;
-  gap: 0.6rem;
-}
-.footer-socials a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px; height: 36px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-  color: rgba(255,255,255,0.4);
-  transition: all 0.25s ease;
-}
-.footer-socials a:hover {
-  background: rgba(217,43,75,0.12);
-  border-color: rgba(217,43,75,0.3);
-  color: var(--red);
-  transform: translateY(-2px);
+.footer-kvk {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.2);
+  font-family: monospace;
+  letter-spacing: 0.5px;
 }
 
 /* Footer Bottom */
