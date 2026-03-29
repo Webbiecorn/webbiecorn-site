@@ -8,18 +8,20 @@
   --black:      #0d0d0d;
   --black-mid:  #161616;
   --black-card: #1a1a1a;
-  --red:        #D92B4B;
+  --red: #FF3355;
+    --red-glow: 0 0 20px rgba(255, 51, 85, 0.4);
   --red-dark:   #b02240;
   --white:      #ffffff;
   --grey:       #888888;
   --border:     rgba(255,255,255,0.08);
-}
+
+    --glass-bg: rgba(20, 20, 22, 0.6);}
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  background: var(--black);
+  font-family: 'Inter', 'SF Pro Display', sans-serif;
+  background: radial-gradient(circle at 50% 0%, #1a0b10 0%, #0d0d0f 40%, #0d0d0f 100%);
   color: var(--white);
   overflow-x: hidden;
   animation: fade-in 0.4s ease-out forwards;
@@ -37,7 +39,7 @@ body.fade-out {
 
 
 h1, h2, h3, h4, h5, .nav-logo-text, .hero-eyebrow, .section-label, .avail-badge, .nav-links li a, .btn-primary, .btn-ghost, .stat-number, .stat-label {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', 'SF Pro Display', sans-serif;
 }
 
 /* ── NAVBAR ─────────────────────────────────── */
@@ -146,23 +148,27 @@ nav.solid {
 /* ── BUTTONS ─────────────────────────────────── */
 .btn-primary {
   background: var(--red); color: var(--white);
-  padding: 0.85rem 2rem; border-radius: 4px;
+  padding: 0.85rem 2rem; border-radius: 8px;
   font-weight: 700; font-size: 0.95rem;
   text-decoration: none;
   transition: background 0.2s, transform 0.2s;
   display: inline-block;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
-.btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+.btn-primary:hover { background: var(--red-dark); transform: translateY(-2px);     box-shadow: var(--red-glow);
+}
 .btn-ghost {
   border: 1px solid rgba(255,255,255,0.3); color: var(--white);
-  padding: 0.85rem 2rem; border-radius: 4px;
+  padding: 0.85rem 2rem; border-radius: 8px;
   font-weight: 700; font-size: 0.95rem;
   text-decoration: none;
-  transition: border-color 0.2s, transform 0.2s, color 0.2s;
+  transition: all 0.3s ease;
   display: inline-block;
   backdrop-filter: blur(8px);
 }
-.btn-ghost:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+.btn-ghost:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px);     box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
 
 /* ── SECTIONS ─────────────────────────────────── */
 section { padding: 6rem 2rem; }
@@ -256,14 +262,18 @@ section { padding: 6rem 2rem; }
   gap: 1.5rem; margin-top: 3rem;
 }
 .dienst-card {
-  background: rgba(255,255,255,0.03);
+  background: var(--glass-bg);
   border: 1px solid var(--border);
   border-radius: 10px; padding: 2rem;
   cursor: default;
-  transition: border-color 0.3s, transform 0.15s;
+  transition: all 0.3s ease;
   transform-style: preserve-3d;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
-.dienst-card:hover { border-color: var(--red); }
+.dienst-card:hover { border-color: var(--red);     transform: translateY(-8px);
+    box-shadow: var(--red-glow);
+}
 .dienst-link-card {
   text-decoration: none;
   color: inherit;
@@ -653,7 +663,7 @@ section { padding: 6rem 2rem; }
   display: flex;
   white-space: nowrap;
   animation: marquee 20s linear infinite;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', 'SF Pro Display', sans-serif;
   font-size: 2.2rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -682,7 +692,7 @@ section { padding: 6rem 2rem; }
   background: rgba(255,255,255,0.05);
   border: 1px solid var(--border);
   border-radius: 6px; color: var(--white);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', 'SF Pro Display', sans-serif;
   font-size: 0.95rem; padding: 0.85rem 1rem;
   outline: none; transition: border-color 0.2s;
   resize: vertical;
@@ -836,7 +846,7 @@ footer a:hover { text-decoration: underline; }
 .quote-mark {
   font-size: 3.5rem; line-height: 0.8;
   color: var(--red); opacity: 0.35;
-  font-family: Georgia, serif;
+  font-family: 'Inter', 'SF Pro Display', sans-serif;
   margin-bottom: 1rem; user-select: none;
 }
 .quote-text {
@@ -1000,4 +1010,9 @@ footer a:hover { text-decoration: underline; }
     align-items: flex-start;
     gap: 1rem;
   }
+}
+
+
+h1, h2, h3 {
+    letter-spacing: -0.03em;
 }
