@@ -648,35 +648,7 @@ section { padding: 6rem 2rem; }
 }
 
 /* ── MARQUEE TEXT BAND ───────────────────────── */
-.marquee-wrap {
-  width: 100%;
-  overflow: hidden;
-  background: var(--red);
-  color: var(--black);
-  padding: 1.25rem 0;
-  position: relative;
-  transform: rotate(-2deg) scale(1.05);
-  margin: 6rem 0 -2rem;
-  z-index: 10;
-}
-.marquee-content {
-  display: flex;
-  white-space: nowrap;
-  animation: marquee 20s linear infinite;
-  font-family: 'Inter', 'SF Pro Display', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-.marquee-content span {
-  padding: 0 1.5rem;
-}
-.marquee-content .star {
-  color: rgba(0,0,0,0.4);
-}
-@keyframes marquee {
-  0% { transform: translateX(0); }
+
   100% { transform: translateX(-50%); }
 }
 
