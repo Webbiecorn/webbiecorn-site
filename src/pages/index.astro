@@ -20,8 +20,8 @@ import Layout from '../layouts/Layout.astro';
   <div class="hero-inner">
     <div class="avail-badge reveal"><span class="avail-dot"></span>Beschikbaar voor nieuwe projecten</div>
     <div class="hero-eyebrow">PWA's, AI & Beheer</div>
-    <h1 class="hero-title reveal reveal-delay-1">
-      Digitale producten<br/><em>die écht werken.</em>
+    <h1 class="hero-title reveal reveal-delay-1" style="min-height: 2.8em; display: inline-block;">
+      <span id="typing-text"></span><span class="blinking-cursor">_</span>
     </h1>
     <p class="hero-sub reveal reveal-delay-2">
       Een gedreven team van experts. Eén focus. Wij combineren feilloze techniek met scherp design — voor organisaties die durven doorpakken.
@@ -357,6 +357,54 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
+<!-- ═══ CASES CAROUSEL ══════════════════ -->
+<section id="cases-carousel" class="reveal">
+  <div class="container">
+    <p class="section-label">Recente Impact</p>
+    <h2 class="section-title">Uitgelichte<br/><em>Cases.</em></h2>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <a href="case-buurtapp.html" class="carousel-card">
+          <div class="carousel-img">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="BuurtApp">
+          </div>
+          <div class="carousel-content">
+            <h3>BuurtApp v3.4</h3>
+            <p>Meld- en buurtapp voor gemeentes en wijkteams.</p>
+          </div>
+        </a>
+        <a href="case-cvw.html" class="carousel-card">
+          <div class="carousel-img">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="CVW">
+          </div>
+          <div class="carousel-content">
+            <h3>Concern voor Werk</h3>
+            <p>Maatwerk intern portaal voor 300+ medewerkers.</p>
+          </div>
+        </a>
+        <a href="case-kluswinkel.html" class="carousel-card">
+          <div class="carousel-img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Kluswinkel">
+          </div>
+          <div class="carousel-content">
+            <h3>Kluswinkel App</h3>
+            <p>Planning board, werkbonnen en voertuigbeheer app.</p>
+          </div>
+        </a>
+        <a href="case-webbiecorn-os.html" class="carousel-card">
+          <div class="carousel-img">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Webbiecorn OS">
+          </div>
+          <div class="carousel-content">
+            <h3>Webbiecorn OS</h3>
+            <p>Interne werkomgeving met slimme AI-tooling en n8n workflows.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ CTA ════════════════════════ -->
 <section id="cta-section">
   <div class="container">
@@ -371,5 +419,155 @@ import Layout from '../layouts/Layout.astro';
   </div>
 </section>
 
+<style>
+  /* Typing animation */
+  .blinking-cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.2em;
+    background-color: var(--red, #D92B4B);
+    vertical-align: text-bottom;
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  /* Cases Carousel */
+  #cases-carousel {
+    padding: 6rem 0;
+    overflow: hidden;
+  }
+  .carousel-container {
+    margin-top: 3rem;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 2rem;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+  }
+  .carousel-track::-webkit-scrollbar {
+    height: 8px;
+  }
+  .carousel-track::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+  }
+  .carousel-track::-webkit-scrollbar-thumb {
+    background: rgba(217, 43, 75, 0.4);
+    border-radius: 4px;
+  }
+  .carousel-card {
+    flex: 0 0 300px;
+    scroll-snap-align: center;
+    background: var(--black-card, rgba(29,29,31,0.6));
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .carousel-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(217, 43, 75, 0.4);
+    box-shadow: 0 10px 30px rgba(217, 43, 75, 0.1);
+  }
+  .carousel-img {
+    height: 180px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .carousel-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .carousel-card:hover .carousel-img img {
+    transform: scale(1.05);
+  }
+  .carousel-content {
+    padding: 1.5rem;
+  }
+  .carousel-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    color: white;
+  }
+  .carousel-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+  @media (min-width: 768px) {
+    .carousel-card {
+      flex: 0 0 350px;
+    }
+  }
+</style>
+
+<script>
+  // Terminal typing animation for Hero Title
+  document.addEventListener('astro:page-load', () => {
+    const textTarget = document.getElementById('typing-text');
+    if (!textTarget) return;
+
+    // The text content with emphasis encoded as a special token
+    const phrases = [
+      { text: "Digitale producten", isEm: false },
+      { text: "<br/>", isBreak: true },
+      { text: "die écht werken.", isEm: true }
+    ];
+
+    let currentPhrase = 0;
+    let currentChar = 0;
+
+    function typeWriter() {
+      if (currentPhrase >= phrases.length) return;
+      
+      const phrase = phrases[currentPhrase];
+      
+      if (phrase.isBreak) {
+        textTarget.innerHTML += "<br/>";
+        currentPhrase++;
+        setTimeout(typeWriter, 150);
+        return;
+      }
+
+      if (currentChar === 0) {
+        // Create the container for this phrase
+        const span = document.createElement(phrase.isEm ? 'em' : 'span');
+        span.id = `typing-phrase-${currentPhrase}`;
+        textTarget.appendChild(span);
+      }
+
+      const curContainer = document.getElementById(`typing-phrase-${currentPhrase}`);
+      curContainer.innerHTML += phrase.text.charAt(currentChar);
+      currentChar++;
+
+      if (currentChar < phrase.text.length) {
+        // Randomize speed for realistic typing effect
+        const speed = Math.random() * 50 + 40; 
+        setTimeout(typeWriter, speed);
+      } else {
+        // Next phrase
+        currentPhrase++;
+        currentChar = 0;
+        setTimeout(typeWriter, 250); // Pause between lines
+      }
+    }
+
+    // Start slightly delayed
+    setTimeout(typeWriter, 800);
+  });
+</script>
 
 </Layout>
