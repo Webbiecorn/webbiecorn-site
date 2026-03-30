@@ -1125,6 +1125,7 @@ h1, h2, h3 {
   grid-template-columns: 1.8fr 1fr 1fr;
   gap: 0;
   padding: 4rem 0;
+  align-items: start;
 }
 .footer-col {
   padding: 0 2.5rem;
@@ -1134,11 +1135,15 @@ h1, h2, h3 {
   padding-right: 3.5rem;
   border-right: 1px solid rgba(255,255,255,0.06);
 }
+.footer-col:not(:first-child) {
+  padding-top: 0.25rem;
+}
 .footer-col:not(:first-child):not(:last-child) {
   border-right: 1px solid rgba(255,255,255,0.04);
 }
 .footer-col:last-child {
   padding-right: 0;
+  padding-left: 2.5rem;
 }
 .footer-col a {
   display: block;
