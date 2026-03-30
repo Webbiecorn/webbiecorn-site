@@ -1122,7 +1122,7 @@ h1, h2, h3 {
 /* Footer Grid */
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.8fr 1fr 1fr 1fr;
+  grid-template-columns: 1.8fr 1fr 1fr;
   gap: 0;
   padding: 4rem 0;
 }
@@ -1186,6 +1186,21 @@ h1, h2, h3 {
   line-height: 1.7;
   margin-bottom: 0.75rem;
   max-width: 220px;
+}
+.footer-contact {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.footer-contact a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-contact a:hover {
+  color: #fff;
 }
 .footer-kvk {
   font-size: 0.75rem;
