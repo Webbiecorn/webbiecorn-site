@@ -5,11 +5,11 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Webbiecorn — Digitale producten die écht werken">
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="over.html" onclick="closeMobile()">Over ons</a>
-  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
-  <a href="cases.html" onclick="closeMobile()">Cases</a>
-  <a href="lab.html" onclick="closeMobile()">Lab</a>
-  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
+  <a href="/over" onclick="closeMobile()">Over ons</a>
+  <a href="/diensten" onclick="closeMobile()">Diensten</a>
+  <a href="/cases" onclick="closeMobile()">Cases</a>
+  <a href="/lab" onclick="closeMobile()">Lab</a>
+  <a href="/contact" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -40,17 +40,17 @@ import Layout from '../layouts/Layout.astro';
     </p>
 
     <div class="hero-ctas reveal-hero">
-      <a href="contact.html" class="btn-primary magnetic-btn">
+      <a href="/contact" class="btn-primary magnetic-btn">
         <span class="btn-text">Start je project</span>
         <span class="btn-arrow">→</span>
       </a>
-      <a href="cases.html" class="btn-ghost magnetic-btn">Bekijk ons werk</a>
+      <a href="/cases" class="btn-ghost magnetic-btn">Bekijk ons werk</a>
     </div>
 
     <div class="cards-stage reveal-hero">
       <div class="cards-row spotlight-group" id="premium-cards-row">
 
-        <a href="apps.html" class="premium-card">
+        <a href="/apps" class="premium-card">
           <div class="spotlight"></div>
           <div class="card-content">
             <div class="card-icon">
@@ -61,7 +61,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </a>
 
-        <a href="automatisering.html" class="premium-card">
+        <a href="/automatisering" class="premium-card">
           <div class="spotlight"></div>
           <div class="card-content">
             <div class="card-icon">
@@ -72,7 +72,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </a>
 
-        <a href="design.html" class="premium-card">
+        <a href="/design" class="premium-card">
           <div class="spotlight"></div>
           <div class="card-content">
             <div class="card-icon">
@@ -83,7 +83,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </a>
 
-        <a href="onderhoud.html" class="premium-card">
+        <a href="/onderhoud" class="premium-card">
           <div class="spotlight"></div>
           <div class="card-content">
             <div class="card-icon">
@@ -245,7 +245,7 @@ import Layout from '../layouts/Layout.astro';
     <h2 class="section-title gsap-reveal">Werk dat de<br/><em>norm verlegt.</em></h2>
     <p class="section-sub gsap-reveal">Van concept tot complexe app. Elk project een eigen verhaal en aanpak.</p>
     <div class="lab-grid">
-      <a href="case-cvw.html" class="lab-card reveal reveal-delay-1">
+      <a href="/case-cvw" class="lab-card reveal reveal-delay-1">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" alt="CVW portaal" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -258,7 +258,7 @@ import Layout from '../layouts/Layout.astro';
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="case-buurtapp.html" class="lab-card reveal reveal-delay-2">
+      <a href="/case-buurtapp" class="lab-card reveal reveal-delay-2">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop" alt="BuurtApp" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -271,7 +271,7 @@ import Layout from '../layouts/Layout.astro';
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="case-kluswinkel.html" class="lab-card reveal reveal-delay-3">
+      <a href="/case-kluswinkel" class="lab-card reveal reveal-delay-3">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" alt="Kluswinkel app" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -284,7 +284,7 @@ import Layout from '../layouts/Layout.astro';
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="case-roasted-rebels.html" class="lab-card reveal reveal-delay-1">
+      <a href="/case-roasted-rebels" class="lab-card reveal reveal-delay-1">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=800&auto=format&fit=crop" alt="Roasted Rebels" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -297,7 +297,7 @@ import Layout from '../layouts/Layout.astro';
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="case-webbiecorn-os.html" class="lab-card reveal reveal-delay-2">
+      <a href="/case-webbiecorn-os" class="lab-card reveal reveal-delay-2">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" alt="Webbiecorn OS" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -310,7 +310,7 @@ import Layout from '../layouts/Layout.astro';
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="automatisering.html" class="lab-card reveal reveal-delay-3" style="background:linear-gradient(135deg,rgba(217,43,75,0.07),var(--black-card));border-color:rgba(217,43,75,0.18)">
+      <a href="/automatisering" class="lab-card reveal reveal-delay-3" style="background:linear-gradient(135deg,rgba(217,43,75,0.07),var(--black-card));border-color:rgba(217,43,75,0.18)">
         <div class="lab-card-thumb" style="background:var(--black);display:flex;align-items:center;justify-content:center">
           <div style="text-align:center;padding:2rem">
             <div style="font-size:2.5rem;margin-bottom:0.6rem">🤖</div>
@@ -328,7 +328,7 @@ import Layout from '../layouts/Layout.astro';
       </a>
     </div>
     <div style="text-align:center;margin-top:3rem">
-      <a href="lab.html" class="btn-ghost reveal">Bekijk het volledige lab →</a>
+      <a href="/lab" class="btn-ghost reveal">Bekijk het volledige lab →</a>
     </div>
   </div>
 </section>
@@ -344,7 +344,7 @@ import Layout from '../layouts/Layout.astro';
           <p>Compact team. Grote output. Wij combineren design, code en beheer in een strak traject — van concept tot productie.</p>
           <p>Geen overhead, geen vage offertes. Alleen digitale producten die processen versimpelen en organisaties vooruithelpen.</p>
         </div>
-        <a href="over.html" class="teaser-link reveal reveal-delay-3">Lees ons verhaal →</a>
+        <a href="/over" class="teaser-link reveal reveal-delay-3">Lees ons verhaal →</a>
       </div>
       <div class="team-grid reveal reveal-delay-3">
         <div class="team-member"><div class="team-avatar">✦</div><div><div class="team-name">Creative Direction</div><div class="team-role">Branding · UX/UI · Contentproductie</div></div></div>
@@ -361,7 +361,7 @@ import Layout from '../layouts/Layout.astro';
     <h2 class="section-title">Uitgelichte<br/><em>Cases.</em></h2>
     <div class="carousel-container">
       <div class="carousel-track">
-        <a href="case-buurtapp.html" class="carousel-card">
+        <a href="/case-buurtapp" class="carousel-card">
           <div class="carousel-img">
             <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="BuurtApp">
           </div>
@@ -370,7 +370,7 @@ import Layout from '../layouts/Layout.astro';
             <p>Meld- en buurtapp voor gemeentes en wijkteams.</p>
           </div>
         </a>
-        <a href="case-cvw.html" class="carousel-card">
+        <a href="/case-cvw" class="carousel-card">
           <div class="carousel-img">
             <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="CVW">
           </div>
@@ -379,7 +379,7 @@ import Layout from '../layouts/Layout.astro';
             <p>Maatwerk intern portaal voor 300+ medewerkers.</p>
           </div>
         </a>
-        <a href="case-kluswinkel.html" class="carousel-card">
+        <a href="/case-kluswinkel" class="carousel-card">
           <div class="carousel-img">
             <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Kluswinkel">
           </div>
@@ -388,7 +388,7 @@ import Layout from '../layouts/Layout.astro';
             <p>Planning board, werkbonnen en voertuigbeheer app.</p>
           </div>
         </a>
-        <a href="case-webbiecorn-os.html" class="carousel-card">
+        <a href="/case-webbiecorn-os" class="carousel-card">
           <div class="carousel-img">
             <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" loading="lazy" alt="Webbiecorn OS">
           </div>
@@ -411,8 +411,8 @@ import Layout from '../layouts/Layout.astro';
       <h2>Klaar om te bouwen?</h2>
       <p>Geen eindeloze brainstorms. Wij leveren concrete plannen en tastbaar resultaat.</p>
       <div class="btn-group">
-        <a href="contact.html" class="btn-primary magnetic-btn"><span class="btn-text">Start je project</span> <span class="btn-arrow">→</span></a>
-        <a href="diensten.html" class="btn-ghost magnetic-btn">Bekijk onze diensten</a>
+        <a href="/contact" class="btn-primary magnetic-btn"><span class="btn-text">Start je project</span> <span class="btn-arrow">→</span></a>
+        <a href="/diensten" class="btn-ghost magnetic-btn">Bekijk onze diensten</a>
       </div>
     </div>
   </div>

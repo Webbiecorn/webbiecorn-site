@@ -1,28 +1,8 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Webbiecorn</title>
-  <meta name="description" content="Start je project. Neem contact op met Webbiecorn voor PWA's, branding, automatisering en managed hosting." />
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://webbiecorn.com/contact.html" />
-  <meta property="og:title" content="Contact — Webbiecorn" />
-  <meta property="og:description" content="Start een traject voor PWA's, branding, automatisering of managed hosting. Reactie binnen 1–2 werkdagen." />
-  <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact — Webbiecorn" />
-  <meta name="twitter:description" content="Start een traject voor PWA's, branding, automatisering of managed hosting." />
-  <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
-  <meta name="theme-color" content="#0d0d0d" />
-  <link rel="canonical" href="https://webbiecorn.com/contact.html" />
-  <link rel="apple-touch-icon" href="webbiecorn-logo.png" />
-  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact — Webbiecorn">
   <style>
     #contact-main { background: var(--black-mid); }
     .contact-wrap {
@@ -48,14 +28,11 @@
       margin-top: 0.75rem; font-size: 0.75rem; color: rgba(255,255,255,0.3);
       padding-top: 0.75rem; border-top: 1px solid var(--border);
     }
-    /* Form */
     .contact-form-card {
       background: var(--black-card); border: 1px solid var(--border);
       border-radius: 16px; padding: 2.5rem;
     }
-    .contact-form-card h3 {
-      font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;
-    }
+    .contact-form-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
     .contact-form-card p.form-intro {
       color: rgba(255,255,255,0.45); font-size: 0.875rem; margin-bottom: 2rem;
       line-height: 1.6;
@@ -103,7 +80,6 @@
       font-size: 0.72rem; color: rgba(255,255,255,0.25); text-align: center;
       margin-top: 1rem; line-height: 1.5;
     }
-    /* Success */
     .form-success {
       display: none; text-align: center; padding: 2rem 1rem;
     }
@@ -122,16 +98,8 @@
       border-radius: 10px;
       padding: 0.85rem 1rem;
     }
-    .trust-point strong {
-      display: block;
-      font-size: 0.82rem;
-      margin-bottom: 0.25rem;
-    }
-    .trust-point span {
-      color: rgba(255,255,255,0.48);
-      font-size: 0.75rem;
-      line-height: 1.5;
-    }
+    .trust-point strong { display: block; font-size: 0.82rem; margin-bottom: 0.25rem; }
+    .trust-point span { color: rgba(255,255,255,0.48); font-size: 0.75rem; line-height: 1.5; }
     .intake-context {
       display: none;
       background: rgba(217,43,75,0.08);
@@ -141,45 +109,14 @@
       margin: 0 0 1.25rem;
     }
     .intake-context.visible { display: block; }
-    .intake-context strong {
-      display: block;
-      font-size: 0.82rem;
-      margin-bottom: 0.3rem;
-    }
-    .intake-context span {
-      color: rgba(255,255,255,0.55);
-      font-size: 0.8rem;
-      line-height: 1.55;
-    }
+    .intake-context strong { display: block; font-size: 0.82rem; margin-bottom: 0.3rem; }
+    .intake-context span { color: rgba(255,255,255,0.55); font-size: 0.8rem; line-height: 1.55; }
     @media (max-width: 768px) {
       .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
       .contact-form-card { padding: 1.75rem 1.25rem; }
     }
   </style>
-</head>
-<body>
-<div id="scroll-progress"></div>
-<nav id="navbar" class="solid">
-  <a href="/" class="nav-logo">
-    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
-    <span class="nav-logo-text">Webbie<span>corn</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="over.html">Over ons</a></li>
-    <li><a href="diensten.html">Diensten</a></li>
-    <li><a href="cases.html">Cases</a></li>
-    <li><a href="contact.html" class="nav-cta active" aria-current="page">Start je project</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="over.html" onclick="closeMobile()">Over ons</a>
-  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
-  <a href="cases.html" onclick="closeMobile()">Cases</a>
-  <a href="lab.html" onclick="closeMobile()">Lab</a>
-  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
-</div>
 
 <section class="page-hero">
   <div class="container">
@@ -306,54 +243,7 @@
   </div>
 </section>
 
-<footer id="site-footer">
-  <div class="footer-glow"></div>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <div class="footer-logo">
-          <img src="webbiecorn-logo.png" alt="Webbiecorn" width="32" height="32" />
-          <span>Webbie<em>corn</em></span>
-        </div>
-        <p class="footer-tagline">Premium digitale platformen.<br/>Gebouwd in Lelystad.</p>
-        <p class="footer-kvk">KVK: 95498990</p>
-        <div class="footer-contact">
-          <a href="contact.html">Start een project &rarr;</a>
-          <a href="mailto:info@webbiecorn.com">info@webbiecorn.com</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigatie</h4>
-        <a href="/">Home</a>
-        <a href="over.html">Over ons</a>
-        <a href="diensten.html">Diensten</a>
-        <a href="cases.html">Cases</a>
-        <a href="lab.html">Lab</a>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="apps.html">Web Apps &amp; PWA's</a>
-        <a href="automatisering.html">AI Automatisering</a>
-        <a href="code.html">Platform Development</a>
-        <a href="design.html">Design &amp; Identiteit</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Webbiecorn. Alle rechten voorbehouden.</span>
-      <span class="footer-built">Gebouwd met passie in Lelystad.</span>
-    </div>
-  </div>
-</footer>
-
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
-  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
-  reveals.forEach(el => obs.observe(el));
-
   function applyIntakePreset() {
     const params = new URLSearchParams(window.location.search);
     const dienst = params.get('dienst');
@@ -400,21 +290,16 @@
       bericht.value = regels.join('\n');
     }
 
-    if (pakket) {
-      form.dataset.pakket = pakket;
-    }
-    if (traject) {
-      form.dataset.traject = traject;
-    }
+    if (pakket) form.dataset.pakket = pakket;
+    if (traject) form.dataset.traject = traject;
   }
 
-  applyIntakePreset();
+  document.addEventListener('astro:page-load', applyIntakePreset);
 
   function handleSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
-    // Validate required fields
     const required = form.querySelectorAll('[required]');
     let valid = true;
     required.forEach(field => {
@@ -422,12 +307,10 @@
       else { field.style.borderColor = ''; }
     });
     if (!valid) return;
-    // Build mailto link with form data
-    const name = encodeURIComponent(form.name.value.trim());
     const bedrijf = form.bedrijf.value.trim();
     const dienst = form.dienst.options[form.dienst.selectedIndex].text;
-    const budget = form.budget ? form.budget.options[form.budget.selectedIndex].text : '';
-    const startmoment = form.startmoment ? form.startmoment.options[form.startmoment.selectedIndex].text : '';
+    const budget = form.budget.options[form.budget.selectedIndex].text;
+    const startmoment = form.startmoment.options[form.startmoment.selectedIndex].text;
     const pakket = form.dataset.pakket || '';
     const traject = form.dataset.traject || '';
     const subject = encodeURIComponent('Projectaanvraag via webbiecorn.com — ' + form.name.value.trim());
@@ -437,19 +320,17 @@
       'Dienst: ' + dienst + '\n\n' +
       (pakket ? 'Pakket: ' + pakket + '\n' : '') +
       (traject ? 'Trajecttype: ' + traject + '\n' : '') +
-      (budget && budget !== 'Nog onbekend' ? 'Budget: ' + budget + '\n' : '') +
-      (startmoment && startmoment !== 'Geen harde deadline' ? 'Gewenste start: ' + startmoment + '\n\n' : '\n') +
+      (budget !== 'Nog onbekend' ? 'Budget: ' + budget + '\n' : '') +
+      (startmoment !== 'Geen harde deadline' ? 'Gewenste start: ' + startmoment + '\n\n' : '\n') +
       form.bericht.value.trim()
     );
     window.location.href = 'mailto:hallo@webbiecorn.com?subject=' + subject + '&body=' + body;
-    // Show success state
     setTimeout(() => {
       form.style.display = 'none';
       success.style.display = 'block';
     }, 400);
   }
-  window.addEventListener('scroll', () => { const sp=document.getElementById('scroll-progress'); if(sp) sp.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%'; });
-  document.querySelectorAll("a[href]").forEach(a => { if(a.host === window.location.host && !a.hash && !a.hasAttribute("download")) { a.addEventListener("click", e => { if(e.ctrlKey || e.metaKey || e.shiftKey) return; e.preventDefault(); document.body.classList.add("fade-out"); setTimeout(() => window.location = a.href, 250); }); } });
+
+  window.handleSubmit = handleSubmit;
 </script>
-</body>
-</html>
+</Layout>

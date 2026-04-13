@@ -1,71 +1,38 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Webbiecorn Lab — Digitale producten en experimenten</title>
-  <meta name="description" content="Het Webbiecorn Lab. Maatwerk apps, AI-tools en concepten die we bouwden, testen en doorontwikkelen." />
-  <meta name="theme-color" content="#0d0d0d" />
-  <link rel="canonical" href="https://webbiecorn.com/lab.html" />
-  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
-  <link rel="icon" type="image/png" href="webbiecorn-logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Webbiecorn Lab — Digitale producten en experimenten">
   <style>
     .lab-hero-bg {
       position: absolute; inset: 0;
       background: radial-gradient(ellipse at 70% 20%, rgba(217,43,75,0.12) 0%, transparent 55%),
                   radial-gradient(ellipse at 20% 80%, rgba(217,43,75,0.07) 0%, transparent 50%);
     }
-    .lab-filter-row {
-      display: flex; gap: 0.6rem; flex-wrap: wrap;
-      margin: 2.5rem 0 3rem;
-    }
+    .lab-filter-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 2.5rem 0 3rem; }
     .lab-filter-btn {
-      padding: 0.5rem 1.1rem;
-      border-radius: 100px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: transparent;
-      color: rgba(255,255,255,0.5);
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.8rem; font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 0.5rem 1.1rem; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.1); background: transparent;
+      color: rgba(255,255,255,0.5); font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem; font-weight: 700; cursor: pointer; transition: all 0.2s;
     }
     .lab-filter-btn:hover { color: #fff; border-color: rgba(255,255,255,0.25); }
-    .lab-filter-btn.active {
-      background: var(--red); border-color: var(--red); color: #fff;
-    }
-    .lab-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+    .lab-filter-btn.active { background: var(--red); border-color: var(--red); color: #fff; }
+    .lab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
     .lab-card {
-      background: var(--black-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
+      background: var(--black-card); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
       text-decoration: none; color: var(--white);
       transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-      position: relative;
-      display: flex; flex-direction: column;
+      position: relative; display: flex; flex-direction: column;
     }
     .lab-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 3px; background: var(--red);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.35s ease;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
     }
     .lab-card:hover { transform: translateY(-6px); border-color: rgba(217,43,75,0.4); box-shadow: 0 20px 60px rgba(217,43,75,0.12); }
     .lab-card:hover::before { transform: scaleX(1); }
-    .lab-card-thumb {
-      width: 100%; aspect-ratio: 16/9;
-      background: var(--black-mid); overflow: hidden; position: relative;
-    }
+    .lab-card-thumb { width: 100%; aspect-ratio: 16/9; background: var(--black-mid); overflow: hidden; position: relative; }
     .lab-card-thumb img { width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease; }
     .lab-card:hover .lab-card-thumb img { transform: scale(1.06); }
     .lab-card-thumb-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.7),transparent 50%); }
@@ -81,55 +48,22 @@
     .lab-card-desc { font-size: 0.84rem; color: rgba(255,255,255,0.5); line-height: 1.65; margin-bottom: 1rem; flex: 1; }
     .lab-card-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .lab-chip {
-      font-size:0.65rem;font-weight:700;letter-spacing:0.5px;
-      padding:0.2rem 0.6rem;
+      font-size:0.65rem;font-weight:700;letter-spacing:0.5px;padding:0.2rem 0.6rem;
       background:rgba(217,43,75,0.1);border:1px solid rgba(217,43,75,0.2);
       border-radius:100px;color:rgba(255,255,255,0.6);
     }
     .lab-card-link {
       display:inline-flex;align-items:center;gap:0.4rem;
-      margin-top:1rem;color:var(--red);font-size:0.8rem;font-weight:700;
-      transition:gap 0.2s;
+      margin-top:1rem;color:var(--red);font-size:0.8rem;font-weight:700;transition:gap 0.2s;
     }
     .lab-card:hover .lab-card-link { gap:0.65rem; }
-    /* Stat line under hero */
     .lab-stats {
       display: flex; gap: 3rem; flex-wrap: wrap;
-      margin-top: 3rem; padding-top: 2.5rem;
-      border-top: 1px solid rgba(255,255,255,0.07);
+      margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.07);
     }
-    .lab-stat-item {}
     .lab-stat-nr { font-size: 2rem; font-weight: 900; color: var(--red); line-height: 1; }
     .lab-stat-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 0.3rem; }
-    /* Hidden cards for filter */
-    .lab-card[data-hidden="true"] { display: none; }
   </style>
-</head>
-<body>
-<div id="scroll-progress"></div>
-<div id="cursor-spotlight"></div>
-
-<nav id="navbar" class="solid">
-  <a href="/" class="nav-logo">
-    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
-    <span class="nav-logo-text">Webbie<span>corn</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="over.html">Over ons</a></li>
-    <li><a href="diensten.html">Diensten</a></li>
-    <li><a href="cases.html">Cases</a></li>
-    <li><a href="lab.html" class="active">Lab</a></li>
-    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="over.html" onclick="closeMobile()">Over ons</a>
-  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
-  <a href="cases.html" onclick="closeMobile()">Cases</a>
-  <a href="lab.html" onclick="closeMobile()">Lab</a>
-  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
-</div>
 
 <section class="page-hero">
   <div class="lab-hero-bg"></div>
@@ -164,7 +98,7 @@
       <button class="lab-filter-btn" data-filter="concept">Concepten</button>
     </div>
     <div class="lab-grid" id="labGrid">
-      <a href="case-cvw.html" class="lab-card reveal reveal-delay-1" data-tags="app">
+      <a href="/case-cvw" class="lab-card reveal reveal-delay-1" data-tags="app">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop" alt="CVW portaal" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -177,7 +111,7 @@
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="case-buurtapp.html" class="lab-card reveal reveal-delay-2" data-tags="app">
+      <a href="/case-buurtapp" class="lab-card reveal reveal-delay-2" data-tags="app">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=800&auto=format&fit=crop" alt="BuurtApp" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -190,7 +124,7 @@
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="case-kluswinkel.html" class="lab-card reveal reveal-delay-3" data-tags="app">
+      <a href="/case-kluswinkel" class="lab-card reveal reveal-delay-3" data-tags="app">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop" alt="Kluswinkel" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -203,7 +137,7 @@
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="case-roasted-rebels.html" class="lab-card reveal reveal-delay-1" data-tags="branding concept">
+      <a href="/case-roasted-rebels" class="lab-card reveal reveal-delay-1" data-tags="branding concept">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=800&auto=format&fit=crop" alt="Roasted Rebels" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -216,7 +150,7 @@
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="case-webbiecorn-os.html" class="lab-card reveal reveal-delay-2" data-tags="app ai">
+      <a href="/case-webbiecorn-os" class="lab-card reveal reveal-delay-2" data-tags="app ai">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=800&auto=format&fit=crop" alt="Webbiecorn OS" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -229,7 +163,7 @@
           <span class="lab-card-link">Bekijk case →</span>
         </div>
       </a>
-      <a href="automatisering.html" class="lab-card reveal reveal-delay-3" data-tags="ai" style="background:linear-gradient(135deg,rgba(217,43,75,0.08),var(--black-card));border-color:rgba(217,43,75,0.2)">
+      <a href="/automatisering" class="lab-card reveal reveal-delay-3" data-tags="ai" style="background:linear-gradient(135deg,rgba(217,43,75,0.08),var(--black-card));border-color:rgba(217,43,75,0.2)">
         <div class="lab-card-thumb" style="background:var(--black);display:flex;align-items:center;justify-content:center;min-height:168px">
           <div style="text-align:center;padding:2rem">
             <div style="font-size:2.5rem;margin-bottom:0.75rem">🤖</div>
@@ -245,7 +179,7 @@
           <span class="lab-card-link">Bekijk mogelijkheden →</span>
         </div>
       </a>
-      <a href="case-catcorn.html" class="lab-card reveal reveal-delay-1" data-tags="concept branding">
+      <a href="/case-catcorn" class="lab-card reveal reveal-delay-1" data-tags="concept branding">
         <div class="lab-card-thumb">
           <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop" alt="Catcorn" loading="lazy" />
           <div class="lab-card-thumb-overlay"></div>
@@ -262,102 +196,35 @@
   </div>
 </section>
 
-<section id="cta-section" style="background:var(--black-mid)">
+<section style="background:var(--black-mid)">
   <div class="container">
     <div class="cta-banner reveal">
       <h2>Wil je ook in het lab?</h2>
       <p>Heb je een idee voor een app, tool of automatisering? We bouwen het. Van schets tot live platform.</p>
       <div class="btn-group">
-        <a href="contact.html" class="btn-primary">Start je project</a>
-        <a href="diensten.html" class="btn-ghost">Bekijk tarieven</a>
+        <a href="/contact" class="btn-primary">Start je project</a>
+        <a href="/diensten" class="btn-ghost">Bekijk tarieven</a>
       </div>
     </div>
   </div>
 </section>
 
-<footer id="site-footer">
-  <div class="footer-glow"></div>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <div class="footer-logo">
-          <img src="webbiecorn-logo.png" alt="Webbiecorn" width="32" height="32" />
-          <span>Webbie<em>corn</em></span>
-        </div>
-        <p class="footer-tagline">Premium digitale platformen.<br/>Gebouwd in Lelystad.</p>
-        <p class="footer-kvk">KVK: 95498990</p>
-        <div class="footer-contact">
-          <a href="contact.html">Start een project &rarr;</a>
-          <a href="mailto:info@webbiecorn.com">info@webbiecorn.com</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigatie</h4>
-        <a href="/">Home</a>
-        <a href="over.html">Over ons</a>
-        <a href="diensten.html">Diensten</a>
-        <a href="cases.html">Cases</a>
-        <a href="lab.html">Lab</a>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="apps.html">Web Apps &amp; PWA's</a>
-        <a href="automatisering.html">AI Automatisering</a>
-        <a href="code.html">Platform Development</a>
-        <a href="design.html">Design &amp; Identiteit</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Webbiecorn. Alle rechten voorbehouden.</span>
-      <span class="footer-built">Gebouwd met passie in Lelystad.</span>
-    </div>
-  </div>
-</footer>
-
 <script>
-const navbar = document.getElementById('navbar');
-const _sp = document.getElementById('scroll-progress');
-window.addEventListener('scroll', () => {
-  if (_sp) _sp.style.width = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) + '%';
-});
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
-function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
-const reveals = document.querySelectorAll('.reveal');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-reveals.forEach(el => obs.observe(el));
-const _spotlight = document.getElementById('cursor-spotlight');
-window.addEventListener('mousemove',e=>{ if(_spotlight){ _spotlight.style.left=e.clientX+'px'; _spotlight.style.top=e.clientY+'px'; _spotlight.classList.add('active'); } });
-
-// Filter
-const filterBtns = document.querySelectorAll('.lab-filter-btn');
-const labCards = document.querySelectorAll('#labGrid .lab-card');
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    labCards.forEach(card => {
-      const tags = card.dataset.tags || '';
-      const show = filter === 'all' || tags.includes(filter);
-      card.style.display = show ? '' : 'none';
+  document.addEventListener('astro:page-load', () => {
+    const filterBtns = document.querySelectorAll('.lab-filter-btn');
+    const labCards = document.querySelectorAll('#labGrid .lab-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        labCards.forEach(card => {
+          const tags = (card as HTMLElement).dataset.tags || '';
+          const show = filter === 'all' || tags.includes(filter);
+          (card as HTMLElement).style.display = show ? '' : 'none';
+        });
+      });
     });
   });
-});
-
-document.querySelectorAll("a[href]").forEach(a => {
-  if(a.host === window.location.host && !a.hash && !a.hasAttribute("download")) {
-    a.addEventListener("click", e => {
-      if(e.ctrlKey || e.metaKey || e.shiftKey) return;
-      e.preventDefault();
-      document.body.classList.add("fade-out");
-      setTimeout(() => window.location = a.href, 250);
-    });
-  }
-});
 </script>
-</body>
-</html>
+</Layout>

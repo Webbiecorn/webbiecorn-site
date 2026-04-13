@@ -1,96 +1,31 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design — Webbiecorn</title>
-  <meta name="description" content="Van merkidentiteit tot gebruikersinterface. UI/UX design, Figma prototypes en grafisch ontwerp door Webbiecorn." />
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://webbiecorn.com/design.html" />
-  <meta property="og:title" content="Design — Webbiecorn" />
-  <meta property="og:description" content="Van merkidentiteit tot gebruikersinterface. UI/UX design en grafisch ontwerp zonder compromis." />
-  <meta property="og:image" content="https://webbiecorn.com/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Design — Webbiecorn" />
-  <meta name="twitter:description" content="Van merkidentiteit tot gebruikersinterface. UI/UX design en grafisch ontwerp zonder compromis." />
-  <meta name="twitter:image" content="https://webbiecorn.com/og-image.png" />
-  <meta name="theme-color" content="#0d0d0d" />
-  <link rel="canonical" href="https://webbiecorn.com/design.html" />
-  <link rel="apple-touch-icon" href="webbiecorn-logo.png" />
-  <link rel="icon" type="image/svg+xml" href="webbiecorn-logo.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Design — Webbiecorn">
   <style>
     #design-packages { background: var(--black); }
     #design-types { background: var(--black-mid); }
     #design-aanpak { background: var(--black); }
     #design-principes { background: var(--black-mid); }
     #design-cta { background: var(--black); padding: 5rem 2rem; }
-    .types-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .type-card {
-      background: var(--black-card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 2rem;
-      transition: border-color 0.3s, transform 0.25s;
-    }
+    .types-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .type-card { background: var(--black-card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.3s, transform 0.25s; }
     .type-card:hover { border-color: rgba(217,43,75,0.4); transform: translateY(-4px); }
     .type-icon { font-size: 2rem; margin-bottom: 1rem; }
     .type-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
     .type-desc { color: rgba(255,255,255,0.55); font-size: 0.875rem; line-height: 1.65; }
     .type-includes { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
-    .type-includes li {
-      list-style: none; font-size: 0.8rem; color: rgba(255,255,255,0.45);
-      padding: 0.2rem 0; padding-left: 1.1rem; position: relative;
-    }
+    .type-includes li { list-style: none; font-size: 0.8rem; color: rgba(255,255,255,0.45); padding: 0.2rem 0; padding-left: 1.1rem; position: relative; }
     .type-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--red); font-size: 0.7rem; top: 0.25rem; }
-    .price-pill {
-      display: inline-block; background: rgba(217,43,75,0.1); border: 1px solid rgba(217,43,75,0.3);
-      color: var(--red); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; margin-top: 1.25rem;
-    }
-    .principes-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem; margin-top: 3rem;
-    }
-    .principe-card {
-      background: var(--black-card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 2rem;
-      transition: border-color 0.3s;
-    }
+    .price-pill { display: inline-block; background: rgba(217,43,75,0.1); border: 1px solid rgba(217,43,75,0.3); color: var(--red); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; margin-top: 1.25rem; }
+    .principes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .principe-card { background: var(--black-card); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; transition: border-color 0.3s; }
     .principe-card:hover { border-color: rgba(217,43,75,0.3); }
     .principe-nr { font-size: 2.5rem; font-weight: 800; color: rgba(217,43,75,0.2); line-height: 1; margin-bottom: 0.75rem; }
     .principe-titel { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
     .principe-desc { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
   </style>
-</head>
-<body>
-<div id="scroll-progress"></div>
-<nav id="navbar" class="solid">
-  <a href="/" class="nav-logo">
-    <img src="webbiecorn-logo.svg" alt="Webbiecorn logo" class="nav-logo-icon" />
-    <span class="nav-logo-text">Webbie<span>corn</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="over.html">Over ons</a></li>
-    <li><a href="diensten.html">Diensten</a></li>
-    <li><a href="cases.html">Cases</a></li>
-    <li><a href="lab.html">Lab</a></li>
-    <li><a href="contact.html" class="nav-cta">Start je project</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu openen"><span></span><span></span><span></span></button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="over.html" onclick="closeMobile()">Over ons</a>
-  <a href="diensten.html" onclick="closeMobile()">Diensten</a>
-  <a href="cases.html" onclick="closeMobile()">Cases</a>
-  <a href="lab.html" onclick="closeMobile()">Lab</a>
-  <a href="contact.html" onclick="closeMobile()" class="nav-cta-mobile">Start je project</a>
-</div>
 
 <section class="page-hero">
   <div class="container">
@@ -117,8 +52,8 @@
           <li>2 feedbackrondes</li>
         </ul>
         <div class="package-actions">
-          <a href="contact.html?dienst=branding&budget=1k-5k&pakket=Brand%20Sprint&traject=Merkfundament&context=Snelle%20merkbasis%20voor%20web%2C%20socials%20en%20presentaties" class="btn-primary">Plan brand intake</a>
-          <a href="case-roasted-rebels.html" class="btn-ghost">Zie brand case</a>
+          <a href="/contact?dienst=branding&budget=1k-5k&pakket=Brand%20Sprint&traject=Merkfundament&context=Snelle%20merkbasis%20voor%20web%2C%20socials%20en%20presentaties" class="btn-primary">Plan brand intake</a>
+          <a href="/case-roasted-rebels" class="btn-ghost">Zie brand case</a>
         </div>
       </div>
       <div class="package-card featured reveal reveal-delay-2">
@@ -133,8 +68,8 @@
           <li>Developer handoff</li>
         </ul>
         <div class="package-actions">
-          <a href="contact.html?dienst=webapp&budget=1k-5k&pakket=Product%20Design%20Sprint&traject=UI%2FUX%20sprint&context=Flows%2C%20wireframes%20en%20klikbaar%20ontwerp%20voor%20een%20digitaal%20product" class="btn-primary">Plan design sprint</a>
-          <a href="case-cvw.html" class="btn-ghost">Zie product case</a>
+          <a href="/contact?dienst=webapp&budget=1k-5k&pakket=Product%20Design%20Sprint&traject=UI%2FUX%20sprint&context=Flows%2C%20wireframes%20en%20klikbaar%20ontwerp%20voor%20een%20digitaal%20product" class="btn-primary">Plan design sprint</a>
+          <a href="/case-cvw" class="btn-ghost">Zie product case</a>
         </div>
       </div>
       <div class="package-card reveal reveal-delay-3">
@@ -149,8 +84,8 @@
           <li>Afstemming met development</li>
         </ul>
         <div class="package-actions">
-          <a href="contact.html?dienst=combinatie&budget=5k-15k&pakket=Design%20System&traject=Designsystem-traject&context=Opschaalbaar%20ontwerpsysteem%20voor%20meerdere%20modules%20of%20producten" class="btn-primary">Plan designsystem intake</a>
-          <a href="apps.html" class="btn-ghost">Koppel aan apptraject</a>
+          <a href="/contact?dienst=combinatie&budget=5k-15k&pakket=Design%20System&traject=Designsystem-traject&context=Opschaalbaar%20ontwerpsysteem%20voor%20meerdere%20modules%20of%20producten" class="btn-primary">Plan designsystem intake</a>
+          <a href="/apps" class="btn-ghost">Koppel aan apptraject</a>
         </div>
       </div>
     </div>
@@ -276,62 +211,11 @@
       <h2>Iets laten ontwerpen?</h2>
       <p>Stuur ons een briefing en wij gaan aan de slag.</p>
       <div class="btn-group">
-        <a href="contact.html" class="btn-primary">Start een designproject</a>
-        <a href="cases.html" class="btn-ghost">Bekijk ons werk</a>
+        <a href="/contact" class="btn-primary">Start een designproject</a>
+        <a href="/cases" class="btn-ghost">Bekijk ons werk</a>
       </div>
     </div>
   </div>
 </section>
 
-<footer id="site-footer">
-  <div class="footer-glow"></div>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-col footer-brand">
-        <div class="footer-logo">
-          <img src="webbiecorn-logo.png" alt="Webbiecorn" width="32" height="32" />
-          <span>Webbie<em>corn</em></span>
-        </div>
-        <p class="footer-tagline">Premium digitale platformen.<br/>Gebouwd in Lelystad.</p>
-        <p class="footer-kvk">KVK: 95498990</p>
-        <div class="footer-contact">
-          <a href="contact.html">Start een project &rarr;</a>
-          <a href="mailto:info@webbiecorn.com">info@webbiecorn.com</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navigatie</h4>
-        <a href="/">Home</a>
-        <a href="over.html">Over ons</a>
-        <a href="diensten.html">Diensten</a>
-        <a href="cases.html">Cases</a>
-        <a href="lab.html">Lab</a>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="apps.html">Web Apps &amp; PWA's</a>
-        <a href="automatisering.html">AI Automatisering</a>
-        <a href="code.html">Platform Development</a>
-        <a href="design.html">Design &amp; Identiteit</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Webbiecorn. Alle rechten voorbehouden.</span>
-      <span class="footer-built">Gebouwd met passie in Lelystad.</span>
-    </div>
-  </div>
-</footer>
-
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
-  function closeMobile() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
-  reveals.forEach(el => obs.observe(el));
-  window.addEventListener('scroll', () => { const sp=document.getElementById('scroll-progress'); if(sp) sp.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%'; });
-  document.querySelectorAll("a[href]").forEach(a => { if(a.host === window.location.host && !a.hash && !a.hasAttribute("download")) { a.addEventListener("click", e => { if(e.ctrlKey || e.metaKey || e.shiftKey) return; e.preventDefault(); document.body.classList.add("fade-out"); setTimeout(() => window.location = a.href, 250); }); } });
-</script>
-</body>
-</html>
+</Layout>
