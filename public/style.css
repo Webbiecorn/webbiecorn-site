@@ -274,25 +274,15 @@ section { padding: 6rem 2rem; }
 .dienst-card:hover { border-color: var(--red);     transform: translateY(-8px);
     box-shadow: var(--red-glow);
 }
-.dienst-link-card {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
+/* Dienst icon bounce bij hover */
+@keyframes icon-bounce {
+  0%   { transform: scale(1) rotate(0deg); }
+  30%  { transform: scale(1.35) rotate(-8deg); }
+  60%  { transform: scale(1.15) rotate(6deg); }
+  100% { transform: scale(1) rotate(0deg); }
 }
-.dienst-link-row {
-  margin-top: auto;
-  padding-top: 1.25rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: var(--red);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-}
-.dienst-link-card:hover .dienst-link-row { gap: 0.7rem; }
-.dienst-icon { font-size: 2rem; margin-bottom: 1.25rem; }
+.dienst-icon { font-size: 2rem; margin-bottom: 1.25rem; display: inline-block; transition: transform 0.2s ease; }
+.dienst-card:hover .dienst-icon { animation: icon-bounce 0.45s ease forwards; }
 .dienst-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; }
 .dienst-desc { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
 .dienst-features { list-style: none; margin-top: 1.25rem; }
